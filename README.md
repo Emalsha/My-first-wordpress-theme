@@ -1,0 +1,2 @@
+# wanabima
+Wanabima wordpress theme
