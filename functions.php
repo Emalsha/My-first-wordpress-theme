@@ -643,8 +643,6 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 /**
  * Get all header image url from registered images in theme.
  *
- * @since 3.2.0
- *
  * @return string Path to header image
  */
 
@@ -672,9 +670,69 @@ function get_all_header_data() {
         $_wp_all_header = new stdClass();
 
         $_wp_all_header = (object)$headers;
-        //$_wp_all_header = (object) $headers[ array_rand( $headers ) ];
-//        $_wp_all_header->url =  sprintf( $_wp_all_header->url, get_template_directory_uri(), get_stylesheet_directory_uri() );
-//        $_wp_all_header->thumbnail_url =  sprintf( $_wp_all_header->thumbnail_url, get_template_directory_uri(), get_stylesheet_directory_uri() );
+        //TODO Emalsha Rasad
     }
     return $_wp_all_header;
 }
+
+
+/**
+ * Custom post type for add vehicle details.
+ *
+ * Creating a function to create our CPT
+*/
+
+function custom_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Vehicles', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Vehicle', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Vehicles', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Vehicle', 'wanabima' ),
+        'all_items'           => __( 'All Vehicles', 'wanabima' ),
+        'view_item'           => __( 'View Vehicle', 'wanabima' ),
+        'add_new_item'        => __( 'Add New vehicle', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Vehicle', 'wanabima' ),
+        'update_item'         => __( 'Update Vehicle', 'wanabima' ),
+        'search_items'        => __( 'Search Vehicle', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+// Set other options for Custom Post Type
+// 'supports'=> array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes')//
+
+    $args = array(
+        'label'               => __( 'vehicles', 'wanabima' ),
+        'description'         => __( 'Vehicle information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'jeep' ),
+        /* A hierarchical CPT is like Pages and can have
+        * Parent and child items. A non-hierarchical CPT
+        * is like Posts.
+        */
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'vehicle', $args );
+
+}
+
+add_action( 'init', 'custom_post_type', 0 );
