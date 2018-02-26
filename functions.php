@@ -131,32 +131,32 @@ function wanabima_setup() {
 		'posts' => array(
 			'home',
 			'about' => array(
-				'thumbnail' => '{{image-sandwich}}',
+				'thumbnail' => '{{image-about}}',
 			),
 			'contact' => array(
-				'thumbnail' => '{{image-espresso}}',
+				'thumbnail' => '{{image-contact}}',
 			),
 			'blog' => array(
-				'thumbnail' => '{{image-coffee}}',
+				'thumbnail' => '{{image-blog}}',
 			),
 			'homepage-section' => array(
-				'thumbnail' => '{{image-espresso}}',
+				'thumbnail' => '{{image-contact}}',
 			),
 		),
 
 		// Create the custom image attachments used as post thumbnails for pages.
 		'attachments' => array(
-			'image-espresso' => array(
-				'post_title' => _x( 'Espresso', 'Theme starter content', 'wanabima' ),
-				'file' => 'assets/images/espresso.jpg', // URL relative to the template directory.
+			'image-about' => array(
+				'post_title' => _x( 'About', 'Theme starter content', 'wanabima' ),
+				'file' => 'assets/images/image1.jpg', // URL relative to the template directory.
 			),
-			'image-sandwich' => array(
-				'post_title' => _x( 'Sandwich', 'Theme starter content', 'wanabima' ),
-				'file' => 'assets/images/sandwich.jpg',
+			'image-contact' => array(
+				'post_title' => _x( 'Contact', 'Theme starter content', 'wanabima' ),
+				'file' => 'assets/images/image2.jpg',
 			),
-			'image-coffee' => array(
-				'post_title' => _x( 'Coffee', 'Theme starter content', 'wanabima' ),
-				'file' => 'assets/images/coffee.jpg',
+			'image-blog' => array(
+				'post_title' => _x( 'Blog', 'Theme starter content', 'wanabima' ),
+				'file' => 'assets/images/image3.jpg',
 			),
 		),
 
@@ -682,7 +682,7 @@ function get_all_header_data() {
  * Creating a function to create our CPT
 */
 
-function custom_post_type() {
+function vehicle_post_type() {
 
 // Set UI labels for Custom Post Type
     $labels = array(
@@ -725,14 +725,68 @@ function custom_post_type() {
         'menu_position'       => 5,
         'can_export'          => true,
         'has_archive'         => true,
+        'rewrite'             => [ 'slug' => 'vehicles' ],
         'exclude_from_search' => false,
         'publicly_queryable'  => true,
         'capability_type'     => 'page',
     );
 
     // Registering Custom Post Type
-    register_post_type( 'vehicle', $args );
+    register_post_type( 'vehicles', $args );
 
 }
 
-add_action( 'init', 'custom_post_type', 0 );
+add_action( 'init', 'vehicle_post_type', 0 );
+
+
+/**
+ * Custom post type for add camp site details.
+ */
+
+function camp_site_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Camp Site', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Camp Site', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Camp Sites', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Camp Site', 'wanabima' ),
+        'all_items'           => __( 'All Camp Sites', 'wanabima' ),
+        'view_item'           => __( 'View Camp Site', 'wanabima' ),
+        'add_new_item'        => __( 'Add New Camp Site', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Camp Site', 'wanabima' ),
+        'update_item'         => __( 'Update Camp Site', 'wanabima' ),
+        'search_items'        => __( 'Search Camp Site', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'camp-site', 'wanabima' ),
+        'description'         => __( 'Vehicle information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'camp-site' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'camp-site', $args );
+
+}
+
+add_action( 'init', 'camp_site_post_type', 0 );
