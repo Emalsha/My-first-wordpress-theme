@@ -38,7 +38,6 @@
                     <?php
 
                     $custom_fields = get_post_custom();
-                    //$my_custom_field = $custom_fields['Color'];
                     foreach ($custom_fields as $key => $value) {
                         if ($key !== '_edit_last' && $key !== '_edit_lock' && $key !== '_thumbnail_id' && $key !== 'PRICE') {
                             //echo $key . " => " . $value[0] . "<br />"; ?>

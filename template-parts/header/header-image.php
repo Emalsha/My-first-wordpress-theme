@@ -26,7 +26,7 @@
 <!---->
 <!--</div><!-- .custom-header -->
 
-<section id="intro">
+<section id="intro" <?php if(!is_front_page()){?> style="height: 60vh;" <?php } ?>>
     <div class="intro-container">
         <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
 
@@ -39,7 +39,7 @@
                 $i = 0;
                 foreach ( $all_images as $headerImg) {
                     ?>
-                    <div class="carousel-item<?php if($i == 0) echo ' active';?>" style="background-image: url('<?php echo $headerImg[url]; ?>');">
+                    <div class="carousel-item<?php if($i == 0) echo ' active';?>" style="background-image: url('<?php echo $headerImg[url]; ?>'); <?php if(!is_front_page()){?> height: 60vh; <?php }  ?>">
                         <div class="carousel-container">
                             <div class="carousel-content">
                             </div>
@@ -54,34 +54,12 @@
                 <div class="carousel-item">
                     <div class="carousel-container">
                         <div class="carousel-content">
-                            <video class="video-fluid intro-carousel-video" autoplay loop>
-                                <source src="<?php echo get_header_video_url();?>" type="video/mp4" />
+                            <video class="video-fluid intro-carousel-video" autoplay loop <?php if(!is_front_page()){?> style="height: 60vh;" <?php } ?>>
+                                <source src="<?php echo get_header_video_url();?>" type="video/mp4" <?php if(!is_front_page()){?> style="height: 60vh;" <?php } ?> />
                             </video>
                         </div>
                     </div>
                 </div>
-
-                    <!--                <div class="carousel-item active"-->
-<!--                     style="background-image: url('/uploads/img/intro-carousel/1.jpg');">-->
-<!--                    <div class="carousel-container">-->
-<!--                        <div class="carousel-content">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="carousel-item" style="background-image: url('img/intro-carousel/2.jpg');">-->
-<!--                    <div class="carousel-container">-->
-<!--                        <div class="carousel-content">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="carousel-item" style="background-image: url('img/intro-carousel/3.jpg');">-->
-<!--                    <div class="carousel-container">-->
-<!--                        <div class="carousel-content">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
 
 
             </div>
