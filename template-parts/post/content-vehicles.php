@@ -13,71 +13,53 @@
 
 <div class="product" id="<?php the_ID(); ?>">
 
-    <?php if ( '' !== get_the_post_thumbnail() && ! is_single() && ! get_post_gallery() ) : ?>
+    <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
 
         <div class="col-md-4 img-container">
             <a href="<?php the_permalink(); ?>">
-                <?php the_post_thumbnail( 'wanabima-featured-image' ); ?>
+                <?php the_post_thumbnail('wanabima-featured-image'); ?>
             </a>
         </div>
 
 
-
     <?php endif; ?>
-<!--    <div class="col-md-4 img-container">-->
-<!--        <img src="img/jeep/jeep2.jpg">-->
-<!--    </div>-->
+    <!--    <div class="col-md-4 img-container">-->
+    <!--        <img src="img/jeep/jeep2.jpg">-->
+    <!--    </div>-->
     <div class="col-md-8 ">
         <div class="product-content">
-            <h4><?php echo get_the_title();?></h4>
-            <p><?php the_content('Read the rest of this entry &raquo;'); ?></p>
+            <h4><?php echo get_the_title(); ?></h4>
+
             <div class="row">
+                <div class="col-md-9 product-content-left">
+                    <div class="product-content-p">
+                        <?php the_content('Read the rest of this entry &raquo;'); ?>
+                    </div>
+                    <?php
 
-                <?php while (get_post_custom()): $post; ?>
-                <div class="col-md-4">
-                    <div>
-                        <label class="name-label" id=""><?php $post->ID;?> :</label>
-                        <label class="col-form-label"><?php $post->meta_value;?></label>
-                    </div>
-                    <div>
-                        <label class="name-label" id="">Luggage Capacity :</label>
-                        <label class="col-form-label">4</label>
-                    </div>
-                    <div>
-                        <label class="name-label" id="">Hood :</label>
-                        <label class="col-form-label">Tent</label>
-                    </div>
+                    $custom_fields = get_post_custom();
+                    //$my_custom_field = $custom_fields['Color'];
+                    foreach ($custom_fields as $key => $value) {
+                        if ($key !== '_edit_last' && $key !== '_edit_lock' && $key !== '_thumbnail_id' && $key !== 'PRICE') {
+                            //echo $key . " => " . $value[0] . "<br />"; ?>
+                            <div class="col-md-6 float-left">
+                                <label class="name-label" id=""><?php echo $key; ?> :</label>
+                                <label class="col-form-label"><?php echo $value[0];?></label>
+                            </div>
+                        <?php }
+                    }
+                    ?>
                 </div>
-                <?php endwhile; ?>
-                <div class="col-md-4">
 
-                    <div>
-                        <label class="name-label" id="">Snorkeled :</label>
-                        <label class="col-form-label">No</label>
-                    </div>
-                    <div>
-                        <label class="name-label" id="">A/C :</label>
-                        <label class="col-form-label">Yes</label>
-                    </div>
-                    <div>
-                        <label class="name-label" id="">Hood Rack :</label>
-                        <label class="col-form-label">No</label>
-                    </div>
-                    <div>
-                        <label class="name-label" id="">Transmission :</label>
-                        <label class="col-form-label">Auto</label>
-                    </div>
-
-                </div>
-                <div class="col-md-4 buttons text-center">
+                <div class="col-md-3 float-right buttons text-center product-content-right">
                     <div>
                         <label for="price" class="price-label">PER DAY</label>
                     </div>
                     <div>
-                        <p class="badge badge-light price-value" id="price">$155.00</p>
+                        <p class="badge badge-light price-value" id="price">$<?php echo $custom_fields['PRICE'][0] ?></p>
                     </div>
                     <div class="">
-                        <a class="btn btn-outline-success" href="#">Book Now</a>
+                        <a class="btn btn-outline-success" href="<?php the_ID(); ?>">Book Now</a>
                     </div>
                     <div>
                         <label for="" class="button-label">CALL US FOR <br> PERSONALIZED <br>

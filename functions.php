@@ -717,6 +717,7 @@ function vehicle_post_type() {
         * is like Posts.
         */
         'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-forms',
         'public'              => true,
         'show_ui'             => true,
         'show_in_menu'        => true,
@@ -771,6 +772,7 @@ function camp_site_post_type() {
         // You can associate this CPT with a taxonomy or custom taxonomy.
         'taxonomies'          => array( 'camp-site' ),
         'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-location-alt',
         'public'              => true,
         'show_ui'             => true,
         'show_in_menu'        => true,
@@ -785,8 +787,26 @@ function camp_site_post_type() {
     );
 
     // Registering Custom Post Type
-    register_post_type( 'camp-site', $args );
+    register_post_type( 'camp-sites', $args );
 
 }
 
 add_action( 'init', 'camp_site_post_type', 0 );
+
+// Add fake metabox above editing pane
+function vehicle_post_support() {
+    $screen = get_current_screen();
+    $edit_post_type = $screen->post_type;
+    if ( $edit_post_type == 'vehicles' ){
+
+    ?>
+    <div class="after-title-help postbox">
+        <h3>Using this screen</h3>
+        <div class="inside">
+            <p>Use this screen to add new vehicle or edit existing ones. Make sure you click 'Publish' to publish a new item and 'Update' to save any changes.</p>
+            <p>Use custome fields to add vehicle specific information and use <b>"PRICE"</b> custom field for vehicle price.</p>
+        </div><!-- .inside -->
+    </div><!-- .postbox -->
+<?php }
+}
+add_action( 'edit_form_after_title', 'vehicle_post_support' );

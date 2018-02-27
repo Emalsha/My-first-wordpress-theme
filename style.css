@@ -1240,6 +1240,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 #jeepdetail .product .product-content {
   padding: 1em 0 1em 0em;
 }
+#jeepdetail .product .product-content .product-content-left{
+  padding-right:0;
+}
+#jeepdetail .product .product-content .product-content-right{
+  /*padding-left:0;*/
+}
 
 #jeepdetail .product .product-content h4 {
   margin:0 0 10px 0;
@@ -1252,6 +1258,16 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 1em;
   width: 90%;
   margin:0 0 10px 0 ;
+
+}
+
+#jeepdetail .product .product-content .product-content-p{
+  width: 100%;
+  white-space: nowrap;
+  overflow: scroll;
+  word-break: break-all;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
 }
 
 #jeepdetail .product .product-content .name-label{
