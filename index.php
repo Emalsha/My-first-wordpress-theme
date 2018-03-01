@@ -133,31 +133,6 @@ get_header(); ?>
                         zanos paradigno tridexa panatarel.</p>
                 </header>
 
-                <div class="row">
-
-                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-                        <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-                        <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
-                            excepturi
-                            sint occaecati cupiditate non provident</p>
-                    </div>
-                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-                        <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
-                        <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                        <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea
-                            commodo consequat tarad limino ata</p>
-                    </div>
-                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-                        <div class="icon"><i class="ion-ios-paper-outline"></i></div>
-                        <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                        <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore
-                            eu fugiat nulla pariatur</p>
-                    </div>
-
-                </div>
 
             </div>
         </section><!-- #content2 -->

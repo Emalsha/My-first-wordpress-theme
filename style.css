@@ -558,7 +558,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: 30px;
 }
 
-#mobile-nav ul .menu-has-children i {
+#mobile-nav ul .menu-item-has-children i {
   position: absolute;
   right: 0;
   z-index: 99;
@@ -567,11 +567,11 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
-#mobile-nav ul .menu-has-children i.fa-chevron-up {
+#mobile-nav ul .menu-item-has-children i.fa-chevron-up {
   color: #445A1C;
 }
 
-#mobile-nav ul .menu-has-children li a {
+#mobile-nav ul .menu-item-has-children li a {
   text-transform: none;
 }
 
@@ -1054,6 +1054,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   width: 36px;
   height: 36px;
   transition: 0.3s;
+  margin-bottom:6px;
 
 }
 
