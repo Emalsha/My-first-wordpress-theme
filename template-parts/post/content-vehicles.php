@@ -16,9 +16,9 @@
     <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
 
         <div class="col-md-4 img-container">
-            <a href="<?php the_permalink(); ?>">
+<!--            <a href="--><?php //the_permalink(); ?><!--">-->
                 <?php the_post_thumbnail('wanabima-featured-image'); ?>
-            </a>
+<!--            </a>-->
         </div>
 
 
@@ -48,6 +48,8 @@
                         <?php }
                     }
                     ?>
+
+
                 </div>
 
                 <div class="col-md-3 float-right buttons text-center product-content-right">
@@ -58,13 +60,16 @@
                         <p class="badge badge-light price-value" id="price">$<?php echo $custom_fields['PRICE'][0] ?></p>
                     </div>
                     <div class="">
-                        <a class="btn btn-outline-success" href="<?php the_ID(); ?>">Book Now</a>
+                        <a class="btn btn-outline-success product-content-btn" href="<?php the_ID(); ?>">Inquire</a>
                     </div>
                     <div>
                         <label for="" class="button-label">CALL US FOR <br> PERSONALIZED <br>
                             RATES</label>
                     </div>
                 </div>
+            </div>
+            <div class="product-content-footnote-container">
+                <p class="product-content-footnote">Additional service will provide...</p>
             </div>
 
         </div>

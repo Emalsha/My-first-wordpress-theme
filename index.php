@@ -61,13 +61,21 @@ get_header(); ?>
                     <div class="wow fadeInUp activity-item" data-wow-delay="0.1s">
                         <figure>
                             <img src="<?php echo esc_url( home_url( '/' ) )?>wp-content/uploads/img/home/ocean.jpg" class="img-fluid" alt="">
-                            <a href="#" class="link-details" title="More Details">OCEAN</a>
+                            <a href="#" class="link-details" title="More Details">
+                                OCEAN
+                                <br>
+                                <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
+                            </a>
                         </figure>
                     </div>
                     <div class="wow fadeInUp activity-item" data-wow-delay="0.1s">
                         <figure>
                             <img src="<?php echo esc_url( home_url( '/' ) )?>wp-content/uploads/img/home/jeep.jpg" class="img-fluid" alt="">
-                            <a href="#" class="link-details" title="More Details">JEEP</a>
+                            <a href="#" class="link-details" title="More Details">
+                                JEEP
+                                <br>
+                                <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
+                            </a>
                         </figure>
                     </div>
                 </div>
@@ -76,13 +84,21 @@ get_header(); ?>
                     <div class="wow fadeInUp activity-item" data-wow-delay="0.1s">
                         <figure>
                             <img src="<?php echo esc_url( home_url( '/' ) )?>wp-content/uploads/img/home/glamping.jpg" class="img-fluid" alt="">
-                            <a href="#" class="link-details" title="More Details">GLAMPING</a>
+                            <a href="#" class="link-details" title="More Details">
+                                GLAMPING
+                                <br>
+                                <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
+                            </a>
                         </figure>
                     </div>
                     <div class="wow fadeInUp activity-item" data-wow-delay="0.1s">
                         <figure>
                             <img src="<?php echo esc_url( home_url( '/' ) )?>wp-content/uploads/img/home/camping.jpg" class="img-fluid" alt="">
-                            <a href="#" class="link-details" title="More Details">CAMPING</a>
+                            <a href="#" class="link-details" title="More Details">
+                                CAMPING
+                                <br>
+                                <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
+                            </a>
                         </figure>
                     </div>
                 </div>
@@ -90,8 +106,12 @@ get_header(); ?>
                 <div class="col-md-6 wb-home-menu">
                     <div class="wow fadeInUp activity-item" data-wow-delay="0.1s">
                         <figure>
-                            <img src="<?php echo esc_url( home_url( '/' ) )?>wp-content/uploads/img/home/adventure.jpeg" class="img-fluid" alt="">
-                            <a href="#" class="link-details" title="More Details">ADVENTURE</a>
+                            <img src="<?php echo esc_url( home_url( '/' ) )?>wp-content/uploads/img/home/adventure.jpg" class="img-fluid" alt="">
+                            <a href="#" class="link-details" title="More Details">
+                                ADVENTURE
+                                <br>
+                                <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
+                            </a>
                         </figure>
                     </div>
                 </div>
@@ -146,7 +166,7 @@ get_header(); ?>
           Featured Tours Section
         ============================-->
         <section id="featured-tour" class="wow fadeIn">
-            <div class="container text-center">
+            <div class="container-fluid text-center">
                 <h3>Featured Tours</h3>
                 <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                     pariatur.
