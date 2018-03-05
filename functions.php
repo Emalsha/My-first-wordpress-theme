@@ -600,6 +600,9 @@ function wanabima_scripts() {
     // Load the customization.
     wp_enqueue_style( 'wanabima-customize', get_theme_file_uri( '/assets/css/customize.css' ), array( 'wanabima-style' ));
 
+    // Load the rtl.
+    //wp_enqueue_style( 'wanabima-rtl', get_theme_file_uri( 'rtl.css' ), array( 'wanabima-style' ));
+
 //    <!-- Google Fonts -->
 //    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700"
 //          rel="stylesheet">

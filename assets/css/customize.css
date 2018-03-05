@@ -7,6 +7,10 @@ Description: Customizations only.
     border-left:2px solid darkolivegreen !important;
 }
 
+.menu-item-type-post_type_archive{
+    border-left:2px solid darkolivegreen !important;
+}
+
 .main-navigation a{
     padding: 0em 0.75em;
     font-size: .8em;
@@ -20,5 +24,4 @@ Description: Customizations only.
 
 .custom-logo-link img{
     max-height: 120px;
-
 }

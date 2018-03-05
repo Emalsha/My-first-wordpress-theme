@@ -56,28 +56,14 @@
                         <nav id="nav-menu-container">
                             <ul class="nav-menu-contact" style="float: right">
                                 <li><a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a></li>
-                                <li><a href="tel:+94710868772">+947-10-88-088</a></li>
+                                <li><a href="mailto:wanabima@gmail.com">wanabima@gmail.com</a></li>
+                                <li><a href="tel:+94710868772">     +947-10-88-088</a></li>
                             </ul>
                             <br><br>
 
 <!--                            main menu-->
                             <?php get_template_part('template-parts/navigation/navigation', 'top'); ?>
 
-<!--                            <ul class="nav-menu">-->
-<!--                                <li class="menu-active"><a href="#intro">Home</a></li>-->
-<!--                                <li><a href="#content1">Content 1</a></li>-->
-<!--                                <li><a href="#activity">Activity</a></li>-->
-<!--                                <li><a href="#content2">Content 2</a></li>-->
-<!--                                <li class="menu-has-children"><a href="#featured-tour">Feature Tour</a>-->
-<!--                                    <ul>-->
-<!--                                        <li><a href="#">Drop Down 1</a></li>-->
-<!--                                        <li><a href="#">Drop Down 3</a></li>-->
-<!--                                        <li><a href="#">Drop Down 4</a></li>-->
-<!--                                        <li><a href="#">Drop Down 5</a></li>-->
-<!--                                    </ul>-->
-<!--                                </li>-->
-<!--                                <li><a href="#content3">Content 3</a></li>-->
-<!--                            </ul>-->
                         </nav><!-- #nav-menu-container -->
                     <?php endif; ?>
                 </div>
