@@ -28,9 +28,9 @@
 
 <section id="intro" <?php if(!is_front_page()){?> style="height: 60vh;" <?php } ?>>
     <div class="intro-container">
-        <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+        <div id="introCarousel" class="carousel  slide carousel-fade intro-carousel" data-ride="carousel">
 
-            <ol class="carousel-indicators"></ol>
+            <ol class="carousel-indicators intro-carousel-indicators"></ol>
 
             <div class="carousel-inner" role="listbox">
 

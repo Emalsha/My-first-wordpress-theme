@@ -1340,3 +1340,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 #campsite .campsite-item .campsite-item-social img{
   height:2rem;
 }
+
+/*-------------------------------------------------------------------------- Campsite home page style*/
+
+.camping-site-home-item{
+  padding:0;
+}
