@@ -29,35 +29,35 @@ function wanabima_customize_register( $wp_customize ) {
 	/**
 	 * Custom colors.
 	 */
-	$wp_customize->add_setting( 'colorscheme', array(
-		'default'           => 'light',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'wanabima_sanitize_colorscheme',
-	) );
-
-	$wp_customize->add_setting( 'colorscheme_hue', array(
-		'default'           => 250,
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'absint', // The hue is stored as a positive integer.
-	) );
-
-	$wp_customize->add_control( 'colorscheme', array(
-		'type'    => 'radio',
-		'label'    => __( 'Color Scheme', 'wanabima' ),
-		'choices'  => array(
-			'light'  => __( 'Light', 'wanabima' ),
-			'dark'   => __( 'Dark', 'wanabima' ),
-			'custom' => __( 'Custom', 'wanabima' ),
-		),
-		'section'  => 'colors',
-		'priority' => 5,
-	) );
-
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colorscheme_hue', array(
-		'mode' => 'hue',
-		'section'  => 'colors',
-		'priority' => 6,
-	) ) );
+//	$wp_customize->add_setting( 'colorscheme', array(
+//		'default'           => 'light',
+//		'transport'         => 'postMessage',
+//		'sanitize_callback' => 'wanabima_sanitize_colorscheme',
+//	) );
+//
+//	$wp_customize->add_setting( 'colorscheme_hue', array(
+//		'default'           => 250,
+//		'transport'         => 'postMessage',
+//		'sanitize_callback' => 'absint', // The hue is stored as a positive integer.
+//	) );
+//
+//	$wp_customize->add_control( 'colorscheme', array(
+//		'type'    => 'radio',
+//		'label'    => __( 'Color Scheme', 'wanabima' ),
+//		'choices'  => array(
+//			'light'  => __( 'Light', 'wanabima' ),
+//			'dark'   => __( 'Dark', 'wanabima' ),
+//			'custom' => __( 'Custom', 'wanabima' ),
+//		),
+//		'section'  => 'colors',
+//		'priority' => 5,
+//	) );
+//
+//	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colorscheme_hue', array(
+//		'mode' => 'hue',
+//		'section'  => 'colors',
+//		'priority' => 6,
+//	) ) );
 
 	/**
 	 * Theme options.
@@ -67,23 +67,23 @@ function wanabima_customize_register( $wp_customize ) {
 		'priority' => 130, // Before Additional CSS.
 	) );
 
-	$wp_customize->add_setting( 'page_layout', array(
-		'default'           => 'two-column',
-		'sanitize_callback' => 'wanabima_sanitize_page_layout',
-		'transport'         => 'postMessage',
-	) );
+//	$wp_customize->add_setting( 'page_layout', array(
+//		'default'           => 'two-column',
+//		'sanitize_callback' => 'wanabima_sanitize_page_layout',
+//		'transport'         => 'postMessage',
+//	) );
 
-	$wp_customize->add_control( 'page_layout', array(
-		'label'       => __( 'Page Layout', 'wanabima' ),
-		'section'     => 'theme_options',
-		'type'        => 'radio',
-		'description' => __( 'When the two-column layout is assigned, the page title is in one column and content is in the other.', 'wanabima' ),
-		'choices'     => array(
-			'one-column' => __( 'One Column', 'wanabima' ),
-			'two-column' => __( 'Two Column', 'wanabima' ),
-		),
-		'active_callback' => 'wanabima_is_view_with_layout_option',
-	) );
+//	$wp_customize->add_control( 'page_layout', array(
+//		'label'       => __( 'Page Layout', 'wanabima' ),
+//		'section'     => 'theme_options',
+//		'type'        => 'radio',
+//		'description' => __( 'When the two-column layout is assigned, the page title is in one column and content is in the other.', 'wanabima' ),
+//		'choices'     => array(
+//			'one-column' => __( 'One Column', 'wanabima' ),
+//			'two-column' => __( 'Two Column', 'wanabima' ),
+//		),
+//		'active_callback' => 'wanabima_is_view_with_layout_option',
+//	) );
 
 	/**
 	 * Filter number of front page sections in Wanabima.
@@ -129,7 +129,7 @@ add_action( 'customize_register', 'wanabima_customize_register' );
 function wanabima_sanitize_page_layout( $input ) {
 	$valid = array(
 		'one-column' => __( 'One Column', 'wanabima' ),
-		'two-column' => __( 'Two Column', 'wanabima' ),
+//		'two-column' => __( 'Two Column', 'wanabima' ), TODO
 	);
 
 	if ( array_key_exists( $input, $valid ) ) {

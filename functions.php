@@ -836,7 +836,8 @@ function get_all_header_data() {
     static $_wp_all_header = null;
 
     if ( empty( $_wp_all_header ) ) {
-        $header_image_mod = get_theme_mod( 'header_image', '' );
+        //$header_image_mod = get_theme_mod( 'header_image', '' ); TODO
+        $header_image_mod = 'random-uploaded-image';
         $headers = array();
 
         if ( 'random-uploaded-image' == $header_image_mod )

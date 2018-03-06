@@ -1351,7 +1351,14 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 /*-------------------------------------------------------------------------- Campsite home page style*/
 
-.camping-site-home-item{
-  padding:0;
+
+#camping-site-home{
+  padding: 20px;
 }
+
+#camping-site-home .camping-site-home-item{
+  padding-left: 0;
+}
+
+
 

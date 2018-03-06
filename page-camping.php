@@ -44,47 +44,63 @@ get_header(); ?>
                 </header>
             </div>
         </section>
-        <?php if (have_posts()) : ?>
-            <header class="page-header">
-                <?php
-                //the_archive_title('<h1 class="page-title">', '</h1>'); TODO
-                //the_archive_description('<div class="taxonomy-description">', '</div>'); TODO
-                ?>
-            </header><!-- .page-header -->
-        <?php endif; ?>
+
         <!--==========================
-              Camping Site detail Section
-        ============================-->
-        <section id="campsite">
-
-            <div class="container">
-                <?php
-                if (have_posts()) : ?>
-                    <?php
-                    /* Start the Loop */
-                    while (have_posts()) : the_post();
-//                        Get template
-                        get_template_part('template-parts/post/content', get_post_type());
-
-                    endwhile;
-
-                    the_posts_pagination(array(
-                        'prev_text' => wanabima_get_svg(array('icon' => 'arrow-left')) . '<span class="screen-reader-text">' . __('Previous page', 'wanabima') . '</span>',
-                        'next_text' => '<span class="screen-reader-text">' . __('Next page', 'wanabima') . '</span>' . wanabima_get_svg(array('icon' => 'arrow-right')),
-                        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'wanabima') . ' </span>',
-                    ));
-
-                else :
-
-                    get_template_part('template-parts/post/content', 'none');
-
-                endif; ?>
-
+      Campsite home Section
+    ============================-->
+        <section id="camping-site-home">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="row ">
+                                <div class="col-md-6 ">
+                                    <img src="./img/camping/camping10.jpg" class="w-100">
+                                </div>
+                                <div class="col-md-6 camping-site-home-item">
+                                    <div class="card-block p-2">
+                                        <h3 class="card-title">CAMPING</h3>
+                                        <p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                            ut
+                                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                            exercitation
+                                            ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                            Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                        <a href="../camp-sites" class="btn btn-outline-secondary">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="row ">
+                                <div class="col-md-6 ">
+                                    <img src="./img/camping/camping11.jpg" class="w-100">
+                                </div>
+                                <div class="col-md-6 camping-site-home-item">
+                                    <div class="card-block p-2">
+                                        <h3 class="card-title">GLAMPING</h3>
+                                        <p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                            ut
+                                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                            exercitation
+                                            ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                            Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                        <a href="#" class="btn btn-outline-secondary">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
+        </section><!-- #end-->
 
-
-        <?php get_sidebar(); ?>
     </main><!-- .main-->
 
 <?php get_footer();
