@@ -1277,8 +1277,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #jeepdetail .product .product-content .product-content-p{
   width: 100%;
-  white-space: nowrap;
-  overflow: scroll;
+  /*white-space: nowrap;*/
+  /*overflow: scroll;*/
   word-break: break-all;
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -1309,6 +1309,50 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: .7em;
   margin-top: .3rem;
 }
+
+#jeepdetail .carousel-fade .carousel-inner .carousel-item {
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+}
+
+#jeepdetail .carousel-fade .carousel-inner .carousel-item,
+#jeepdetail .carousel-fade .carousel-inner .active.carousel-item-left,
+#jeepdetail .carousel-fade .carousel-inner .active.carousel-item-right {
+  opacity: 0;
+}
+
+#jeepdetail .carousel-fade .carousel-inner .active,
+#jeepdetail .carousel-fade .carousel-inner .carousel-item-next.carousel-item-left,
+#jeepdetail .carousel-fade .carousel-inner .carousel-item-prev.carousel-item-right {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+#jeepdetail .carousel-fade .carousel-inner .carousel-item-next,
+#jeepdetail .carousel-fade .carousel-inner .carousel-item-prev,
+#jeepdetail .carousel-fade .carousel-inner .active.carousel-item-left,
+#jeepdetail .carousel-fade .carousel-inner .active.carousel-item-right {
+  left: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+#jeepdetail .carousel-control-prev, #intro .carousel-control-next {
+  width: 10%;
+}
+
+/*@media (min-width: 1024px) {*/
+  /*#jeepdetail .carousel-control-prev, #jeepdetail .carousel-control-next {*/
+    /*width: 5%;*/
+  /*}*/
+/*}*/
+
+#jeepdetail .carousel-control-next-icon, #jeepdetail .carousel-control-prev-icon {
+  padding: 13px;
+  border:2px solid #517217;
+  border-radius: 17%;
+}
+
 
 /*-------------------------------------------------------------------------- Camping Site detail*/
 

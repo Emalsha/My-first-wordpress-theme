@@ -999,3 +999,32 @@ function vehicle_post_support() {
 add_action( 'edit_form_after_title', 'vehicle_post_support' );
 
 
+// Add multiple image support for vehicle
+if (class_exists('MultiPostThumbnails')) {
+
+
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'vehicles'
+    ) );
+
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'vehicles'
+    ) );
+
+    new MultiPostThumbnails(array(
+        'label' => 'Forth Image',
+        'id' => 'forth-image',
+        'post_type' => 'vehicles'
+    ) );
+
+    new MultiPostThumbnails(array(
+        'label' => 'Fifth Image',
+        'id' => 'fifth-image',
+        'post_type' => 'vehicles'
+    ) );
+
+}

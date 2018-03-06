@@ -15,10 +15,50 @@
 
     <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
 
-        <div class="col-md-4 img-container">
-<!--            <a href="--><?php //the_permalink(); ?><!--">-->
-                <?php the_post_thumbnail('wanabima-featured-image'); ?>
-<!--            </a>-->
+        <div class="col-md-4 img-container carousel slide carousel-fade" id="carousel<?php the_ID(); ?>" data-interval="false">
+
+            <div class="carousel-inner" style="height: 100%;">
+                <div class="carousel-item active" style="height: 100%;">
+                    <?php the_post_thumbnail('wanabima-featured-image'); ?>
+                </div>
+                <div class="carousel-item" style="height: 100%;">
+                    <?php
+                    if (class_exists('MultiPostThumbnails')) :
+                        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'second-image');
+                    endif;
+                    ?>
+                </div>
+                <div class="carousel-item" style="height: 100%;">
+                    <?php
+                    if (class_exists('MultiPostThumbnails')) :
+                        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'third-image');
+                    endif;
+                    ?>
+                </div>
+                <div class="carousel-item" style="height: 100%;">
+                    <?php
+                    if (class_exists('MultiPostThumbnails')) :
+                        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'forth-image');
+                    endif;
+                    ?>
+                </div>
+                <div class="carousel-item" style="height: 100%;">
+                    <?php
+                    if (class_exists('MultiPostThumbnails')) :
+                        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'fifth-image');
+                    endif;
+                    ?>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carousel<?php the_ID(); ?>" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel<?php the_ID(); ?>" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
         </div>
 
 
@@ -39,7 +79,7 @@
 
                     $custom_fields = get_post_custom();
                     foreach ($custom_fields as $key => $value) {
-                        if ($key !== '_edit_last' && $key !== '_edit_lock' && $key !== '_thumbnail_id' && $key !== 'PRICE') {
+                        if ($key !== '_edit_last' && $key !== '_edit_lock' && $key !== '_thumbnail_id' && $key !== 'PRICE' && !strpos($key, 'image_thumbnail')) {
                             //echo $key . " => " . $value[0] . "<br />"; ?>
                             <div class="col-md-6 float-left">
                                 <label class="name-label" id=""><?php echo $key; ?> :</label>
