@@ -18,36 +18,83 @@ $custom_fields = get_post_custom();
 ?>
 
 <div class="campsite-item d-inline-block" id="<?php the_ID(); ?>">
-    <div id="carouselControls" class="carousel slide campsite-carousel" data-ride="carousel">
+    <div class="img-container carousel slide carousel-fade campsite-carousel" id="carousel<?php the_ID(); ?>" data-interval="false">
+
         <div class="carousel-inner campsite-carousel-inner">
-            <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
+            <div class="carousel-item active">
+                <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'd-block w-100 campsite-carousel-img']); ?>
+            </div>
+            <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'second-image')){?>
+            <div class="carousel-item">
+                <?php
+                if (class_exists('MultiPostThumbnails')) :
+                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'second-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
+                endif;
+                ?>
+            </div>
+            <?php } ?>
+            <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'third-image')){?>
+            <div class="carousel-item">
+                <?php
+                if (class_exists('MultiPostThumbnails')) :
+                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'third-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
+                endif;
+                ?>
+            </div>
+            <?php } ?>
+            <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'forth-image')){?>
+            <div class="carousel-item">
+                <?php
+                if (class_exists('MultiPostThumbnails')) :
+                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'forth-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
+                endif;
+                ?>
+            </div>
+            <?php } ?>
 
-                <div class="carousel-item active">
-                    <a href="<?php the_permalink(); ?>">
-                        <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'd-block w-100 campsite-carousel-img']); ?>
-                    </a>
-                </div>
-
-            <?php endif; ?>
-            <!--            <div class="carousel-item active">-->
-            <!--                <img class="d-block w-100 campsite-carousel-img" src="img/camping/camping1.jpg" alt="First slide">-->
-            <!--            </div>-->
-            <!--            <div class="carousel-item">-->
-            <!--                <img class="d-block w-100 campsite-carousel-img" src="img/camping/camping2.jpg" alt="Second slide">-->
-            <!--            </div>-->
-            <!--            <div class="carousel-item">-->
-            <!--                <img class="d-block w-100 campsite-carousel-img" src="img/camping/camping3.jpg" alt="Third slide">-->
-            <!--            </div>-->
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#carousel<?php the_ID(); ?>" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carousel<?php the_ID(); ?>" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+
     </div>
+<!--    <div id="carouselControls" class="carousel slide campsite-carousel" data-ride="carousel">-->
+<!--        <div class="carousel-inner campsite-carousel-inner">-->
+<!--            --><?php //if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
+<!---->
+<!--                <div class="carousel-item active">-->
+<!--                    <a href="--><?php //the_permalink(); ?><!--">-->
+<!--                        --><?php //the_post_thumbnail('wanabima-featured-image', ['class' => 'd-block w-100 campsite-carousel-img']); ?>
+<!--                    </a>-->
+<!--                </div>-->
+<!---->
+<!--            --><?php //endif; ?>
+<!--            <!--            <div class="carousel-item active">-->
+<!--            <!--                <img class="d-block w-100 campsite-carousel-img" src="img/camping/camping1.jpg" alt="First slide">-->
+<!--            <!--            </div>-->
+<!--            <!--            <div class="carousel-item">-->
+<!--            <!--                <img class="d-block w-100 campsite-carousel-img" src="img/camping/camping2.jpg" alt="Second slide">-->
+<!--            <!--            </div>-->
+<!--            <!--            <div class="carousel-item">-->
+<!--            <!--                <img class="d-block w-100 campsite-carousel-img" src="img/camping/camping3.jpg" alt="Third slide">-->
+<!--            <!--            </div>-->
+<!--        </div>-->
+<!--        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">-->
+<!--            <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--            <span class="sr-only">Previous</span>-->
+<!--        </a>-->
+<!--        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">-->
+<!--            <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--            <span class="sr-only">Next</span>-->
+<!--        </a>-->
+<!--    </div>-->
+
+<!--    Post content-->
     <div class="text-center">
         <h6 class="p-1 m-1 h6"><?php echo $custom_fields['SUBTITLE'][0] ?></h6>
         <h3 class="p-1 m-1 h3"><?php echo get_the_title(); ?></h3>
@@ -56,6 +103,8 @@ $custom_fields = get_post_custom();
         </p>
         <button class="btn btn-outline-success">Inquiry</button>
     </div>
+
+<!--    Social link-->
     <div class="campsite-item-social text-center">
         <!--https://simplesharebuttons.com/html-share-buttons/-->
         <div class="p-2 mx-auto h4">
