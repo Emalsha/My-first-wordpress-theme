@@ -1364,7 +1364,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin: 1em 0;
   border-radius: 5px;
   overflow: hidden;
-  cursor: pointer;
+  /*cursor: pointer;*/
   box-shadow: 0px 0px 21px 3px rgba(0, 0, 0, 0.15);
   transition: all .1s ease-in-out;
   background-color: white;
@@ -1391,6 +1391,25 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #campsite .campsite-item .campsite-item-social img{
   height:2rem;
+}
+
+#campsite .campsite-item .campsite-item-social a {
+  display: inline-block;
+  margin-right: 4px;
+  border:1px solid;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+  margin-bottom: 6px;
+  color: darkseagreen;
+}
+#campsite .campsite-item .campsite-item-social a:hover{
+  color: #445A1C;
+}
+
+#campsite .campsite-item .campsite-item-social i{
+  vertical-align: bottom;
 }
 
 #campsite .carousel-fade .carousel-inner .carousel-item {
