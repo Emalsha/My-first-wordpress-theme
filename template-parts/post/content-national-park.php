@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying camp-site
+ * Template part for displaying national park
  *
  *
  * @package Wanabima
@@ -26,31 +26,31 @@ $custom_fields = get_post_custom();
                 <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'd-block w-100 campsite-carousel-img']); ?>
             </div>
             <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'second-image')){?>
-            <div class="carousel-item">
-                <?php
-                if (class_exists('MultiPostThumbnails')) :
-                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'second-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
-                endif;
-                ?>
-            </div>
+                <div class="carousel-item">
+                    <?php
+                    if (class_exists('MultiPostThumbnails')) :
+                        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'second-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
+                    endif;
+                    ?>
+                </div>
             <?php } ?>
             <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'third-image')){?>
-            <div class="carousel-item">
-                <?php
-                if (class_exists('MultiPostThumbnails')) :
-                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'third-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
-                endif;
-                ?>
-            </div>
+                <div class="carousel-item">
+                    <?php
+                    if (class_exists('MultiPostThumbnails')) :
+                        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'third-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
+                    endif;
+                    ?>
+                </div>
             <?php } ?>
             <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'forth-image')){?>
-            <div class="carousel-item">
-                <?php
-                if (class_exists('MultiPostThumbnails')) :
-                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'forth-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
-                endif;
-                ?>
-            </div>
+                <div class="carousel-item">
+                    <?php
+                    if (class_exists('MultiPostThumbnails')) :
+                        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'forth-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
+                    endif;
+                    ?>
+                </div>
             <?php } ?>
 
         </div>
@@ -65,7 +65,7 @@ $custom_fields = get_post_custom();
 
     </div>
 
-<!--    Post content-->
+    <!--    Post content-->
     <div class="text-center">
         <h6 class="p-1 m-1 h6"><?php echo get_the_title(); ?></h6>
         <h3 class="p-1 m-1 h3"><?php echo $custom_fields['sub_title'][0]; ?></h3>
@@ -76,7 +76,7 @@ $custom_fields = get_post_custom();
         <button class="btn btn-outline-success">Inquiry</button>
     </div>
 
-<!--    Social link-->
+    <!--    Social link-->
     <div class="campsite-item-social text-center">
         <div class="p-2 mx-auto h4">
             <!-- Facebook -->

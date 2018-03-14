@@ -45,7 +45,7 @@ get_header(); ?>
         <?php if (have_posts()) : ?>
             <header class="page-header">
                 <?php
-                //the_archive_title('<h1 class="page-title">', '</h1>'); TODO
+//                the_archive_title('<h1 class="page-title">', '</h1>'); //TODO
                 //the_archive_description('<div class="taxonomy-description">', '</div>'); TODO
                 ?>
             </header><!-- .page-header -->
@@ -56,7 +56,7 @@ get_header(); ?>
         <section id="campsite">
 
             <div class="container-fluid">
-                <div class="card-deck">
+                <div class="row">
                     <?php
                     if (have_posts()) : ?>
                         <?php

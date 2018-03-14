@@ -955,7 +955,7 @@ function camp_site_post_type() {
         'description'         => __( 'Camping site information', 'wanabima' ),
         'labels'              => $labels,
         // Features this CPT supports in Post Editor
-        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes'),
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
         // You can associate this CPT with a taxonomy or custom taxonomy.
         'taxonomies'          => array( 'camp-site' ),
         'hierarchical'        => false,
@@ -1008,7 +1008,7 @@ function glamping_site_post_type() {
         'description'         => __( 'Glamping Site information', 'wanabima' ),
         'labels'              => $labels,
         // Features this CPT supports in Post Editor
-        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes'),
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
         // You can associate this CPT with a taxonomy or custom taxonomy.
         'taxonomies'          => array( 'glamping-site' ),
         'hierarchical'        => false,
@@ -1063,7 +1063,7 @@ function nature_wild_post_type() {
         'description'         => __( 'Nature and Wildlife page information', 'wanabima' ),
         'labels'              => $labels,
         // Features this CPT supports in Post Editor
-        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions','custom-fields', 'page-attributes'),
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
         // You can associate this CPT with a taxonomy or custom taxonomy.
         'taxonomies'          => array( 'glamping-site' ),
         'hierarchical'        => false,
@@ -1117,7 +1117,7 @@ function national_park_post_type() {
         'description'         => __( 'National Park page information', 'wanabima' ),
         'labels'              => $labels,
         // Features this CPT supports in Post Editor
-        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions','custom-fields', 'page-attributes'),
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
         // You can associate this CPT with a taxonomy or custom taxonomy.
         'taxonomies'          => array( 'post_tag' ),
         'hierarchical'        => false,
@@ -1170,7 +1170,7 @@ function big_five_post_type() {
         'description'         => __( 'Big Fives page information', 'wanabima' ),
         'labels'              => $labels,
         // Features this CPT supports in Post Editor
-        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions','custom-fields', 'page-attributes'),
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions','page-attributes'),
         // You can associate this CPT with a taxonomy or custom taxonomy.
         'taxonomies'          => array( 'big-five-with-wanabima' ),
         'hierarchical'        => false,
@@ -1301,28 +1301,34 @@ function vehicle_post_support() {
 }
 add_action( 'edit_form_after_title', 'vehicle_post_support' );
 
-function camp_site_post_support() {
+function nature_wildlife_post_support() {
     $screen = get_current_screen();
     $edit_post_type = $screen->post_type;
-    if ( $edit_post_type == 'vehicles' ){
+    if ( $edit_post_type == 'nature-wildlife' ){
 
         ?>
         <div class="after-title-help postbox">
             <h3>Using this screen</h3>
             <div class="inside">
-                <p>Use this screen to add new vehicle or edit existing ones. Make sure you click 'Publish' to publish a new item and 'Update' to save any changes.</p>
-                <p>Use custome fields to add vehicle specific information and use <b>"PRICE"</b> custom field for vehicle price.</p>
+                <p>Use this screen to edit nature wildlife categories. Make sure you click 'Update' to save any changes.</p>
+                <p>Use button title and button link to customize each button. When give button link use this format.</p>
+                <p>&ltdot;current permalink&gtdot;/&ltdot;nature and wildlife content type&gtdot;</p>
+                <p>ex :  http://localhost/wordpress/index.php/<b>big-five</b></p>
             </div><!-- .inside -->
         </div><!-- .postbox -->
     <?php }
 }
-add_action( 'edit_form_after_title', 'vehicle_post_support' );
+add_action( 'edit_form_after_title', 'nature_wildlife_post_support' );
 
+/**
+ * Add multiple image support for vehicle
+ *
+ * vehicles, camp-site
+ */
 
-// Add multiple image support for vehicle
 if (class_exists('MultiPostThumbnails')) {
 
-
+    //Vehicle
     new MultiPostThumbnails(array(
         'label' => 'Second Image',
         'id' => 'second-image',
@@ -1355,3 +1361,125 @@ if (class_exists('MultiPostThumbnails')) {
     ) );
 
 }
+
+/**
+ *
+ * Add sub title meta box
+ * post, camp-site, glamping-site
+ *
+ */
+
+function your_sub_title() {
+    add_meta_box('your_sub_title_metabox', 'Edit Sub Title', 'your_sub_title_metabox', ['post','camp-sites','glamping-sites'], 'normal', 'default'); ## Adds a meta box to post type
+}
+
+add_action( 'add_meta_boxes', 'your_sub_title' );
+
+function your_sub_title_metabox() {
+
+    global $post; ## global post object
+
+    wp_nonce_field( plugin_basename( __FILE__ ), 'your_sub_title_nonce' ); ## Create nonce
+
+    $subtitle = get_post_meta($post->ID, 'sub_title', true); ## Get the subtitle
+
+    ?>
+    <p>
+        <label for="sub_title">Sub Title</label>
+        <input type="text" name="sub_title" id="sub_title" class="widefat" value="<?php if(isset($subtitle)) { echo $subtitle; } ?>" />
+    </p>
+    <?php
+}
+
+function sub_title_save_meta($post_id, $post) {
+    global $post;
+
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+        return false; ## Block if doing autosave
+
+    if ( !current_user_can( 'edit_post', $post->ID )) {
+        return $post->ID; ## Block if user doesn't have priv
+    }
+
+    if ( !wp_verify_nonce( $_POST['your_sub_title_nonce'], plugin_basename(__FILE__) )) {
+
+
+    } else {
+        if($_POST['sub_title']) {
+            update_post_meta($post->ID, 'sub_title', $_POST['sub_title']);
+        } else {
+            update_post_meta($post->ID, 'sub_title', '');
+        }
+    }
+
+    return false;
+
+}
+add_action('save_post', 'sub_title_save_meta', 1, 2);
+
+
+/**
+ *
+ * Add button title and link meta box
+ * nature-wildlife
+ *
+ */
+
+function your_button_link() {
+    add_meta_box('your_button_link_metabox', 'Edit Button Link', 'your_button_link_metabox', ['nature-wildlife',], 'normal', 'default'); ## Adds a meta box to post type
+}
+
+add_action( 'add_meta_boxes', 'your_button_link' );
+
+function your_button_link_metabox() {
+
+    global $post; ## global post object
+
+    wp_nonce_field( plugin_basename( __FILE__ ), 'your_button_link_nonce' ); ## Create nonce
+
+    $button_link = get_post_meta($post->ID, 'button_link', true); ## Get the link
+    $button_title = get_post_meta($post->ID, 'button_title', true); ## Get the title
+    ?>
+    <p>
+        <label for="button_title">Button Title</label>
+        <input type="text" name="button_title" id="button_title" class="widefat" value="<?php if(isset($button_title)) { echo $button_title; } ?>" />
+    </p>
+    <p>
+        <label for="button_link">Button Link</label>
+        <input type="text" name="button_link" id="button_link" class="widefat" value="<?php if(isset($button_link)) { echo $button_link; } ?>" />
+    </p>
+    <?php
+}
+
+function button_link_save_meta($post_id, $post) {
+    global $post;
+
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+        return false; ## Block if doing autosave
+
+    if ( !current_user_can( 'edit_post', $post->ID )) {
+        return $post->ID; ## Block if user doesn't have priv
+    }
+
+    if ( !wp_verify_nonce( $_POST['your_button_link_nonce'], plugin_basename(__FILE__) )) {
+
+
+    } else {
+        if($_POST['button_link']) {
+            update_post_meta($post->ID, 'button_link', $_POST['button_link']);
+            update_post_meta($post->ID, 'button_title', $_POST['button_title']);
+        } else {
+            update_post_meta($post->ID, 'button_link', '');
+        }
+
+        if($_POST['button_title']) {
+            update_post_meta($post->ID, 'button_title', $_POST['button_title']);
+        } else {
+            update_post_meta($post->ID, 'button_title', '');
+        }
+    }
+
+    return false;
+
+}
+add_action('save_post', 'button_link_save_meta', 1, 2);
