@@ -669,7 +669,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Content1 Section
 --------------------------------*/
 #content1 {
-  background: url("../img/home/content-bg.jpg") center top no-repeat fixed;
+  background: url("./img/home/content-bg.jpg") center top no-repeat fixed;
   background-size: cover;
   padding: 60px 0 40px 0;
   position: relative;
@@ -803,7 +803,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Featured tour Section
 --------------------------------*/
 #featured-tour{
-  background: linear-gradient(rgba(0, 142, 99, 0.1), rgba(0, 0, 0, 0.1)), url(../img/home/feature-tour-bg.jpg) fixed center center;
+  background: linear-gradient(rgba(0, 142, 99, 0.1), rgba(0, 0, 0, 0.1)), url(./img/home/feature-tour-bg.jpg) fixed center center;
   background-size: cover;
   padding: 60px 0;
 }
@@ -870,7 +870,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Content3 Section
 --------------------------------*/
 #content3 {
-  background: url("../img/home/content-bg.jpg") center top no-repeat fixed;
+  background: url("./img/home/content-bg.jpg") center top no-repeat fixed;
   background-size: cover;
   padding: 60px 0 40px 0;
   position: relative;
@@ -1189,7 +1189,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*------------------------------------------------------------------------------- rent a jeep*/
 
 #jeepdetail{
-  background: url("../img/jeep/jeep-bg.jpg") center top no-repeat fixed;
+  background: url("./img/jeep/jeep-bg.jpg") center top no-repeat fixed;
   background-size: cover;
   padding: 60px 0 40px 0;
   position: relative;

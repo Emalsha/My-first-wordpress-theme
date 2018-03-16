@@ -1365,12 +1365,12 @@ if (class_exists('MultiPostThumbnails')) {
 /**
  *
  * Add sub title meta box
- * post, camp-site, glamping-site
+ * post, camp-site, glamping-site, safari
  *
  */
 
 function your_sub_title() {
-    add_meta_box('your_sub_title_metabox', 'Edit Sub Title', 'your_sub_title_metabox', ['post','camp-sites','glamping-sites'], 'normal', 'default'); ## Adds a meta box to post type
+    add_meta_box('your_sub_title_metabox', 'Edit Sub Title', 'your_sub_title_metabox', ['post','camp-sites','glamping-sites','safari'], 'normal', 'default'); ## Adds a meta box to post type
 }
 
 add_action( 'add_meta_boxes', 'your_sub_title' );

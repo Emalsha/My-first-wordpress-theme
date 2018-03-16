@@ -18,34 +18,30 @@ get_header(); ?>
             <div class="container">
 
                 <header class="section-header">
-                    <h3>DUMMY HEADER 1</h3>
-                    <h4 class="text-center">Sub Header 1</h4>
-                    <p><b>Dummy Description 1 </b>Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a type specimen book. It has survived not
-                        only five centuries, but also the leap into electronic typesetting, remaining essentially
-                        unchanged.
-                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                        passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of
-                        Lorem
-                        Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                        has
-                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                        galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        but
-                        also the leap into electronic typesetting, remaining essentially unchanged. It was popularised
-                        in
-                        the .</p>
+                    <?php
+                    global $wpdb;
+
+                    $cpage = 'big_five';
+                    $position = 1;
+
+                    $content = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "customcontent WHERE text_page='$cpage' AND text_page_position='$position'");
+                    if ($content) {
+                        ?>
+
+                        <h3><?php echo $content->text_title; ?></h3>
+                        <h4 class="text-center"><?php echo $content->text_sub_title; ?></h4>
+                        <p><?php echo $content->text; ?></p>
+
+                        <?php
+                    }
+                    ?>
                 </header>
             </div>
         </section>
         <?php if (have_posts()) : ?>
             <header class="page-header">
                 <?php
-//                the_archive_title('<h1 class="page-title">', '</h1>'); //TODO
+                //                the_archive_title('<h1 class="page-title">', '</h1>'); //TODO
                 //the_archive_description('<div class="taxonomy-description">', '</div>'); TODO
                 ?>
             </header><!-- .page-header -->
@@ -82,8 +78,31 @@ get_header(); ?>
             </div>
         </section>
 
+        <?php
+        global $wpdb;
 
-        <?php get_sidebar(); ?>
+        $cpage = 'big_five';
+        $position = 2;
+
+        $content = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "customcontent WHERE text_page='$cpage' AND text_page_position='$position'");
+        if ($content) {
+            ?>
+            <!--==========================
+                     Content 2 Section
+                   ============================-->
+            <section id="content2">
+                <div class="container">
+
+                    <header class="section-header">
+                        <h3><?php echo $content->text_title; ?></h3>
+                        <h4 class="text-center"><?php echo $content->text_sub_title; ?></h4>
+                        <p><?php echo $content->text; ?></p>
+                    </header>
+                </div>
+            </section>
+            <?php
+        }
+        ?>
     </main><!-- .main-->
 
 <?php get_footer();

@@ -19,27 +19,21 @@ get_header(); ?>
             <div class="container">
 
                 <header class="section-header">
-                    <h3>DUMMY HEADER 1</h3>
-                    <h4 class="text-center">Sub Header 1</h4>
-                    <p><b>Dummy Description 1 </b>Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a type specimen book. It has survived not
-                        only five centuries, but also the leap into electronic typesetting, remaining essentially
-                        unchanged.
-                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                        passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of
-                        Lorem
-                        Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                        has
-                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                        galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        but
-                        also the leap into electronic typesetting, remaining essentially unchanged. It was popularised
-                        in
-                        the .</p>
+                    <?php
+                    global $wpdb;
+
+                    $cpage = 'nature&wild';
+                    $position = 1;
+
+                    $content = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "customcontent WHERE text_page='$cpage' AND text_page_position='$position'");
+                    if ($content) {
+                        ?>
+                        <h3><?php echo $content->text_title; ?></h3>
+                        <h4 class="text-center"><?php echo $content->text_sub_title; ?></h4>
+                        <p><?php echo $content->text; ?></p>
+                        <?php
+                    }
+                    ?>
                 </header>
             </div>
         </section>
@@ -58,33 +52,57 @@ get_header(); ?>
 
             <div class="container-fluid">
                 <div class="card-deck">
-                <?php
-                if (have_posts()) : ?>
                     <?php
-                    /* Start the Loop */
-                    while (have_posts()) : the_post();
+                    if (have_posts()) : ?>
+                        <?php
+                        /* Start the Loop */
+                        while (have_posts()) : the_post();
 //                        Get template
-                        get_template_part('template-parts/post/content', get_post_type());
+                            get_template_part('template-parts/post/content', get_post_type());
 
-                    endwhile;
+                        endwhile;
 
-                    the_posts_pagination(array(
-                        'prev_text' => wanabima_get_svg(array('icon' => 'arrow-left')) . '<span class="screen-reader-text">' . __('Previous page', 'wanabima') . '</span>',
-                        'next_text' => '<span class="screen-reader-text">' . __('Next page', 'wanabima') . '</span>' . wanabima_get_svg(array('icon' => 'arrow-right')),
-                        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'wanabima') . ' </span>',
-                    ));
+                        the_posts_pagination(array(
+                            'prev_text' => wanabima_get_svg(array('icon' => 'arrow-left')) . '<span class="screen-reader-text">' . __('Previous page', 'wanabima') . '</span>',
+                            'next_text' => '<span class="screen-reader-text">' . __('Next page', 'wanabima') . '</span>' . wanabima_get_svg(array('icon' => 'arrow-right')),
+                            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'wanabima') . ' </span>',
+                        ));
 
-                else :
+                    else :
 
-                    get_template_part('template-parts/post/content', 'none');
+                        get_template_part('template-parts/post/content', 'none');
 
-                endif; ?>
+                    endif; ?>
                 </div>
             </div>
         </section>
 
 
-        <?php get_sidebar(); ?>
+        <?php
+        global $wpdb;
+
+        $cpage = 'nature&wild';
+        $position = 2;
+
+        $content = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "customcontent WHERE text_page='$cpage' AND text_page_position='$position'");
+        if ($content) {
+            ?>
+            <!--==========================
+                     Content 2 Section
+                   ============================-->
+            <section id="content2">
+                <div class="container">
+
+                    <header class="section-header">
+                        <h3><?php echo $content->text_title; ?></h3>
+                        <h4 class="text-center"><?php echo $content->text_sub_title; ?></h4>
+                        <p><?php echo $content->text; ?></p>
+                    </header>
+                </div>
+            </section>
+            <?php
+        }
+        ?>
     </main><!-- .main-->
 
 <?php get_footer();

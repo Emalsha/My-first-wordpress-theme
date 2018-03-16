@@ -19,29 +19,23 @@ get_header(); ?>
         <section id="content1">
             <div class="container">
 
-                <header class="section-header">
-                    <h3>DUMMY HEADER 1</h3>
-                    <h4 class="text-center">Sub Header 1</h4>
-                    <p><b>Dummy Description 1 </b>Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a type specimen book. It has survived not
-                        only five centuries, but also the leap into electronic typesetting, remaining essentially
-                        unchanged.
-                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                        passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of
-                        Lorem
-                        Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                        has
-                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                        galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        but
-                        also the leap into electronic typesetting, remaining essentially unchanged. It was popularised
-                        in
-                        the .</p>
-                </header>
+                <?php
+                global $wpdb;
+
+                $cpage = 'camping';
+                $position = 1;
+
+                $content = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "customcontent WHERE text_page='$cpage' AND text_page_position='$position'");
+                if ($content) {
+                    ?>
+
+                    <h3><?php echo $content->text_title; ?></h3>
+                    <h4 class="text-center"><?php echo $content->text_sub_title; ?></h4>
+                    <p><?php echo $content->text; ?></p>
+
+                    <?php
+                }
+                ?>
             </div>
         </section>
 
@@ -55,18 +49,20 @@ get_header(); ?>
                         <div class="card">
                             <div class="row ">
                                 <div class="col-md-6 ">
-                                    <img src="./img/camping/camping10.jpg" class="w-100">
+                                    <img src="<?php echo get_template_directory_uri()?>/img/camping/camping10.jpg" class="w-100">
                                 </div>
                                 <div class="col-md-6 camping-site-home-item">
                                     <div class="card-block p-2">
                                         <h3 class="card-title">CAMPING</h3>
-                                        <p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                        <p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor
+                                            incididunt
                                             ut
                                             labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                                             exercitation
                                             ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                             Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                                            non
                                             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                         <a href="../camp-sites" class="btn btn-outline-secondary">Read More</a>
                                     </div>
@@ -78,18 +74,20 @@ get_header(); ?>
                         <div class="card">
                             <div class="row ">
                                 <div class="col-md-6 ">
-                                    <img src="./img/camping/camping11.jpg" class="w-100">
+                                    <img src="<?php echo get_template_directory_uri()?>/img/camping/camping11.jpg" class="w-100">
                                 </div>
                                 <div class="col-md-6 camping-site-home-item">
                                     <div class="card-block p-2">
                                         <h3 class="card-title">GLAMPING</h3>
-                                        <p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                        <p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor
+                                            incididunt
                                             ut
                                             labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                                             exercitation
                                             ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                             Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                                            non
                                             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                         <a href="../glamping-sites" class="btn btn-outline-secondary">Read More</a>
                                     </div>
@@ -101,6 +99,31 @@ get_header(); ?>
             </div>
         </section><!-- #end-->
 
+        <?php
+        global $wpdb;
+
+        $cpage = 'camping';
+        $position = 2;
+
+        $content = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "customcontent WHERE text_page='$cpage' AND text_page_position='$position'");
+        if ($content) {
+            ?>
+            <!--==========================
+                     Content 2 Section
+                   ============================-->
+            <section id="content2">
+                <div class="container">
+
+                    <header class="section-header">
+                        <h3><?php echo $content->text_title; ?></h3>
+                        <h4 class="text-center"><?php echo $content->text_sub_title; ?></h4>
+                        <p><?php echo $content->text; ?></p>
+                    </header>
+                </div>
+            </section>
+            <?php
+        }
+        ?>
     </main><!-- .main-->
 
 <?php get_footer();
