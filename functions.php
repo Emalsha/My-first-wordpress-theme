@@ -898,7 +898,7 @@ function vehicle_post_type() {
         // Features this CPT supports in Post Editor
         'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes'),
         // You can associate this CPT with a taxonomy or custom taxonomy.
-        'taxonomies'          => array( 'jeep' ),
+        'taxonomies'          => array( 'post_tag' ),
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
@@ -957,7 +957,7 @@ function camp_site_post_type() {
         // Features this CPT supports in Post Editor
         'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
         // You can associate this CPT with a taxonomy or custom taxonomy.
-        'taxonomies'          => array( 'camp-site' ),
+        'taxonomies'          => array( 'post_tag' ),
         'hierarchical'        => false,
         'menu_icon'           => 'dashicons-location-alt',
         'public'              => true,
@@ -1010,7 +1010,7 @@ function glamping_site_post_type() {
         // Features this CPT supports in Post Editor
         'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
         // You can associate this CPT with a taxonomy or custom taxonomy.
-        'taxonomies'          => array( 'glamping-site' ),
+        'taxonomies'          => array( 'post_tag' ),
         'hierarchical'        => false,
         'menu_icon'           => 'dashicons-location-alt',
         'public'              => true,
@@ -1065,12 +1065,12 @@ function nature_wild_post_type() {
         // Features this CPT supports in Post Editor
         'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
         // You can associate this CPT with a taxonomy or custom taxonomy.
-        'taxonomies'          => array( 'glamping-site' ),
+        'taxonomies'          => array( 'post_tag' ),
         'hierarchical'        => false,
         'menu_icon'           => 'dashicons-media-archive',
         'public'              => true,
         'show_ui'             => true,
-        'show_in_menu'        => true,
+        'show_in_menu'        => 'nature_menu',
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
         'menu_position'       => 5,
@@ -1124,7 +1124,7 @@ function national_park_post_type() {
         'menu_icon'           => 'dashicons-media-archive',
         'public'              => true,
         'show_ui'             => true,
-        'show_in_menu'        => true,
+        'show_in_menu'        => 'nature_menu',
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
         'menu_position'       => 5,
@@ -1177,7 +1177,7 @@ function big_five_post_type() {
         'menu_icon'           => 'dashicons-media-archive',
         'public'              => true,
         'show_ui'             => true,
-        'show_in_menu'        => true,
+        'show_in_menu'        => 'nature_menu',
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
         'menu_position'       => 5,
@@ -1231,7 +1231,7 @@ function safari_post_type() {
         'menu_icon'           => 'dashicons-media-archive',
         'public'              => true,
         'show_ui'             => true,
-        'show_in_menu'        => true,
+        'show_in_menu'        => 'nature_menu',
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
         'menu_position'       => 5,
@@ -1249,14 +1249,782 @@ function safari_post_type() {
 
 add_action( 'init', 'safari_post_type', 0 );
 
-function post_remove ()      //creating functions post_remove for removing menu item
+/**
+ * Custom post type for add 4x4 details. ( only need 3 )
+ */
+
+function adventure_4x4_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( '4x4 Adventure', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( '4x4 Adventure', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( '4x4 Adventure', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Item', 'wanabima' ),
+        'all_items'           => __( 'Adventures', 'wanabima' ),
+        'view_item'           => __( 'View 4x4  Content ', 'wanabima' ),
+        'add_new_item'        => __( 'Add New 4x4 Content', 'wanabima' ),
+        'add_new'             => __( 'Add 4x4 New', 'wanabima' ),
+        'edit_item'           => __( 'Edit 4x4 Content', 'wanabima' ),
+        'update_item'         => __( 'Update 4x4 Content', 'wanabima' ),
+        'search_items'        => __( 'Search 4x4 Content', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'fourbyfour', 'wanabima' ),
+        'description'         => __( '4x4 Adventure page information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-marker',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => 'adventure_menu',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'fourbyfour', $args );
+
+}
+
+add_action( 'init', 'adventure_4x4_post_type', 0 );
+
+/**
+ * Custom post type for add national park details.
+ */
+
+function off_road_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Off Road', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Off Road Post Type', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Off Road', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Item', 'wanabima' ),
+        'all_items'           => __( 'Off Road', 'wanabima' ),
+        'view_item'           => __( 'View Off Road Content ', 'wanabima' ),
+        'add_new_item'        => __( 'Add New Off Road Content', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Off Road Content', 'wanabima' ),
+        'update_item'         => __( 'Update Off Road Content', 'wanabima' ),
+        'search_items'        => __( 'Search Off Road Content', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'off-road', 'wanabima' ),
+        'description'         => __( 'Off Road page information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-marker',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => 'adventure_menu',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'off-road', $args );
+
+}
+
+add_action( 'init', 'off_road_post_type', 0 );
+
+/**
+ * Custom post type for add mud fun details.
+ */
+
+function mud_fun_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Mud Fun ', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Mud Fun  Post Type', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Mud Fun ', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Item', 'wanabima' ),
+        'all_items'           => __( 'Mud Fun', 'wanabima' ),
+        'view_item'           => __( 'View Mud Fun Content ', 'wanabima' ),
+        'add_new_item'        => __( 'Add New Mud Fun Content', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Mud Fun Content', 'wanabima' ),
+        'update_item'         => __( 'Update Mud Fun Content', 'wanabima' ),
+        'search_items'        => __( 'Search Mud Fun Content', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'mud-fun', 'wanabima' ),
+        'description'         => __( 'Mud Fun page information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-marker',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => 'adventure_menu',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'mud-fun', $args );
+
+}
+
+add_action( 'init', 'mud_fun_post_type', 0 );
+
+/**
+ * Custom post type for add 4x4 rally details.
+ */
+
+function rally_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( '4x4 Rally', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( '4x4 Rally Post Type', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( '4x4 Rally', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Item', 'wanabima' ),
+        'all_items'           => __( '4x4 Rally', 'wanabima' ),
+        'view_item'           => __( 'View 4x4 Rally Content ', 'wanabima' ),
+        'add_new_item'        => __( 'Add New 4x4 Rally Content', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit 4x4 Rally Content', 'wanabima' ),
+        'update_item'         => __( 'Update 4x4 Rally Content', 'wanabima' ),
+        'search_items'        => __( 'Search 4x4 Rally Content', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'rally-4x4', 'wanabima' ),
+        'description'         => __( '4x4 Rally page information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-marker',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => 'adventure_menu',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'rally-4x4', $args );
+
+}
+
+add_action( 'init', 'rally_post_type', 0 );
+
+/**
+ * Custom post type for add tour details.
+ */
+
+function tour_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Tour', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Tour Post Type', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Tour', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Item', 'wanabima' ),
+        'all_items'           => __( 'All Tour Items', 'wanabima' ),
+        'view_item'           => __( 'View Tour Content ', 'wanabima' ),
+        'add_new_item'        => __( 'Add New Tour Content', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Tour Content', 'wanabima' ),
+        'update_item'         => __( 'Update Tour Content', 'wanabima' ),
+        'search_items'        => __( 'Search Tour Content', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'tour', 'wanabima' ),
+        'description'         => __( 'Tour page information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-palmtree',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => 'tours_menu',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'tour', $args );
+
+}
+
+add_action( 'init', 'tour_post_type', 0 );
+
+/**
+ * Custom post type for add hideout details.
+ */
+
+function tour_hideout_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Hideout', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Hideout Post Type', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Hideout', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Item', 'wanabima' ),
+        'all_items'           => __( 'Hideout', 'wanabima' ),
+        'view_item'           => __( 'View Hideout Content ', 'wanabima' ),
+        'add_new_item'        => __( 'Add New Hideout Content', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Hideout Content', 'wanabima' ),
+        'update_item'         => __( 'Update Hideout Content', 'wanabima' ),
+        'search_items'        => __( 'Search Hideout Content', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'hideout', 'wanabima' ),
+        'description'         => __( 'Hideout page information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-palmtree',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => 'tours_menu',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'hideout', $args );
+
+}
+
+add_action( 'init', 'tour_hideout_post_type', 0 );
+
+/**
+ * Custom post type for add sand and beach details.
+ */
+
+function tour_sandandbeach_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Sand & Beach', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Sand & Beach Post Type', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Sand & Beach', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Item', 'wanabima' ),
+        'all_items'           => __( 'Sand & Beach', 'wanabima' ),
+        'view_item'           => __( 'View Sand & Beach Content ', 'wanabima' ),
+        'add_new_item'        => __( 'Add New Sand & Beach Content', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Sand & Beach Content', 'wanabima' ),
+        'update_item'         => __( 'Update Sand & Beach Content', 'wanabima' ),
+        'search_items'        => __( 'Search Sand & Beach Content', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'sandandbeach', 'wanabima' ),
+        'description'         => __( 'Sand & Beach page information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-palmtree',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => 'tours_menu',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'sandandbeach', $args );
+
+}
+
+add_action( 'init', 'tour_sandandbeach_post_type', 0 );
+
+
+/**
+ * Custom post type for add hilly and cozy details.
+ */
+
+function tour_hillyandcozy_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Hilly & Cozy', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Hilly & Cozy Post Type', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Hilly & Cozy', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Item', 'wanabima' ),
+        'all_items'           => __( 'Hilly & Cozy', 'wanabima' ),
+        'view_item'           => __( 'View Hilly & Cozy Content ', 'wanabima' ),
+        'add_new_item'        => __( 'Add New Hilly & Cozy Content', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Hilly & Cozy Content', 'wanabima' ),
+        'update_item'         => __( 'Update Hilly & Cozy Content', 'wanabima' ),
+        'search_items'        => __( 'Search Hilly & Cozy Content', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'hillyandcozy', 'wanabima' ),
+        'description'         => __( 'Hilly & Cozy page information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-palmtree',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => 'tours_menu',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'hillyandcozy', $args );
+
+}
+
+add_action( 'init', 'tour_hillyandcozy_post_type', 0 );
+
+/**
+ * Custom post type for add across the paradise details.
+ */
+
+function tour_paradise_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Across the Paradise', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Across the Paradise Post Type', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Across the Paradise', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Item', 'wanabima' ),
+        'all_items'           => __( 'Across the Paradise', 'wanabima' ),
+        'view_item'           => __( 'View Across the Paradise Content ', 'wanabima' ),
+        'add_new_item'        => __( 'Add New Across the Paradise Content', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Across the Paradise Content', 'wanabima' ),
+        'update_item'         => __( 'Update Across the Paradise Content', 'wanabima' ),
+        'search_items'        => __( 'Search Across the Paradise Content', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'paradise', 'wanabima' ),
+        'description'         => __( 'Across the Paradise page information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-palmtree',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => 'tours_menu',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'paradise', $args );
+
+}
+
+add_action( 'init', 'tour_paradise_post_type', 0 );
+
+/**
+ * Custom post type for add Accommodation details.
+ */
+
+function accommodation_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Accommodation', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Accommodation Post Type', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Accommodation', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Item', 'wanabima' ),
+        'all_items'           => __( 'Accommodations', 'wanabima' ),
+        'view_item'           => __( 'View Accommodation Content ', 'wanabima' ),
+        'add_new_item'        => __( 'Add New Accommodation Content', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Accommodation Content', 'wanabima' ),
+        'update_item'         => __( 'Update Accommodation Content', 'wanabima' ),
+        'search_items'        => __( 'Search Accommodation Content', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'accommodation', 'wanabima' ),
+        'description'         => __( 'Accommodation page information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-palmtree',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => 'accommodation_menu',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'accommodation', $args );
+
+}
+
+add_action( 'init', 'accommodation_post_type', 0 );
+
+/**
+ * Custom post type for add Star hotel details.
+ */
+
+function acco_star_hotel_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Star Class Hotel', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Star Class Hotel Post Type', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Star Class Hotel', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Item', 'wanabima' ),
+        'all_items'           => __( 'Star Class Hotel', 'wanabima' ),
+        'view_item'           => __( 'View Star Class Hotel Content ', 'wanabima' ),
+        'add_new_item'        => __( 'Add New Star Class Hotel Content', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Star Class Hotel  Content', 'wanabima' ),
+        'update_item'         => __( 'Update Star Class Hotel Content', 'wanabima' ),
+        'search_items'        => __( 'Search Star Class Hotel Content', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'star_hotel', 'wanabima' ),
+        'description'         => __( 'Star Class Hotel page information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-palmtree',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => 'accommodation_menu',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'starhotel', $args );
+
+}
+
+add_action( 'init', 'acco_star_hotel_post_type', 0 );
+
+
+/**
+ * Custom post type for add boutique hotel details.
+ */
+
+function acco_boutique_hotel_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Boutique Hotel', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Boutique Hotel Post Type', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Boutique Hotel', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Item', 'wanabima' ),
+        'all_items'           => __( 'Boutique Hotel', 'wanabima' ),
+        'view_item'           => __( 'View Boutique Hotel Content ', 'wanabima' ),
+        'add_new_item'        => __( 'Add New Boutique Hotel Content', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Boutique Hotel Content', 'wanabima' ),
+        'update_item'         => __( 'Update Boutique Hotel Content', 'wanabima' ),
+        'search_items'        => __( 'Search Boutique Hotel Content', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'boutique_hotel', 'wanabima' ),
+        'description'         => __( 'Boutique Hotel page information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-palmtree',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => 'accommodation_menu',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'boutiquehotel', $args );
+
+}
+
+add_action( 'init', 'acco_boutique_hotel_post_type', 0 );
+
+
+/**
+ * Custom post type for add resort and villa details.
+ */
+
+function acco_resort_villa_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Resort and Villa', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Resort and Villa Post Type', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Resort and Villa', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Item', 'wanabima' ),
+        'all_items'           => __( 'Resort and Villa', 'wanabima' ),
+        'view_item'           => __( 'View Resort and Villa Content ', 'wanabima' ),
+        'add_new_item'        => __( 'Add New Resort and Villa Content', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Resort and Villa Content', 'wanabima' ),
+        'update_item'         => __( 'Update Resort and Villa Content', 'wanabima' ),
+        'search_items'        => __( 'Search Resort and Villa Content', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'resortandvilla', 'wanabima' ),
+        'description'         => __( 'Resort and Villa page information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-palmtree',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => 'accommodation_menu',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'resortandvilla', $args );
+
+}
+
+add_action( 'init', 'acco_resort_villa_post_type', 0 );
+
+
+/**
+ * Custom post type for add bungalow and home details.
+ */
+
+function acco_bungalow_home_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Bungalow and Home', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Bungalow and Home Post Type', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Bungalow and Home', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Item', 'wanabima' ),
+        'all_items'           => __( 'Bungalow and Home', 'wanabima' ),
+        'view_item'           => __( 'View Bungalow and Home Content ', 'wanabima' ),
+        'add_new_item'        => __( 'Add New Bungalow and Home Content', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Bungalow and Home Content', 'wanabima' ),
+        'update_item'         => __( 'Update Bungalow and Home Content', 'wanabima' ),
+        'search_items'        => __( 'Search Bungalow and Home Content', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'bungalowandhome', 'wanabima' ),
+        'description'         => __( 'Bungalow and Home page information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-palmtree',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => 'accommodation_menu',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'bungalowandhome', $args );
+
+}
+
+add_action( 'init', 'acco_bungalow_home_post_type', 0 );
+
+
+
+/**
+ * creating functions post_remove for removing menu item
+ */
+function post_remove ()
 {
     remove_menu_page('edit.php');
 }
 
 add_action('admin_menu', 'post_remove');
 
+
+/**
+ * Add custom post type to admin menu categories
+ *
+ */
+
+add_action( 'admin_menu', 'register_my_page' );
+function register_my_page() {
+    add_menu_page( 'Nature & Wildlife', 'Nature & Wildlife', 'edit_others_posts', 'nature_menu', function() { echo "Nature & Wildlife Page"; }, 'dashicons-arrow-right', 8 );
+    add_menu_page( '4x4 Adventure', '4x4 Adventure', 'edit_others_posts', 'adventure_menu', function() { echo "4x4 Adventure Page"; }, 'dashicons-arrow-right', 8 );
+    add_menu_page( 'Tours', 'Tours', 'edit_others_posts', 'tours_menu', function() { echo "Tours Page"; }, 'dashicons-arrow-right', 8 );
+    add_menu_page( 'Accommodation', 'Accommodation', 'edit_others_posts', 'accommodation_menu', function() { echo "Accommodation Page"; }, 'dashicons-arrow-right', 8 );
+}
+
 //--------------------------------------------------------------------------------------------- Post type end
+
+
+
+
 
 //Set order by attribute for custom post
 function wpa_order_states( $query ){
@@ -1271,6 +2039,9 @@ function wpa_order_states( $query ){
 }
 add_action( 'pre_get_posts', 'wpa_order_states' );
 
+
+
+
 //Add shortcode button TODO
 // [button foo="foo-value"]
 function buttonsz( $atts ) {
@@ -1282,6 +2053,12 @@ function buttonsz( $atts ) {
     return '<span class="caption">' . $a['text'] . '</span>';
 }
 add_shortcode( 'buttonsz', 'wanabima_shortcode' );
+
+
+
+
+
+
 
 // Add fake metabox above editing pane
 function vehicle_post_support() {
@@ -1319,6 +2096,9 @@ function nature_wildlife_post_support() {
     <?php }
 }
 add_action( 'edit_form_after_title', 'nature_wildlife_post_support' );
+
+
+
 
 /**
  * Add multiple image support for vehicle
@@ -1359,18 +2139,232 @@ if (class_exists('MultiPostThumbnails')) {
         'id' => 'second-image',
         'post_type' => 'camp-sites'
     ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'camp-sites'
+    ) );
+
+    //Glamp site
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'glamping-sites'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'glamping-sites'
+    ) );
+
+    //national park
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'national-park'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'national-park'
+    ) );
+
+    //Big five
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'big-five'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'big-five'
+    ) );
+
+    //Safari
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'safari'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'safari'
+    ) );
+
+    //off-road
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'off-road'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'off-road'
+    ) );
+
+    //mud-fun
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'mud-fun'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'mud-fun'
+    ) );
+
+    //rally 4x4
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'rally-4x4'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'rally-4x4'
+    ) );
+
+    //tours
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'tour'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'tour'
+    ) );
+
+    //hideout
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'hideout'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'hideout'
+    ) );
+
+    //sand and beach
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'sandandbeach'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'sandandbeach'
+    ) );
+
+    //hilly and cozy
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'hillyandcozy'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'hillyandcozy'
+    ) );
+
+    //across the paradise
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'paradise'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'paradise'
+    ) );
+
+    //accommodation
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'accommodation'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'accommodation'
+    ) );
+
+    //start hotel
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'starhotel'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'starhotel'
+    ) );
+
+    //boutiquehotel
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'boutiquehotel'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'boutiquehotel'
+    ) );
+
+    //resortandvilla
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'resortandvilla'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'resortandvilla'
+    ) );
+
+    //bungalowandhome
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'bungalowandhome'
+    ) );
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'bungalowandhome'
+    ) );
+
+
+
+
+
 
 }
 
 /**
  *
  * Add sub title meta box
- * post, camp-site, glamping-site, safari
+ * post, camp-site, glamping-site, safari, national-park,off-road, mud-fun,rally-4x4
  *
  */
 
 function your_sub_title() {
-    add_meta_box('your_sub_title_metabox', 'Edit Sub Title', 'your_sub_title_metabox', ['post','camp-sites','glamping-sites','safari'], 'normal', 'default'); ## Adds a meta box to post type
+    add_meta_box('your_sub_title_metabox', 'Edit Sub Title', 'your_sub_title_metabox', ['post','camp-sites','glamping-sites','safari','national-park','off-road', 'mud-fun', 'rally-4x4'], 'normal', 'default'); ## Adds a meta box to post type
 }
 
 add_action( 'add_meta_boxes', 'your_sub_title' );
@@ -1421,12 +2415,12 @@ add_action('save_post', 'sub_title_save_meta', 1, 2);
 /**
  *
  * Add button title and link meta box
- * nature-wildlife
+ * nature-wildlife, fourbyfour, tour, accommodation
  *
  */
 
 function your_button_link() {
-    add_meta_box('your_button_link_metabox', 'Edit Button Link', 'your_button_link_metabox', ['nature-wildlife',], 'normal', 'default'); ## Adds a meta box to post type
+    add_meta_box('your_button_link_metabox', 'Edit Button Link', 'your_button_link_metabox', ['nature-wildlife','fourbyfour','tour','accommodation'], 'normal', 'default'); ## Adds a meta box to post type
 }
 
 add_action( 'add_meta_boxes', 'your_button_link' );
@@ -1483,3 +2477,6 @@ function button_link_save_meta($post_id, $post) {
 
 }
 add_action('save_post', 'button_link_save_meta', 1, 2);
+
+
+

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying big five
+ * Template part for displaying tours
  *
  *
  * @package Wanabima
@@ -60,9 +60,15 @@ $custom_fields = get_post_custom();
             <div class="col-md-6 p-3">
                 <div class="float-right">
                     <h3 class="card-title"><?php echo get_the_title(); ?></h3>
-                    <h5 class="card-title">Big Five With Wanabima</h5>
+                    <h5 class="card-title">TOURS WITH WANABIMA</h5>
                     <?php the_content(); ?>
-                    <a href="<?php the_permalink(); ?>" class="btn btn-outline-dark"><?php echo $custom_fields['BUTTON'] ? $custom_fields['BUTTON'][0] : "MORE" ?></a>
+                    <?php
+                    $button_link = get_post_meta(get_the_ID(), 'button_link', true);
+                    if(isset($button_link)) {?>
+                        <a href="<?php echo $button_link; ?>" class="btn btn-outline-dark"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "MORE" ?></a>
+                        <?php
+                    }?>
+
                 </div>
             </div>
 

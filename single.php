@@ -11,9 +11,9 @@
 
 get_header(); ?>
 
-<div class="wrap">
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<div class="container">
+	<div id="primary" class="p-3">
+		<main id="main" class="rounded-top border-top" role="main">
 
 			<?php
 			/* Start the Loop */
@@ -26,17 +26,23 @@ get_header(); ?>
 					comments_template();
 				endif;
 
-				the_post_navigation( array(
-					'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'wanabima' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'wanabima' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper">' . wanabima_get_svg( array( 'icon' => 'arrow-left' ) ) . '</span>%title</span>',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'wanabima' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'wanabima' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper">' . wanabima_get_svg( array( 'icon' => 'arrow-right' ) ) . '</span></span>',
-				) );
+				?>
+                <div class="text-center">
+                    <?php
+                    the_post_navigation( array(
+                        'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'wanabima' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'wanabima' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper">' . wanabima_get_svg( array( 'icon' => 'arrow-left' ) ) . '</span>%title</span>',
+                        'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'wanabima' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'wanabima' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper">' . wanabima_get_svg( array( 'icon' => 'arrow-right' ) ) . '</span></span>',
+                    ) );
+                    ?>
+                </div>
+
+            <?php
 
 			endwhile; // End of the loop.
 			?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-	<?php get_sidebar(); ?>
 </div><!-- .wrap -->
 
-<?php get_footer();
+<?php get_footer();?>

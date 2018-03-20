@@ -1456,3 +1456,141 @@ body.mobile-nav-active #mobile-nav-toggle {
   height:auto;
 }
 
+/*------------------------------------------------------------------------------------ Single post style*/
+
+/*-------------------------------------------------------------------------- Camping Site detail*/
+
+#primary{
+  padding: 20px;
+}
+
+#primary .campsite-item{
+  display: flex;
+  border-radius: 5px;
+
+}
+
+#primary .campsite-item  h3{
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+#primary .campsite-item p{
+  text-align: justify;
+}
+
+#primary .campsite-carousel .campsite-carousel-inner{
+  height: 500px;
+}
+
+@media only screen and (max-width: 768px) {
+  #primary .campsite-carousel .campsite-carousel-inner
+  {
+    height: 11rem;
+  }
+}
+
+#primary .campsite-carousel .campsite-carousel-inner .campsite-carousel-img{
+  object-fit:cover;
+}
+
+#primary .campsite-item .campsite-item-social img{
+  height:2rem;
+}
+
+#primary .campsite-item .campsite-item-social a {
+  display: inline-block;
+  margin-right: 4px;
+  border:1px solid;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+  margin-bottom: 6px;
+  color: darkseagreen;
+}
+#primary .campsite-item .campsite-item-social a:hover{
+  color: #445A1C;
+}
+
+#primary .campsite-item .campsite-item-social i{
+  vertical-align: bottom;
+}
+
+#primary .carousel-fade .carousel-inner .carousel-item {
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+}
+
+#primary .carousel-fade .carousel-inner .carousel-item,
+#primary .carousel-fade .carousel-inner .active.carousel-item-left,
+#primary .carousel-fade .carousel-inner .active.carousel-item-right {
+  opacity: 0;
+}
+
+#primary .carousel-fade .carousel-inner .active,
+#primary .carousel-fade .carousel-inner .carousel-item-next.carousel-item-left,
+#primary .carousel-fade .carousel-inner .carousel-item-prev.carousel-item-right {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+#primary .carousel-fade .carousel-inner .carousel-item-next,
+#primary .carousel-fade .carousel-inner .carousel-item-prev,
+#primary .carousel-fade .carousel-inner .active.carousel-item-left,
+#primary .carousel-fade .carousel-inner .active.carousel-item-right {
+  left: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* Post Navigation */
+
+.post-navigation {
+  font-weight: 800;
+  margin: 3em 0;
+}
+
+.post-navigation .nav-links {
+  padding: 1em 0;
+}
+
+.nav-subtitle {
+  background: transparent;
+  color: #767676;
+  display: block;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1818em;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+
+.nav-title {
+  color: #333;
+  font-size: 0.9375rem;
+}
+
+.post-navigation .nav-next {
+  margin-top: 1.5em;
+}
+
+.nav-links .nav-previous .nav-title .nav-title-icon-wrapper {
+  margin-right: 0.5em;
+}
+
+.nav-links .nav-previous .nav-title .nav-title-icon-wrapper .icon{
+  width:1.5rem;
+  height: 1rem;
+}
+
+.nav-links .nav-next .nav-title .nav-title-icon-wrapper {
+  margin-left: 0.5em;
+}
+
+.nav-links .nav-next .nav-title .nav-title-icon-wrapper .icon{
+  width: 1.5rem;
+  height:1rem;
+}
+
+
+

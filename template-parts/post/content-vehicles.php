@@ -21,34 +21,43 @@
                 <div class="carousel-item active" style="height: 100%;">
                     <?php the_post_thumbnail('wanabima-featured-image'); ?>
                 </div>
-                <div class="carousel-item" style="height: 100%;">
-                    <?php
-                    if (class_exists('MultiPostThumbnails')) :
-                        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'second-image');
-                    endif;
-                    ?>
-                </div>
-                <div class="carousel-item" style="height: 100%;">
-                    <?php
-                    if (class_exists('MultiPostThumbnails')) :
-                        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'third-image');
-                    endif;
-                    ?>
-                </div>
-                <div class="carousel-item" style="height: 100%;">
-                    <?php
-                    if (class_exists('MultiPostThumbnails')) :
-                        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'forth-image');
-                    endif;
-                    ?>
-                </div>
-                <div class="carousel-item" style="height: 100%;">
-                    <?php
-                    if (class_exists('MultiPostThumbnails')) :
-                        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'fifth-image');
-                    endif;
-                    ?>
-                </div>
+
+                <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'second-image')){?>
+                    <div class="carousel-item" style="height: 100%;">
+                        <?php
+                        if (class_exists('MultiPostThumbnails')) :
+                            MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'second-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
+                        endif;
+                        ?>
+                    </div>
+                <?php } ?>
+                <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'third-image')){?>
+                    <div class="carousel-item" style="height: 100%;">
+                        <?php
+                        if (class_exists('MultiPostThumbnails')) :
+                            MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'third-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
+                        endif;
+                        ?>
+                    </div>
+                <?php } ?>
+                <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'forth-image')){?>
+                    <div class="carousel-item" style="height: 100%;">
+                        <?php
+                        if (class_exists('MultiPostThumbnails')) :
+                            MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'forth-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
+                        endif;
+                        ?>
+                    </div>
+                <?php } ?>
+                <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'fifth-image')){?>
+                    <div class="carousel-item" style="height: 100%;">
+                        <?php
+                        if (class_exists('MultiPostThumbnails')) :
+                            MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'fifth-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
+                        endif;
+                        ?>
+                    </div>
+                <?php } ?>
             </div>
             <a class="carousel-control-prev" href="#carousel<?php the_ID(); ?>" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

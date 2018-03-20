@@ -22,7 +22,7 @@ get_header(); ?>
                     <?php
                     global $wpdb;
 
-                    $cpage = get_post_type();
+                    $cpage = 'mud_fun';
                     $position = 1;
 
                     $content = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "customcontent WHERE text_page='$cpage' AND text_page_position='$position'");
@@ -81,7 +81,7 @@ get_header(); ?>
         <?php
         global $wpdb;
 
-        $cpage = get_post_type();
+        $cpage = 'mud_fun';
         $position = 2;
 
         $content = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "customcontent WHERE text_page='$cpage' AND text_page_position='$position'");
@@ -105,4 +105,4 @@ get_header(); ?>
         ?>
     </main><!-- .main-->
 
-<?php get_footer();?>
+<?php get_footer();

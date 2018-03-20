@@ -1,75 +1,106 @@
 <?php
 /**
- * Template part for displaying posts
+ * Template part for displaying national park
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @package Wanabima
  * @since 1.0
- * @version 1.2
+ * @version 1.0
+ * @author Emalsha Rasad
  */
+
+$custom_fields = get_post_custom();
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php
-	if ( is_sticky() && is_home() ) :
-		echo wanabima_get_svg( array( 'icon' => 'thumb-tack' ) );
-	endif;
-	?>
-	<header class="entry-header">
-		<?php
-		if ( 'post' === get_post_type() ) {
-			echo '<div class="entry-meta">';
-				if ( is_single() ) {
-					wanabima_posted_on();
-				} else {
-					echo wanabima_time_link();
-					wanabima_edit_link();
-				};
-			echo '</div><!-- .entry-meta -->';
-		};
+<!--Post -->
+<div class="campsite-item d-inline-block" id="<?php the_ID(); ?>">
+    <div class="img-container carousel slide carousel-fade campsite-carousel" id="carousel<?php the_ID(); ?>" data-interval="false">
 
-		if ( is_single() ) {
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		} elseif ( is_front_page() && is_home() ) {
-			the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
-		} else {
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		}
-		?>
-	</header><!-- .entry-header -->
+        <div class="carousel-inner campsite-carousel-inner">
+            <div class="carousel-item active">
+                <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'd-block w-100 campsite-carousel-img']); ?>
+            </div>
+            <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'second-image')){?>
+                <div class="carousel-item">
+                    <?php
+                    if (class_exists('MultiPostThumbnails')) :
+                        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'second-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
+                    endif;
+                    ?>
+                </div>
+            <?php } ?>
+            <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'third-image')){?>
+                <div class="carousel-item">
+                    <?php
+                    if (class_exists('MultiPostThumbnails')) :
+                        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'third-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
+                    endif;
+                    ?>
+                </div>
+            <?php } ?>
+            <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'forth-image')){?>
+                <div class="carousel-item">
+                    <?php
+                    if (class_exists('MultiPostThumbnails')) :
+                        MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'forth-image',null,'post-thumbnail',array('class'=>'d-block w-100 campsite-carousel-img'));
+                    endif;
+                    ?>
+                </div>
+            <?php } ?>
 
-	<?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
-		<div class="post-thumbnail">
-			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail( 'wanabima-featured-image' ); ?>
-			</a>
-		</div><!-- .post-thumbnail -->
-	<?php endif; ?>
+        </div>
+        <a class="carousel-control-prev" href="#carousel<?php the_ID(); ?>" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel<?php the_ID(); ?>" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
 
-	<div class="entry-content">
-		<?php
-		/* translators: %s: Name of current post */
-		the_content( sprintf(
-			__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'wanabima' ),
-			get_the_title()
-		) );
+    </div>
 
-		wp_link_pages( array(
-			'before'      => '<div class="page-links">' . __( 'Pages:', 'wanabima' ),
-			'after'       => '</div>',
-			'link_before' => '<span class="page-number">',
-			'link_after'  => '</span>',
-		) );
-		?>
-	</div><!-- .entry-content -->
+    <!--    Post content-->
+    <div class="text-center">
+        <h6 class="p-1 m-1 h6"><?php echo $custom_fields['sub_title'][0] ? get_the_title():""; ?></h6>
+        <h3 class="p-1 m-1 h3"><?php echo $custom_fields['sub_title'][0] ? $custom_fields['sub_title'][0]:get_the_title(); ?></h3>
 
-	<?php
-	if ( is_single() ) {
-		wanabima_entry_footer();
-	}
-	?>
+        <p class="p-1 m-2 lead">
+            <?php the_content('Read the rest of this entry &raquo;'); ?>
+        </p>
+        <?php
+        $button_link = get_post_meta(get_the_ID(), 'button_link', true);
+        if(isset($button_link)) {?>
+            <a href="<?php echo $button_link; ?>" class="btn btn-outline-success"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "INQUIRY" ?></a>
+            <?php
+        }?>
+<!--        <button class="btn btn-outline-success">Inquiry</button>-->
+    </div>
 
-</article><!-- #post-## -->
+    <!--    Social link-->
+    <div class="campsite-item-social text-center">
+        <div class="p-2 mx-auto h4">
+            <!-- Facebook -->
+            <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" target="_blank">
+                <i class="fa fa-facebook"></i>
+            </a>
+
+            <!-- Google+ -->
+            <a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank">
+                <i class="fa fa-google"></i>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.pinterest.com/pin/create/button/?url=https://<?php the_permalink(); ?>&media=<?php ;?>&description=<?php echo get_the_title(); ?>" target="_blank">
+                <i class="fa fa-pinterest"></i>
+            </a>
+
+            <!-- Twitter -->
+            <a href="https://twitter.com/share?url=<?php the_permalink(); ?>&amp;hashtags=wanabima"
+               target="_blank">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </div>
+    </div>
+</div>

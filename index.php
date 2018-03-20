@@ -255,10 +255,6 @@ get_header(); ?>
 
 </main>
 
-
-<!--<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>-->
-
-
 <!-- Template Main Javascript File -->
 <script src="js/main.js"></script>
 
