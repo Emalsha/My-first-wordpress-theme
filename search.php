@@ -11,11 +11,11 @@
 
 get_header(); ?>
 
-<div class="wrap">
+<div class="container">
 
-	<header class="page-header">
+	<header class="p-2 m-2">
 		<?php if ( have_posts() ) : ?>
-			<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'wanabima' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			<h1 class="h1 text-capitalize"><?php printf( __( 'Search Results for: %s', 'wanabima' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 		<?php else : ?>
 			<h1 class="page-title"><?php _e( 'Nothing Found', 'wanabima' ); ?></h1>
 		<?php endif; ?>

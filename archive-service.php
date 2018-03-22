@@ -1,5 +1,6 @@
 <?php
 /**
+ * The template for displaying archive pages
  *
  * @package Wanabima
  * @since 1.0
@@ -21,17 +22,15 @@ get_header(); ?>
                     <?php
                     global $wpdb;
 
-                    $cpage = 'bungalowandhome';
+                    $cpage = 'services';
                     $position = 1;
 
                     $content = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "customcontent WHERE text_page='$cpage' AND text_page_position='$position'");
                     if ($content) {
                         ?>
-
                         <h3><?php echo $content->text_title; ?></h3>
                         <h4 class="text-center"><?php echo $content->text_sub_title; ?></h4>
                         <p><?php echo $content->text; ?></p>
-
                         <?php
                     }
                     ?>
@@ -45,14 +44,14 @@ get_header(); ?>
         <section id="campsite">
 
             <div class="container-fluid">
-                <div class="row">
+                <div class="card-deck">
                     <?php
                     if (have_posts()) : ?>
                         <?php
                         /* Start the Loop */
                         while (have_posts()) : the_post();
 //                        Get template
-                            get_template_part('template-parts/post/content', 'hotel');
+                            get_template_part('template-parts/post/content', get_post_type());
 
                         endwhile;
 
@@ -71,10 +70,11 @@ get_header(); ?>
             </div>
         </section>
 
+
         <?php
         global $wpdb;
 
-        $cpage = 'bungalowandhome';
+        $cpage = 'services';
         $position = 2;
 
         $content = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "customcontent WHERE text_page='$cpage' AND text_page_position='$position'");

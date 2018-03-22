@@ -21,7 +21,7 @@ get_header(); ?>
                     <?php
                     global $wpdb;
 
-                    $cpage = 'bungalowandhome';
+                    $cpage = 'camping';
                     $position = 1;
 
                     $content = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "customcontent WHERE text_page='$cpage' AND text_page_position='$position'");
@@ -52,7 +52,7 @@ get_header(); ?>
                         /* Start the Loop */
                         while (have_posts()) : the_post();
 //                        Get template
-                            get_template_part('template-parts/post/content', 'hotel');
+                            get_template_part('template-parts/post/content', get_post_type());
 
                         endwhile;
 
@@ -74,7 +74,7 @@ get_header(); ?>
         <?php
         global $wpdb;
 
-        $cpage = 'bungalowandhome';
+        $cpage = 'camping';
         $position = 2;
 
         $content = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "customcontent WHERE text_page='$cpage' AND text_page_position='$position'");
