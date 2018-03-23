@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying contact page
+ * The template for displaying inquiry page
  *
  * @author Emalsha Rasad
  * @package Wanabima
@@ -80,6 +80,7 @@
                 <div id="primary" class="content-area">
                     <main id="main" class="site-main" role="main">
 
+                        <h3 class="h3"><?php echo $_GET['id']." : ".$_GET['title'];?> - Inquiry Form</h3>
                         <form action="" method="post" onsubmit="return check_captcha_is_filled();" id="formcontact">
                             <div class="row">
                                 <div class="form-group col-md-6">
