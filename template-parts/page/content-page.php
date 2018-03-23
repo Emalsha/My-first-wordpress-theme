@@ -14,7 +14,7 @@
 <?php
 if (get_post_gallery()){
     ?>
-    <div id="imagemenu" class="tab-pane fade show active" role="tabpanel" aria-labelledby="imagemenu-tab">
+    <div class="tab-content p-3">
         <?php
         the_content();
 

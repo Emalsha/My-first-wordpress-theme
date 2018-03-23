@@ -25,7 +25,7 @@ get_header(); ?>
                 </li>
             </ul>
 
-            <div class="tab-content p-3">
+<!--            <div class="tab-content p-3">-->
                 <?php
                 while ( have_posts() ) : the_post();
 
@@ -39,7 +39,7 @@ get_header(); ?>
                 endwhile; // End of the loop.
                 ?>
 
-            </div>
+<!--            </div>-->
         </div>
 
             </main><!-- #main -->

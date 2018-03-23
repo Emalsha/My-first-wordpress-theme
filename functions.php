@@ -676,20 +676,20 @@ function wanabima_scripts() {
 //    <script src="lib/isotope/isotope.pkgd.min.js"></script>
 //    <script src="lib/touchSwipe/jquery.touchSwipe.min.js"></script>
 
-	wp_enqueue_script( 'jquery-scrollto', get_theme_file_uri( '/assets/js/jquery.scrollTo.js' ), array( 'jquery' ), '2.1.2', true );
+	wp_enqueue_script( 'jquery-scrollto', get_theme_file_uri( '/assets/js/jquery.scrollTo.js' ), array( 'jquery' ), false, true );
 
-    wp_enqueue_script( 'jquery', get_theme_file_uri( '/assets/lib/jquery/jquery.min.js' ),array( 'jquery' ), '2.1.2', true );
-    wp_enqueue_script( 'jquery-migrate', get_theme_file_uri( '/assets/lib/jquery/jquery-migrate.min.js' ), array( 'jquery' ), '2.1.2', true );
-    wp_enqueue_script( 'bootstrap-bundle', get_theme_file_uri( '/assets/lib/bootstrap/js/bootstrap.bundle.min.js' ), array( 'jquery' ), '2.1.2', true );
-    wp_enqueue_script( 'easing', get_theme_file_uri( '/assets/lib/easing/easing.min.js' ), array( 'jquery' ), '2.1.2', true );
-    wp_enqueue_script( 'superfish-hover', get_theme_file_uri( '/assets/lib/superfish/hoverIntent.js' ), array( 'jquery' ), '2.1.2', true );
-    wp_enqueue_script( 'superfish-super', get_theme_file_uri( '/assets/lib/superfish/superfish.min.js' ), array( 'jquery' ), '2.1.2', true );
-    wp_enqueue_script( 'wow', get_theme_file_uri( '/assets/lib/wow/wow.min.js' ), array( 'jquery' ), '2.1.2', true );
-    wp_enqueue_script( 'waypoint', get_theme_file_uri( '/assets/lib/waypoints/waypoints.min.js' ), array( 'jquery' ), '2.1.2', true );
-    wp_enqueue_script( 'counterup', get_theme_file_uri( '/assets/lib/counterup/counterup.min.js' ), array( 'jquery' ), '2.1.2', true );
-    wp_enqueue_script( 'owlcarousel', get_theme_file_uri( '/assets/lib/owlcarousel/owl.carousel.min.js' ), array( 'jquery' ), '2.1.2', true );
-    wp_enqueue_script( 'isotope', get_theme_file_uri( '/assets/lib/isotope/isotope.pkgd.min.js' ), array( 'jquery' ), '2.1.2', true );
-    wp_enqueue_script( 'touchSwipe', get_theme_file_uri( '/assets/lib/touchSwipe/jquery.touchSwipe.min.js' ), array( 'jquery' ), '2.1.2', true );
+    wp_enqueue_script( 'jquery', get_theme_file_uri( '/assets/lib/jquery/jquery.min.js' ),array( 'jquery' ), false, true );
+    wp_enqueue_script( 'jquery-migrate', get_theme_file_uri( '/assets/lib/jquery/jquery-migrate.min.js' ), array( 'jquery' ), false, true );
+    wp_enqueue_script( 'bootstrap-bundle', get_theme_file_uri( '/assets/lib/bootstrap/js/bootstrap.bundle.min.js' ), array( 'jquery' ), false, true );
+    wp_enqueue_script( 'easing', get_theme_file_uri( '/assets/lib/easing/easing.min.js' ), array( 'jquery' ), false, true );
+    wp_enqueue_script( 'superfish-hover', get_theme_file_uri( '/assets/lib/superfish/hoverIntent.js' ), array( 'jquery' ), false, true );
+    wp_enqueue_script( 'superfish-super', get_theme_file_uri( '/assets/lib/superfish/superfish.min.js' ), array( 'jquery' ), false, true );
+    wp_enqueue_script( 'wow', get_theme_file_uri( '/assets/lib/wow/wow.min.js' ), array( 'jquery' ), false, true );
+    wp_enqueue_script( 'waypoint', get_theme_file_uri( '/assets/lib/waypoints/waypoints.min.js' ), array( 'jquery' ), false, true );
+    wp_enqueue_script( 'counterup', get_theme_file_uri( '/assets/lib/counterup/counterup.min.js' ), array( 'jquery' ), false, true );
+    wp_enqueue_script( 'owlcarousel', get_theme_file_uri( '/assets/lib/owlcarousel/owl.carousel.min.js' ), array( 'jquery' ), false, true );
+    wp_enqueue_script( 'isotope', get_theme_file_uri( '/assets/lib/isotope/isotope.pkgd.min.js' ), array( 'jquery' ), false, true );
+    wp_enqueue_script( 'touchSwipe', get_theme_file_uri( '/assets/lib/touchSwipe/jquery.touchSwipe.min.js' ), array( 'jquery' ), false, true );
 
 	wp_localize_script( 'wanabima-skip-link-focus-fix', 'wanabimaScreenReaderText', $wanabima_l10n );
 
@@ -2627,7 +2627,7 @@ function my_post_gallery($output, $attr) {
 
     // Here's your actual output, you may customize it to your need
 
-    $output = "<div class=\"row text-center text-lg-left\">\n";
+    $output = "<div id=\"imagemenu\" class=\"tab-pane fade show active\" role=\"tabpanel\" aria-labelledby=\"imagemenu-tab\"><div class=\"row text-center text-lg-left\">\n";
 
     // Now you loop through each attachment
     foreach ($attachments as $id => $attachment) {
@@ -2643,7 +2643,7 @@ function my_post_gallery($output, $attr) {
         $output .= "</a></div>\n";
     }
 
-    $output .= "</div>\n";
+    $output .= "</div></div>\n";
 
     return $output;
 }
@@ -2652,25 +2652,29 @@ function my_post_gallery($output, $attr) {
 // [button foo="foo-value"]
 function youtubePlaylist( $atts ) {
     $a = shortcode_atts( array(
-        'url' => '', //Default video url
-        'title' => 'wanabima video',
+          'youtubeid' => '',
     ), $atts );
 
-    $urlv = parse_url($a['url']);
-    parse_str($urlv['query'],$url);
+    $urlvid = parse_url($a['url']);
+    parse_str($urlvid['query'],$url);
 
-    $thumbnail = "https://img.youtube.com/vi/{$url['v']}/0.jpg";
-    $str = "
-    <a href=\"".$a['url']."\" data-toggle=\"lightbox\" data-gallery=\"youtubevideos\" class=\"col-sm-4\">
-    <img src=\"".$thumbnail."\" class=\"img-fluid\" alt=\"".$a['title']."\">
-    </a>";
+    $youtubeids = explode(',',$a['youtubeid']);
+
+    $completeStr = "";
+    foreach ($youtubeids as $yid ){
+        $thumbnail = "https://img.youtube.com/vi/{$yid}/0.jpg";
+        $str = "
+                <a href=\"https://www.youtube.com/watch?v=".$yid."\" data-toggle=\"lightbox\" data-gallery=\"youtubevideos\" class=\"col-sm-4\">
+                <img src=\"".$thumbnail."\" class=\"img-fluid p-1\" alt=\"wanabima video gallery\">
+                </a>";
+         $completeStr .= $str;
+    }
 
 
     $strBefore  = "<div id=\"videomenu\" role=\"tabpanel\" class=\"tab-pane fade\" aria-labelledby=\"videomenu-tab\">
-                    {$str}
+                    {$completeStr}
                    </div>";
     return $strBefore;
-
 }
 add_shortcode( 'youtube', 'youtubePlaylist' );
 
