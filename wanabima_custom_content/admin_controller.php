@@ -83,7 +83,7 @@
         <input type="hidden" value="wanabimaplugin/plugin-page-content-admin-page.php" name="page">
         <div class="row">
             <div class="col-25">
-                <label for="country">Country</label>
+                <label for="country">Content</label>
             </div>
             <div class="col-75">
                 <select id="select_content" name="content">
@@ -147,7 +147,7 @@ function panelShow()
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-25">title
+                        <div class="col-25">
                             <label for="subtitle">Sub Title</label>
                         </div>
                         <div class="col-75">
