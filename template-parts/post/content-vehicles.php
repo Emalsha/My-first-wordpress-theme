@@ -72,9 +72,7 @@
 
 
     <?php endif; ?>
-    <!--    <div class="col-md-4 img-container">-->
-    <!--        <img src="img/jeep/jeep2.jpg">-->
-    <!--    </div>-->
+
     <div class="col-md-8 ">
         <div class="product-content">
             <h4><?php echo get_the_title(); ?></h4>

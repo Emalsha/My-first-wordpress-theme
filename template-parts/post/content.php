@@ -19,7 +19,12 @@ $custom_fields = get_post_custom();
 
         <div class="carousel-inner campsite-carousel-inner">
             <div class="carousel-item active">
-                <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'd-block w-100 campsite-carousel-img']); ?>
+                <?php
+                if (has_post_thumbnail()){
+                    the_post_thumbnail('wanabima-featured-image', ['class' => 'd-block w-100 campsite-carousel-img']);
+                }else{ ?>
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/wanabima%201110x500.png" class="d-block w-100 campsite-carousel-img wp-post-image" alt="wanabima" >
+                <?php } ?>
             </div>
             <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'second-image')){?>
                 <div class="carousel-item">
