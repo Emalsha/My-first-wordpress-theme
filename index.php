@@ -13,7 +13,11 @@
  * Author: G.H.B.Emalsha Rasad
  */
 
-get_header(); ?>
+get_header();
+
+$cpage = 'home'; // For custom content and feature image
+
+?>
 
     <body>
 
@@ -30,7 +34,6 @@ get_header(); ?>
                 <?php
                 global $wpdb;
 
-                $cpage = 'home';
                 $position = 1;
 
                 $content = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "customcontent WHERE text_page='$cpage' AND text_page_position='$position'");
@@ -61,22 +64,26 @@ get_header(); ?>
                     <figure>
                         <img src="<?php echo esc_url(home_url('/')) ?>wp-content/uploads/img/home/ocean.jpg"
                              class="img-fluid" alt="">
-                        <a href="#" class="link-details" title="More Details">
-                            OCEAN
-                            <br>
-                            <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
-                        </a>
+                        <div class="overlay">
+                            <a href="#" class="link-details" title="More Details">
+                                OCEAN
+                                <br>
+                                <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
+                            </a>
+                        </div>
                     </figure>
                 </div>
                 <div class="wow fadeInUp activity-item" data-wow-delay="0.1s">
                     <figure>
                         <img src="<?php echo esc_url(home_url('/')) ?>wp-content/uploads/img/home/jeep.jpg"
                              class="img-fluid" alt="">
-                        <a href="#" class="link-details" title="More Details">
-                            JEEP
-                            <br>
-                            <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
-                        </a>
+                        <div class="overlay">
+                            <a href="#" class="link-details" title="More Details">
+                                JEEP
+                                <br>
+                                <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
+                            </a>
+                        </div>
                     </figure>
                 </div>
             </div>
@@ -86,22 +93,26 @@ get_header(); ?>
                     <figure>
                         <img src="<?php echo esc_url(home_url('/')) ?>wp-content/uploads/img/home/glamping.jpg"
                              class="img-fluid" alt="">
-                        <a href="#" class="link-details" title="More Details">
-                            GLAMPING
-                            <br>
-                            <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
-                        </a>
+                        <div class="overlay">
+                            <a href="#" class="link-details" title="More Details">
+                                GLAMPING
+                                <br>
+                                <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
+                            </a>
+                        </div>
                     </figure>
                 </div>
                 <div class="wow fadeInUp activity-item" data-wow-delay="0.1s">
                     <figure>
                         <img src="<?php echo esc_url(home_url('/')) ?>wp-content/uploads/img/home/camping.jpg"
                              class="img-fluid" alt="">
-                        <a href="#" class="link-details" title="More Details">
-                            CAMPING
-                            <br>
-                            <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
-                        </a>
+                        <div class="overlay">
+                            <a href="#" class="link-details" title="More Details">
+                                CAMPING
+                                <br>
+                                <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
+                            </a>
+                        </div>
                     </figure>
                 </div>
             </div>
@@ -111,11 +122,13 @@ get_header(); ?>
                     <figure>
                         <img src="<?php echo esc_url(home_url('/')) ?>wp-content/uploads/img/home/adventure.jpg"
                              class="img-fluid" alt="">
-                        <a href="#" class="link-details" title="More Details">
-                            ADVENTURE
-                            <br>
-                            <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
-                        </a>
+                        <div class="overlay">
+                            <a href="#" class="link-details" title="More Details">
+                                ADVENTURE
+                                <br>
+                                <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
+                            </a>
+                        </div>
                     </figure>
                 </div>
             </div>
@@ -134,7 +147,6 @@ get_header(); ?>
                 <?php
                 global $wpdb;
 
-                $cpage = 'home';
                 $position = 2;
 
                 $content = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "customcontent WHERE text_page='$cpage' AND text_page_position='$position'");
@@ -159,67 +171,48 @@ get_header(); ?>
     ============================-->
     <section id="featured-tour" class="wow fadeIn">
         <div class="container-fluid text-center">
-            <h3>Featured Tours</h3>
-            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                est
-                laborum.</p>
+            <h3 class="h3">Featured Tours</h3>
 
             <div class="row">
+                <?php
+                global $wpdb;
 
-                <div class="col-lg-3 col-md-6 wow fadeInUp">
-                    <div class="feature-item">
-                        <!--Use 683 x 1024 image -->
-                        <img src="<?php echo esc_url(home_url('/')) ?>wp-content/uploads/img/home/tour1.jpg"
-                             class="img-fluid" alt="">
-                        <div class="feature-item-info">
-                            <div class="feature-item-info-content">
-                                <h4>Hide out</h4>
-                                <span>Stay out from busy life</span>
-                            </div>
+                $fimages = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "feature_image WHERE feature_page='$cpage' ORDER BY 'feature_image_position'");
+                if ($fimages) {
+                    foreach ($fimages as $fimage) {
+                        ?>
+                        <div class="col-lg-3 col-md-6 wow fadeInUp">
+                            <a href="<?php echo $fimage->url; ?>">
+                                <div class="feature-item">
+                                    <!--Use 683 x 1024 image -->
+                                    <?php $attachmentImg = wp_get_attachment_image_src($fimage->feature_image, full);
+                                    if ($attachmentImg) {
+                                        ?>
+                                        <img src="<?php echo $attachmentImg[0] ?>" class="img-fluid"
+                                             alt="Wanabima feature tours">
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <img src="./img/wanabima%20683x1024.png" class="img-fluid"
+                                             alt="Wanabima feature tours">
+                                        <?php
+                                    }
+                                    ?>
+                                    <div class="overlay feature-item-info">
+                                        <div class="feature-item-info-content">
+                                            <h4><?php echo $fimage->feature_title; ?></h4>
+                                            <span><?php echo $fimage->feature_sub_title; ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="feature-item">
-                        <img src="<?php echo esc_url(home_url('/')) ?>wp-content/uploads/img/home/tour2.jpg"
-                             class="img-fluid" alt="">
-                        <div class="feature-item-info">
-                            <div class="feature-item-info-content">
-                                <h4>Hilly and Cozy</h4>
-                                <span>Stay out from busy life</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        <?php
+                    }
+                }
+                ?>
 
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="feature-item">
-                        <img src="<?php echo esc_url(home_url('/')) ?>wp-content/uploads/img/home/tour3.jpg"
-                             class="img-fluid" alt="">
-                        <div class="feature-item-info">
-                            <div class="feature-item-info-content">
-                                <h4>Accross the Paradise</h4>
-                                <span>Stay out from busy life</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="feature-item">
-                        <img src="<?php echo esc_url(home_url('/')) ?>wp-content/uploads/img/home/tour4.jpg"
-                             class="img-fluid" alt="">
-                        <div class="feature-item-info">
-                            <div class="feature-item-info-content">
-                                <h4>Sand and Beach</h4>
-                                <span>Stay out from busy life</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>
@@ -229,7 +222,6 @@ get_header(); ?>
     <?php
     global $wpdb;
 
-    $cpage = 'home';
     $position = 3;
 
     $content = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "customcontent WHERE text_page='$cpage' AND text_page_position='$position'");

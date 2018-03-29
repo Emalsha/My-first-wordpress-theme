@@ -36,7 +36,7 @@
                             <a href="#intro"><?php the_custom_logo(); ?></a>
                         </div>
 
-                        <div id="nav-menu-container p-0 m-0" style="background-color: #0b2e13">
+                        <div id="nav-menu-container p-0 m-0" style="background-color: var(--main-color-1)">
                             <br>
                             <ul class="nav-menu-contact" style="float: right">
                                 <li><a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a></li>
@@ -45,7 +45,7 @@
                             </ul>
                             <br><br>
 
-                            <div style="background-color: #0b2e13; height: 50px;">
+                            <div style="background-color: var(--main-color-1); height: 50px;">
                                 <?php get_template_part('template-parts/navigation/navigation', 'top'); ?>
                             </div>
 
@@ -103,7 +103,7 @@
                                  data-callback="capcha_filled"
                                  data-expired-callback="capcha_expired"></div>
                             <br>
-                            <input type="submit" name="submit" class="btn btn-success btn-md pl-5 pr-5" value="Send">
+                            <input type="submit" name="submit" class="btn btn-wanabima btn-md pl-5 pr-5" value="Send">
                         </form>
 
                     </main><!-- #main -->

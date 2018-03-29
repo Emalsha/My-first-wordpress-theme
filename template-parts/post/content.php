@@ -74,7 +74,7 @@ $custom_fields = get_post_custom();
         if(isset($button_link)) { //<?php echo $button_link;
             $getURL = get_home_url()."/inquiry?id=".get_the_title()."&title=".$custom_fields['sub_title'][0];
             ?>
-            <a href="<?php echo $getURL;?>" class="btn btn-outline-success"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "INQUIRY" ?></a>
+            <a href="<?php echo $getURL;?>" class="btn btn-outline-wanabima"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "INQUIRY" ?></a>
             <?php
         }?>
 <!--        <button class="btn btn-outline-success">Inquiry</button>-->

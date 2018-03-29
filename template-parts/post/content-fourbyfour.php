@@ -29,7 +29,7 @@ $custom_fields = get_post_custom();
         <?php
         $button_link = get_post_meta(get_the_ID(), 'button_link', true);
         if(isset($button_link)) {?>
-            <a href="<?php echo $button_link; ?>" class="btn btn-primary"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "Go Visit" ?></a>
+            <a href="<?php echo $button_link; ?>" class="btn btn-wanabima"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "Go Visit" ?></a>
             <?php
         }?>
 

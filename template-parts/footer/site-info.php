@@ -11,7 +11,7 @@
 ?>
 <div class="container">
     <div class="copyright">
-        <?php printf( __( '&copy; Copyright <a style="" href="https://wanabima.lk/"><strong>%s</strong></a>. All Rights Reserved', 'wanabima' ), 'BHC Merchant' ); ?>
+        <?php printf( __( '&copy; Copyright <a style="color:var(--main-color-3);" href="https://wanabima.lk/"><strong>%s</strong></a>. All Rights Reserved', 'wanabima' ), 'BHC Merchant' ); ?>
     </div>
     <!--<div class="credits">-->
     <!--<a href="#"></a>-->

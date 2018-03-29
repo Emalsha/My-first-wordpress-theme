@@ -4,11 +4,11 @@ Description: Customizations only.
 */
 
 .menu-item-type-post_type{
-    border-left:2px solid darkolivegreen !important;
+    border-left:2px solid var(--main-color-3) !important;
 }
 
 .menu-item-type-post_type_archive{
-    border-left:2px solid darkolivegreen !important;
+    border-left:2px solid var(--main-color-3) !important;
 }
 
 .main-navigation a{

@@ -142,7 +142,7 @@
                                      data-expired-callback="capcha_expired">
                                 </div>
                                 <br>
-                                <input type="submit" name="wb-submit" class="btn btn-success btn-md pl-5 pr-5"
+                                <input type="submit" name="wb-submit" class="btn btn-wanabima btn-md pl-5 pr-5"
                                        value="Reserve">
                             </form>
 

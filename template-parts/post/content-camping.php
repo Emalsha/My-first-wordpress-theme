@@ -85,7 +85,7 @@ $custom_fields = get_post_custom();
                     <?php
                     $button_link = get_post_meta(get_the_ID(), 'button_link', true);
                     if(isset($button_link)) {?>
-                        <a href="<?php echo $button_link; ?>" class="btn btn-outline-success"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "MORE" ?></a>
+                        <a href="<?php echo $button_link; ?>" class="btn btn-outline-wanabima"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "MORE" ?></a>
                         <?php
                     }?>
                 </div>

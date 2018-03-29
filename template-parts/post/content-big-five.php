@@ -80,7 +80,7 @@ $custom_fields = get_post_custom();
                     <h3 class="card-title"><?php echo get_the_title(); ?></h3>
                     <h5 class="card-title">Big Five With Wanabima</h5>
                     <?php the_content(); ?>
-                    <a href="<?php the_permalink(); ?>" class="btn btn-outline-dark"><?php echo $custom_fields['BUTTON'] ? $custom_fields['BUTTON'][0] : "MORE" ?></a>
+                    <a href="<?php the_permalink(); ?>" class="btn btn-outline-wanabima"><?php echo $custom_fields['BUTTON'] ? $custom_fields['BUTTON'][0] : "MORE" ?></a>
                 </div>
             </div>
 

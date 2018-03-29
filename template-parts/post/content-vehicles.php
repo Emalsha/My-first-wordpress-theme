@@ -110,7 +110,7 @@
                     </div>
                     <div class="">
                         <?php $getURL = get_home_url()."/inquiry?id=".get_the_title();?>
-                        <a class="btn btn-outline-success product-content-btn" href="<?php echo $getURL;?>">Inquire</a>
+                        <a class="btn btn-outline-wanabima product-content-btn" href="<?php echo $getURL;?>">Inquire</a>
                     </div>
                     <div>
                         <label for="" class="button-label">CALL US FOR <br> PERSONALIZED <br>
