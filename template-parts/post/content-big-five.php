@@ -46,11 +46,11 @@ $custom_fields = get_post_custom();
                             ?>
                         </div>
                     <?php } ?>
-                    <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'fourth-image')){?>
+                    <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'forth-image')){?>
                         <div class="carousel-item" style="height: 100%;">
                             <?php
                             if (class_exists('MultiPostThumbnails')) :
-                                MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'fourth-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
+                                MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'forth-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
                             endif;
                             ?>
                         </div>

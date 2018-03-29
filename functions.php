@@ -2287,12 +2287,12 @@ if (class_exists('MultiPostThumbnails')) {
         'post_type' => 'camp-sites'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'camp-sites'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'camp-sites'
     ));
@@ -2309,12 +2309,12 @@ if (class_exists('MultiPostThumbnails')) {
         'post_type' => 'glamping-sites'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'glamping-sites'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'glamping-sites'
     ));
@@ -2331,12 +2331,12 @@ if (class_exists('MultiPostThumbnails')) {
         'post_type' => 'national-park'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'national-park'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'national-park'
     ));
@@ -2353,12 +2353,12 @@ if (class_exists('MultiPostThumbnails')) {
         'post_type' => 'big-five'
     ));
 new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'big-five'
     ));
 new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'big-five'
     ));
@@ -2375,12 +2375,12 @@ new MultiPostThumbnails(array(
         'post_type' => 'safari'
     ));
 new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'safari'
     ));
 new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'safari'
     ));
@@ -2397,12 +2397,12 @@ new MultiPostThumbnails(array(
         'post_type' => 'off-road'
     ));
 new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'off-road'
     ));
 new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'off-road'
     ));
@@ -2419,12 +2419,12 @@ new MultiPostThumbnails(array(
         'post_type' => 'mud-fun'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Second Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'mud-fun'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'mud-fun'
     ));
@@ -2441,12 +2441,12 @@ new MultiPostThumbnails(array(
         'post_type' => 'rally-4x4'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'rally-4x4'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'rally-4x4'
     ));
@@ -2463,12 +2463,12 @@ new MultiPostThumbnails(array(
         'post_type' => 'tour'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'tour'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'tour'
     ));
@@ -2485,12 +2485,12 @@ new MultiPostThumbnails(array(
         'post_type' => 'hideout'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'hideout'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'hideout'
     ));
@@ -2508,12 +2508,12 @@ new MultiPostThumbnails(array(
         'post_type' => 'sandandbeach'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'sandandbeach'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'sandandbeach'
     ));
@@ -2530,12 +2530,12 @@ new MultiPostThumbnails(array(
         'post_type' => 'hillyandcozy'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'hillyandcozy'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'hillyandcozy'
     ));
@@ -2552,12 +2552,12 @@ new MultiPostThumbnails(array(
         'post_type' => 'paradise'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'paradise'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'paradise'
     ));
@@ -2574,12 +2574,12 @@ new MultiPostThumbnails(array(
         'post_type' => 'accommodation'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'accommodation'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'accommodation'
     ));
@@ -2596,12 +2596,12 @@ new MultiPostThumbnails(array(
         'post_type' => 'starhotel'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'starhotel'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'starhotel'
     ));
@@ -2618,12 +2618,12 @@ new MultiPostThumbnails(array(
         'post_type' => 'boutiquehotel'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'boutiquehotel'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'boutiquehotel'
     ));
@@ -2640,12 +2640,12 @@ new MultiPostThumbnails(array(
         'post_type' => 'resortandvilla'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'resortandvilla'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'resortandvilla'
     ));
@@ -2662,12 +2662,12 @@ new MultiPostThumbnails(array(
         'post_type' => 'bungalowandhome'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Forth Image',
         'id' => 'forth-image',
         'post_type' => 'bungalowandhome'
     ));
     new MultiPostThumbnails(array(
-        'label' => 'Third Image',
+        'label' => 'Fifth Image',
         'id' => 'fifth-image',
         'post_type' => 'bungalowandhome'
     ));
