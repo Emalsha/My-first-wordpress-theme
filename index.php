@@ -193,7 +193,7 @@ $cpage = 'home'; // For custom content and feature image
                                         <?php
                                     } else {
                                         ?>
-                                        <img src="./img/wanabima%20683x1024.png" class="img-fluid"
+                                        <img src="<?php echo get_template_directory_uri(); ?>/img/wanabima%20683x1024.png" class="img-fluid"
                                              alt="Wanabima feature tours">
                                         <?php
                                     }
