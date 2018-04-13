@@ -25,14 +25,26 @@ jQuery(document).ready(function ($) {
     });
 
     // Mobile Navigation
-    if ($('#nav-menu-container').length) {
-        var $mobile_nav = $('#nav-menu-container').clone().prop({
+    if ($('#site-navigation').length) {
+        var $mobile_nav = $('.main-navigation').clone().prop({
             id: 'mobile-nav'
         });
-        $mobile_nav.find('> ul').attr({
+
+        $mobile_nav.find('.nav-menu').attr({
             'class': '',
             'id': ''
         });
+
+        $mobile_nav.find('#nav-menu-container').attr({
+            'class': '',
+            'id': ''
+        });
+
+        $mobile_nav.find('.menu-item').attr({
+            'class': '',
+            'id': ''
+        });
+
         $('body').append($mobile_nav);
         $('body').prepend('<button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>');
         $('body').append('<div id="mobile-body-overly"></div>');

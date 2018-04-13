@@ -51,9 +51,9 @@ $cpage = 'rent_a_jeep';
                 ?>
             </header><!-- .page-header -->
         <?php endif; ?>
-<!--==========================
-    Jeep detail Section
-============================-->
+        <!--==========================
+            Jeep detail Section
+        ============================-->
         <section id="jeepdetail">
 
             <div class="container">
@@ -108,9 +108,9 @@ $cpage = 'rent_a_jeep';
         }
         ?>
 
-<!--==========================
-  Featured Tours Section
-============================-->
+        <!--==========================
+          Featured Tours Section
+        ============================-->
         <section id="featured-tour" class="wow fadeIn">
             <div class="container-fluid text-center">
                 <h3 class="h3">Featured Tours</h3>
@@ -124,30 +124,31 @@ $cpage = 'rent_a_jeep';
                         foreach ($fimages as $fimage) {
                             ?>
                             <div class="col-lg-3 col-md-6 wow fadeInUp">
-                                <a href="<?php echo $fimage->url; ?>">
-                                    <div class="feature-item">
-                                        <!--Use 683 x 1024 image -->
-                                        <?php $attachmentImg = wp_get_attachment_image_src($fimage->feature_image, full);
-                                        if ($attachmentImg) {
-                                            ?>
-                                            <img src="<?php echo $attachmentImg[0] ?>" class="img-fluid"
-                                                 alt="Wanabima feature tours">
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/wanabima%20683x1024.png" class="img-fluid"
-                                                 alt="Wanabima feature tours">
-                                            <?php
-                                        }
+                                <div class="feature-item">
+                                    <!--Use 683 x 1024 image -->
+                                    <?php $attachmentImg = wp_get_attachment_image_src($fimage->feature_image, full);
+                                    if ($attachmentImg) {
                                         ?>
-                                        <div class="overlay feature-item-info">
+                                        <img src="<?php echo $attachmentImg[0] ?>" class="img-fluid"
+                                             alt="Wanabima feature tours">
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/img/wanabima%20683x1024.png"
+                                             class="img-fluid"
+                                             alt="Wanabima feature tours">
+                                        <?php
+                                    }
+                                    ?>
+                                    <div class="overlay feature-item-info">
+                                        <a href="<?php echo $fimage->url; ?>">
                                             <div class="feature-item-info-content">
                                                 <h4><?php echo $fimage->feature_title; ?></h4>
                                                 <span><?php echo $fimage->feature_sub_title; ?></span>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
-                                </a>
+                                </div>
                             </div>
 
                             <?php

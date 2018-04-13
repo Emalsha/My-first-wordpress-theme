@@ -60,77 +60,129 @@ $cpage = 'home'; // For custom content and feature image
         <div class="row activity-row">
 
             <div class="col-md-3 wb-home-menu">
-                <div class="wow fadeInUp activity-item" data-wow-delay="0.1s">
-                    <figure>
-                        <img src="<?php echo esc_url(home_url('/')) ?>wp-content/uploads/img/home/ocean.jpg"
-                             class="img-fluid" alt="">
-                        <div class="overlay">
-                            <a href="#" class="link-details" title="More Details">
-                                OCEAN
-                                <br>
-                                <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
-                            </a>
+                <?php
+                global $wpdb;
+
+                $aimages = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "activitycontent WHERE id=1 OR id=2");
+                if ($aimages) {
+                    foreach ($aimages as $aimage) {
+                        ?>
+                        <div class="wow fadeInUp activity-item" data-wow-delay="0.1s">
+                            <figure>
+                                <?php $attachmentImg = wp_get_attachment_image_src($aimage->content_image, full);
+                                if ($attachmentImg) {
+                                    ?>
+                                    <img src="<?php echo $attachmentImg[0] ?>" class="img-fluid"
+                                         alt="Wanabima Activity">
+                                    <?php
+                                } else {
+                                    ?>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/img/wanabima%201x1.png"
+                                         class="img-fluid"
+                                         alt="Wanabima Activity">
+                                    <?php
+                                }
+                                ?>
+
+                                <div class="overlay">
+                                    <a href="<?php echo $aimage->url; ?>" class="link-details" title="More Details">
+                                        <?php echo $aimage->content_title; ?>
+                                        <br>
+                                        <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
+                                    </a>
+                                    <p style="font-size: .5em"><?php echo $aimage->feature_sub_title; ?></p>
+                                </div>
+                            </figure>
                         </div>
-                    </figure>
-                </div>
-                <div class="wow fadeInUp activity-item" data-wow-delay="0.1s">
-                    <figure>
-                        <img src="<?php echo esc_url(home_url('/')) ?>wp-content/uploads/img/home/jeep.jpg"
-                             class="img-fluid" alt="">
-                        <div class="overlay">
-                            <a href="#" class="link-details" title="More Details">
-                                JEEP
-                                <br>
-                                <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
-                            </a>
-                        </div>
-                    </figure>
-                </div>
+
+                        <?php
+                    }
+                }
+                ?>
             </div>
 
             <div class="col-md-3 wb-home-menu">
-                <div class="wow fadeInUp activity-item" data-wow-delay="0.1s">
-                    <figure>
-                        <img src="<?php echo esc_url(home_url('/')) ?>wp-content/uploads/img/home/glamping.jpg"
-                             class="img-fluid" alt="">
-                        <div class="overlay">
-                            <a href="#" class="link-details" title="More Details">
-                                GLAMPING
-                                <br>
-                                <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
-                            </a>
+                <?php
+                global $wpdb;
+
+                $fimages = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "activitycontent WHERE id=3 OR id=4");
+                if ($fimages) {
+                    foreach ($fimages as $fimage) {
+                        ?>
+                        <div class="wow fadeInUp activity-item" data-wow-delay="0.1s">
+                            <figure>
+                                <?php $attachmentImg = wp_get_attachment_image_src($fimage->content_image, full);
+                                if ($attachmentImg) {
+                                    ?>
+                                    <img src="<?php echo $attachmentImg[0] ?>" class="img-fluid"
+                                         alt="Wanabima Activity">
+                                    <?php
+                                } else {
+                                    ?>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/img/wanabima%201x1.png"
+                                         class="img-fluid"
+                                         alt="Wanabima Activity">
+                                    <?php
+                                }
+                                ?>
+
+                                <div class="overlay">
+                                    <a href="<?php echo $fimage->url; ?>" class="link-details" title="More Details">
+                                        <?php echo $fimage->content_title; ?>
+                                        <br>
+                                        <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
+                                    </a>
+                                    <p style="font-size: .5em"><?php echo $fimage->feature_sub_title; ?></p>
+                                </div>
+                            </figure>
                         </div>
-                    </figure>
-                </div>
-                <div class="wow fadeInUp activity-item" data-wow-delay="0.1s">
-                    <figure>
-                        <img src="<?php echo esc_url(home_url('/')) ?>wp-content/uploads/img/home/camping.jpg"
-                             class="img-fluid" alt="">
-                        <div class="overlay">
-                            <a href="#" class="link-details" title="More Details">
-                                CAMPING
-                                <br>
-                                <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
-                            </a>
-                        </div>
-                    </figure>
-                </div>
+
+                        <?php
+                    }
+                }
+                ?>
             </div>
 
             <div class="col-md-6 wb-home-menu">
-                <div class="wow fadeInUp activity-item" data-wow-delay="0.1s">
-                    <figure>
-                        <img src="<?php echo esc_url(home_url('/')) ?>wp-content/uploads/img/home/adventure.jpg"
-                             class="img-fluid" alt="">
-                        <div class="overlay">
-                            <a href="#" class="link-details" title="More Details">
-                                ADVENTURE
-                                <br>
-                                <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
-                            </a>
+                <?php
+                global $wpdb;
+
+                $fimages = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "activitycontent WHERE id=5");
+                if ($fimages) {
+                    foreach ($fimages as $fimage) {
+                        ?>
+                        <div class="wow fadeInUp activity-item" data-wow-delay="0.1s">
+                            <figure>
+                                <?php $attachmentImg = wp_get_attachment_image_src($fimage->content_image, full);
+                                if ($attachmentImg) {
+                                    ?>
+                                    <img src="<?php echo $attachmentImg[0] ?>" class="img-fluid"
+                                         alt="Wanabima Activity">
+                                    <?php
+                                } else {
+                                    ?>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/img/wanabima%201x1.png"
+                                         class="img-fluid"
+                                         alt="Wanabima Activity">
+                                    <?php
+                                }
+                                ?>
+
+                                <div class="overlay">
+                                    <a href="<?php echo $fimage->url; ?>" class="link-details" title="More Details">
+                                        <?php echo $fimage->content_title; ?>
+                                        <br>
+                                        <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
+                                    </a>
+                                    <p style="font-size: .5em"><?php echo $fimage->feature_sub_title; ?></p>
+                                </div>
+                            </figure>
                         </div>
-                    </figure>
-                </div>
+
+                        <?php
+                    }
+                }
+                ?>
             </div>
 
         </div>
@@ -182,30 +234,32 @@ $cpage = 'home'; // For custom content and feature image
                     foreach ($fimages as $fimage) {
                         ?>
                         <div class="col-lg-3 col-md-6 wow fadeInUp">
-                            <a href="<?php echo $fimage->url; ?>">
-                                <div class="feature-item">
-                                    <!--Use 683 x 1024 image -->
-                                    <?php $attachmentImg = wp_get_attachment_image_src($fimage->feature_image, full);
-                                    if ($attachmentImg) {
-                                        ?>
-                                        <img src="<?php echo $attachmentImg[0] ?>" class="img-fluid"
-                                             alt="Wanabima feature tours">
-                                        <?php
-                                    } else {
-                                        ?>
-                                        <img src="<?php echo get_template_directory_uri(); ?>/img/wanabima%20683x1024.png" class="img-fluid"
-                                             alt="Wanabima feature tours">
-                                        <?php
-                                    }
+
+                            <div class="feature-item">
+                                <!--Use 683 x 1024 image -->
+                                <?php $attachmentImg = wp_get_attachment_image_src($fimage->feature_image, full);
+                                if ($attachmentImg) {
                                     ?>
-                                    <div class="overlay feature-item-info">
+                                    <img src="<?php echo $attachmentImg[0] ?>" class="img-fluid"
+                                         alt="Wanabima feature tours">
+                                    <?php
+                                } else {
+                                    ?>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/img/wanabima%20683x1024.png"
+                                         class="img-fluid"
+                                         alt="Wanabima feature tours">
+                                    <?php
+                                }
+                                ?>
+                                <div class="overlay feature-item-info">
+                                    <a href="<?php echo $fimage->url; ?>">
                                         <div class="feature-item-info-content">
                                             <h4><?php echo $fimage->feature_title; ?></h4>
                                             <span><?php echo $fimage->feature_sub_title; ?></span>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
-                            </a>
+                            </div>
                         </div>
 
                         <?php

@@ -36,7 +36,7 @@
                             <a href="#intro"><?php the_custom_logo(); ?></a>
                         </div>
 
-                        <div id="nav-menu-container p-0 m-0" style="background-color: #0b2e13">
+                        <div id="nav-menu-container p-0 m-0" style="background-color: var(--main-color-1)">
                             <br>
                             <ul class="nav-menu-contact" style="float: right">
                                 <li><a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a></li>
@@ -45,7 +45,7 @@
                             </ul>
                             <br><br>
 
-                            <div style="background-color: #0b2e13; height: 50px;">
+                            <div style="background-color: var(--main-color-1); height: 50px;">
                                 <?php get_template_part('template-parts/navigation/navigation', 'top'); ?>
                             </div>
 
@@ -136,11 +136,16 @@
                                                   required></textarea>
                                     </div>
                                 </div>
-                                <div class="g-recaptcha" data-sitekey="6Le9Z04UAAAAADgJHq9tXWSOwIsy8oBtUrILGdnh"
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <div class="g-recaptcha" data-sitekey="6Le9Z04UAAAAADgJHq9tXWSOwIsy8oBtUrILGdnh"
 
-                                     data-callback="capcha_filled"
-                                     data-expired-callback="capcha_expired">
+                                             data-callback="capcha_filled"
+                                             data-expired-callback="capcha_expired">
+                                        </div>
+                                    </div>
                                 </div>
+
                                 <br>
                                 <input type="submit" name="wb-submit" class="btn btn-wanabima btn-md pl-5 pr-5"
                                        value="Reserve">
@@ -152,7 +157,7 @@
                             <?php }?>
                         </div>
 
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-4 col-sm-12 p-2">
                             <div class="card bg-light mb-3" style="max-width: 18rem;">
                                 <div class="card-header">Contact Now</div>
                                 <div class="card-body">

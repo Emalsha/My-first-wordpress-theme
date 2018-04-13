@@ -29,19 +29,6 @@
         <div id="content" class="site-content">
 
             <?php
-
-            /*
-             * If a regular post or page, and not the front page, show the featured image.
-             * Using get_queried_object_id() here since the $post global may not be set before a call to the_post().
-             */
-//            if ((is_single() || (is_page() && !wanabima_is_frontpage())) && has_post_thumbnail(get_queried_object_id())) :
-//                echo '<div class="single-featured-image-header">';
-//                echo get_the_post_thumbnail(get_queried_object_id(), 'wanabima-featured-image');
-//                echo '</div><!-- .single-featured-image-header -->';
-//            endif;
-            ?>
-
-            <?php
                 get_template_part('template-parts/header/header', 'image');
             ?>
 
@@ -55,7 +42,7 @@
                             <a href="#intro"><?php the_custom_logo(); ?></a>
                         </div>
 
-                        <nav id="nav-menu-container">
+                        <div id="nav-menu-container">
                             <ul class="nav-menu-contact" style="float: right">
                                 <li><a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a></li>
                                 <li><a href="mailto:wanabima@gmail.com">wanabima@gmail.com</a></li>
@@ -66,7 +53,7 @@
                             <!--                            main menu-->
                             <?php get_template_part('template-parts/navigation/navigation', 'top'); ?>
 
-                        </nav><!-- #nav-menu-container -->
+                        </div><!-- #nav-menu-container -->
                     <?php endif; ?>
                 </div>
             </header><!-- #header -->

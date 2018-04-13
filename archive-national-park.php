@@ -32,9 +32,9 @@ $cpage = 'national_park';
                     if ($content) {
                         ?>
 
-                                    <h3><?php echo $content->text_title; ?></h3>
-                                    <h4 class="text-center"><?php echo $content->text_sub_title; ?></h4>
-                                    <p><?php echo $content->text; ?></p>
+                        <h3><?php echo $content->text_title; ?></h3>
+                        <h4 class="text-center"><?php echo $content->text_sub_title; ?></h4>
+                        <p><?php echo $content->text; ?></p>
 
                         <?php
                     }
@@ -45,7 +45,7 @@ $cpage = 'national_park';
         <?php if (have_posts()) : ?>
             <header class="page-header">
                 <?php
-//                the_archive_title('<h1 class="page-title">', '</h1>'); //TODO
+                //                the_archive_title('<h1 class="page-title">', '</h1>'); //TODO
                 //the_archive_description('<div class="taxonomy-description">', '</div>'); TODO
                 ?>
             </header><!-- .page-header -->
@@ -106,9 +106,9 @@ $cpage = 'national_park';
         }
         ?>
 
-<!--==========================
-  Featured Tours Section
-============================-->
+        <!--==========================
+          Featured Tours Section
+        ============================-->
         <section id="featured-tour" class="wow fadeIn">
             <div class="container-fluid text-center">
                 <h3 class="h3">Featured Tours</h3>
@@ -122,30 +122,31 @@ $cpage = 'national_park';
                         foreach ($fimages as $fimage) {
                             ?>
                             <div class="col-lg-3 col-md-6 wow fadeInUp">
-                                <a href="<?php echo $fimage->url; ?>">
-                                    <div class="feature-item">
-                                        <!--Use 683 x 1024 image -->
-                                        <?php $attachmentImg = wp_get_attachment_image_src($fimage->feature_image, full);
-                                        if ($attachmentImg) {
-                                            ?>
-                                            <img src="<?php echo $attachmentImg[0] ?>" class="img-fluid"
-                                                 alt="Wanabima feature tours">
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/wanabima%20683x1024.png" class="img-fluid"
-                                                 alt="Wanabima feature tours">
-                                            <?php
-                                        }
+                                <div class="feature-item">
+                                    <!--Use 683 x 1024 image -->
+                                    <?php $attachmentImg = wp_get_attachment_image_src($fimage->feature_image, full);
+                                    if ($attachmentImg) {
                                         ?>
-                                        <div class="overlay feature-item-info">
+                                        <img src="<?php echo $attachmentImg[0] ?>" class="img-fluid"
+                                             alt="Wanabima feature tours">
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/img/wanabima%20683x1024.png"
+                                             class="img-fluid"
+                                             alt="Wanabima feature tours">
+                                        <?php
+                                    }
+                                    ?>
+                                    <div class="overlay feature-item-info">
+                                        <a href="<?php echo $fimage->url; ?>">
                                             <div class="feature-item-info-content">
                                                 <h4><?php echo $fimage->feature_title; ?></h4>
                                                 <span><?php echo $fimage->feature_sub_title; ?></span>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
-                                </a>
+                                </div>
                             </div>
 
                             <?php
