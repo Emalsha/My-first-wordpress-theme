@@ -106,7 +106,7 @@ $cpage = '4x4_adventure';
         }
         ?>
 
-        <!--==========================
+<!--==========================
   Featured Tours Section
 ============================-->
         <section id="featured-tour" class="wow fadeIn">
@@ -138,6 +138,9 @@ $cpage = '4x4_adventure';
                                         <?php
                                     }
                                     ?>
+                                    <div class="feature-item-title">
+                                        <h4><?php echo $fimage->feature_title; ?></h4>
+                                    </div>
                                     <div class="overlay feature-item-info">
                                         <a href="<?php echo $fimage->url; ?>">
                                             <div class="feature-item-info-content">

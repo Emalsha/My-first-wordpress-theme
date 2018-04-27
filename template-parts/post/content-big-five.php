@@ -17,8 +17,8 @@ $custom_fields = get_post_custom();
 
 ?>
 
-<div class="p-3 col-md-6"  id="<?php the_ID(); ?>">
-    <div class="border border-dark rounded">
+<div class="p-3 col-md-6"  id="<?php the_ID(); ?>" >
+    <div class="border border-dark rounded" style="min-height:25em ; max-height: 25em; overflow: hidden">
         <div class="row">
 
             <div class="col-md-6 pr-0 img-container carousel slide carousel-fade" id="carousel<?php the_ID(); ?>" data-interval="false">
@@ -79,8 +79,15 @@ $custom_fields = get_post_custom();
                 <div class="float-right">
                     <h3 class="card-title"><?php echo get_the_title(); ?></h3>
                     <h5 class="card-title">Big Five With Wanabima</h5>
-                    <?php the_content(); ?>
-                    <a href="<?php the_permalink(); ?>" class="btn btn-outline-wanabima"><?php echo $custom_fields['BUTTON'] ? $custom_fields['BUTTON'][0] : "MORE" ?></a>
+                    <?php $va = get_the_content();
+                    if(strlen($va)>250){
+                        $vaStr = substr($va,0,250);
+                        echo "<p>".$vaStr."<a href='". get_the_permalink()."' target='_blank'> Read the rest... </a></p>";
+                    }else{
+                        echo "<p>".$va."</p>";
+                    }
+                    ?>
+                    <a href="<?php the_permalink(); ?>" class="btn btn-outline-wanabima" target='_blank'><?php echo $custom_fields['BUTTON'] ? $custom_fields['BUTTON'][0] : "MORE" ?></a>
                 </div>
             </div>
 

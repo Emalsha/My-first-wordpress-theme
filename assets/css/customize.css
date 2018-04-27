@@ -13,7 +13,7 @@ Description: Customizations only.
 
 .main-navigation a{
     padding: 0em 0.75em;
-    font-size: .8em;
+    font-size: .73em;
 }
 
 .wb-navigation{
@@ -24,4 +24,18 @@ Description: Customizations only.
 
 .custom-logo-link img{
     max-height: 120px;
+}
+
+.img-gallery{
+    height:183px;
+}
+
+.big-five-card p{
+    height: 9em;
+    overflow: hidden;
+}
+
+.hotel-content p{
+    height: 14em;
+    overflow: hidden;
 }

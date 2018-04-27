@@ -97,6 +97,10 @@ function wcc_install_data()
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'text_page' => 'mud_fun', 'text_page_position' => 2, 'text_title' => 'Mud Fun Page', 'text_sub_title' => 'Under Maintains', 'text' => 'This is a sample data. This will update soon.',));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'text_page' => 'mud_fun', 'text_page_position' => 3, 'text_title' => 'Mud Fun Page', 'text_sub_title' => 'Under Maintains', 'text' => 'This is a sample data. This will update soon.',));
 
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'text_page' => 'rally-4x4', 'text_page_position' => 1, 'text_title' => 'Mud Fun Page', 'text_sub_title' => 'Under Maintains', 'text' => 'This is a sample data. This will update soon.',));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'text_page' => 'rally-4x4', 'text_page_position' => 2, 'text_title' => 'Mud Fun Page', 'text_sub_title' => 'Under Maintains', 'text' => 'This is a sample data. This will update soon.',));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'text_page' => 'rally-4x4', 'text_page_position' => 3, 'text_title' => 'Mud Fun Page', 'text_sub_title' => 'Under Maintains', 'text' => 'This is a sample data. This will update soon.',));
+
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'text_page' => 'tour', 'text_page_position' => 1, 'text_title' => 'Tours Page', 'text_sub_title' => 'Under Maintains', 'text' => 'This is a sample data. This will update soon.',));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'text_page' => 'tour', 'text_page_position' => 2, 'text_title' => 'Tours Page', 'text_sub_title' => 'Under Maintains', 'text' => 'This is a sample data. This will update soon.',));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'text_page' => 'tour', 'text_page_position' => 3, 'text_title' => 'Tours Page', 'text_sub_title' => 'Under Maintains', 'text' => 'This is a sample data. This will update soon.',));

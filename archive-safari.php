@@ -135,6 +135,9 @@ $cpage = 'wanabima_safari';
                                         <?php
                                     }
                                     ?>
+                                    <div class="feature-item-title">
+                                        <h4><?php echo $fimage->feature_title; ?></h4>
+                                    </div>
                                     <div class="overlay feature-item-info">
                                         <a href="<?php echo $fimage->url; ?>">
                                             <div class="feature-item-info-content">

@@ -165,6 +165,26 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/*Breadcrumb*/
+
+#breadcrumbs{
+    padding: 3px 16px;
+    list-style: none;
+    /*background-color: var(--main-color-4);*/
+    font-size: 16px;
+    color: var(--main-color-1);
+    text-decoration: none;
+}
+
+#breadcrumbs a:hover {
+    color: var(--main-color-3);
+    text-decoration: underline;
+}
+
+#breadcrumbs span{
+    color:var(--main-color-3)
+}
+
 /*--------------------------------------------------------------
 # Intro Section
 --------------------------------------------------------------*/
@@ -388,7 +408,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-@media (max-width: 1420px) {
+@media (max-width: 1300px) {
     #nav-menu-container {
         display: none;
     }
@@ -558,7 +578,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff;
 }
 
-@media (max-width: 1420px) {
+@media (max-width: 1300px) {
     #mobile-nav-toggle {
         display: inline;
     }
@@ -822,6 +842,25 @@ body.mobile-nav-active #mobile-nav-toggle {
     height: 100%;
 }
 
+#activity .image-title{
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    font-weight: 500;
+    text-shadow: 1px 1px 4px black;
+    overflow:hidden;
+    transition: .5s ease;
+}
+
+#activity .activity-item:hover .image-title{
+    top: calc(50% - 1em);
+}
+
 /* content2 Section
 --------------------------------*/
 #content2 {
@@ -908,6 +947,14 @@ body.mobile-nav-active #mobile-nav-toggle {
 #featured-tour .feature-item .feature-item-info-content {
     margin-top: -50px;
     transition: margin 0.2s;
+}
+
+#featured-tour .feature-item-title h4 {
+    position:absolute;
+    top:15px;
+    left:15px;
+    font-family: "Montserrat", sans-serif;
+    text-shadow: 0 0 3px var(--main-color-3), 0 0 5px var(--main-color-4);
 }
 
 #featured-tour .feature-item h4 {
@@ -1363,8 +1410,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #jeepdetail .product .product-content .product-content-p {
     width: 100%;
-    /*white-space: nowrap;*/
-    /*overflow: scroll;*/
+    white-space: nowrap;
+    overflow: hidden;
     word-break: break-all;
     -ms-text-overflow: ellipsis;
     text-overflow: ellipsis;

@@ -109,6 +109,11 @@ function wfi_install_data()
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'mud_fun', 'image_position' => 3, 'feature_title' => 'Mud Fun Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'mud_fun', 'image_position' => 4, 'feature_title' => 'Mud Fun Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
 
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'rally-4x4', 'image_position' => 1, 'feature_title' => 'Mud Fun Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'rally-4x4', 'image_position' => 2, 'feature_title' => 'Mud Fun Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'rally-4x4', 'image_position' => 3, 'feature_title' => 'Mud Fun Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'rally-4x4', 'image_position' => 4, 'feature_title' => 'Mud Fun Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'tour', 'image_position' => 1, 'feature_title' => 'Tours Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'tour', 'image_position' => 2, 'feature_title' => 'Tours Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'tour', 'image_position' => 3, 'feature_title' => 'Tours Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));

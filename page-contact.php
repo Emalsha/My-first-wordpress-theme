@@ -59,6 +59,12 @@
                         frameborder="0" style="border:0; width: 100%; height: 40vh;" allowfullscreen></iframe>
             </div>
 
+            <?php
+            if (function_exists('yoast_breadcrumb')) {
+                yoast_breadcrumb('<div id="breadcrumbs">', '</div>');
+            }
+            ?>
+
 
             <!--==========================
               Content 1 Section
@@ -78,33 +84,54 @@
 
             <div class="container">
                 <div id="primary" class="content-area">
-                    <main id="main" class="site-main" role="main">
+                    <main id="main" class="site-main row" role="main">
 
-                        <form action="" method="post" onsubmit="return check_captcha_is_filled();" id="formcontact">
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label for="cname">Name :*</label>
-                                    <input type="text" class="form-control" id="cname" name="cname" required>
+                        <div class="col-md-8 col-sm-12">
+                            <form action="" method="post" onsubmit="return check_captcha_is_filled();" id="formcontact">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="cname">Name :*</label>
+                                        <input type="text" class="form-control" id="cname" name="cname" required>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="cemail">Email:*</label>
+                                        <input type="email" class="form-control" id="cemail" name="cemail" required>
+                                    </div>
                                 </div>
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <label for="cmessage">Message:*</label>
+                                        <textarea name="cmessage" class="form-control" id="cmessage" rows="8"
+                                                  required></textarea>
+                                    </div>
+                                </div>
+                                <div class="g-recaptcha" data-sitekey="6Le9Z04UAAAAADgJHq9tXWSOwIsy8oBtUrILGdnh"
+                                     data-callback="capcha_filled"
+                                     data-expired-callback="capcha_expired"></div>
+                                <br>
+                                <input type="submit" name="submit" class="btn btn-wanabima btn-md pl-5 pr-5"
+                                       value="Send">
+                            </form>
+                        </div>
 
-                                <div class="form-group col-md-6">
-                                    <label for="cemail">Email:*</label>
-                                    <input type="email" class="form-control" id="cemail" name="cemail" required>
+                        <div class="col-md-4 col-sm-12 p-2">
+                            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Contact Now</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Address:</h5>
+                                    <p class="card-text">No:34, Somewhere , In Sri Lanka</p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Contact No:</h5>
+                                    <p class="card-text">(###)##-###-###</p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Email:</h5>
+                                    <p class="card-text">wanabima@gmail.com</p>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="form-group col-md-12">
-                                    <label for="cmessage">Message:*</label>
-                                    <textarea name="cmessage" class="form-control" id="cmessage" rows="8"
-                                              required></textarea>
-                                </div>
-                            </div>
-                            <div class="g-recaptcha" data-sitekey="6Le9Z04UAAAAADgJHq9tXWSOwIsy8oBtUrILGdnh"
-                                 data-callback="capcha_filled"
-                                 data-expired-callback="capcha_expired"></div>
-                            <br>
-                            <input type="submit" name="submit" class="btn btn-wanabima btn-md pl-5 pr-5" value="Send">
-                        </form>
+                        </div>
 
                     </main><!-- #main -->
                 </div><!-- #primary -->

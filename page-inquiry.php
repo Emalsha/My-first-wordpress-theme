@@ -54,16 +54,15 @@
                 </div>
             </header><!-- #header -->
 
-            <div class="col-lg-12 col-md-12 p-0" style="margin-top: 120px;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d11203.254267814127!2d79.8867122987518!3d6.896759668816453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3ae25a20c4d7ccc3%3A0x67b4cee739a886e1!2sgoogle+map+car+way+lanka+nawala!3m2!1d6.8971969!2d79.8921275!5e0!3m2!1sen!2slk!4v1521781107584"
-                        frameborder="0" style="border:0; width: 100%; height: 40vh;" allowfullscreen></iframe>
-            </div>
-
+<!--            <div class="col-lg-12 col-md-12 p-0" style="margin-top: 120px;">-->
+<!--                <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d11203.254267814127!2d79.8867122987518!3d6.896759668816453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3ae25a20c4d7ccc3%3A0x67b4cee739a886e1!2sgoogle+map+car+way+lanka+nawala!3m2!1d6.8971969!2d79.8921275!5e0!3m2!1sen!2slk!4v1521781107584"-->
+<!--                        frameborder="0" style="border:0; width: 100%; height: 40vh;" allowfullscreen></iframe>-->
+<!--            </div>-->
 
             <!--==========================
               Content 1 Section
             ============================-->
-            <section id="content1">
+            <section id="content1" style="margin-top: 120px;">
                 <div class="container">
 
                     <?php the_post() ?>

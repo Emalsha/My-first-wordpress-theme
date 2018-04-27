@@ -22,9 +22,9 @@ $custom_fields = get_post_custom();
         <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
             <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'card-img-top']); ?>
         <?php endif; ?>
-        <div class="card-body">
+        <div class="card-body big-five-card">
             <h4 class="card-title"><?php echo get_the_title(); ?></h4>
-            <p class="card-text"><?php the_content('Read the rest of this entry &raquo;'); ?></p>
+            <?php the_content('Read the rest of this entry &raquo;'); ?>
 
             <?php
             $button_link = get_post_meta(get_the_ID(), 'button_link', true);

@@ -57,3 +57,8 @@
                     <?php endif; ?>
                 </div>
             </header><!-- #header -->
+<?php
+if ( function_exists('yoast_breadcrumb') ) {
+    yoast_breadcrumb('<div id="breadcrumbs">','</div>');
+}
+?>

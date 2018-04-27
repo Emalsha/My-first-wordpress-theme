@@ -77,7 +77,7 @@ $custom_fields = get_post_custom();
             </div>
 
             <div class="col-md-6 p-3">
-                <div class="float-right">
+                <div class="float-right hotel-content">
                     <h3 class="card-title"><?php echo get_the_title(); ?></h3>
                     <h5 class="card-title">Wanabima Accommodation</h5>
                     <?php the_content(); ?>

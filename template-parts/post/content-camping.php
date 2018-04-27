@@ -76,12 +76,11 @@ $custom_fields = get_post_custom();
             </div>
 
             <div class="col-md-6 p-3">
-                <div class="float-right">
+                <div class="float-right big-five-card">
                     <h3 class="card-title"><?php echo get_the_title(); ?></h3>
                     <h5 class="card-title">Big Five With Wanabima</h5>
-                    <p class="p-1 m-2 lead">
+
                         <?php the_content('Read the rest of this entry &raquo;'); ?>
-                    </p>
                     <?php
                     $button_link = get_post_meta(get_the_ID(), 'button_link', true);
                     if(isset($button_link)) {?>

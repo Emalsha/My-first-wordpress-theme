@@ -79,7 +79,14 @@ $custom_fields = get_post_custom();
                 <div class="float-right">
                     <h3 class="card-title"><?php echo get_the_title(); ?></h3>
                     <h5 class="card-title">Wanabima Accommodation</h5>
-                    <?php the_content(); ?>
+                    <?php $va = get_the_content();
+                    if(strlen($va)>250){
+                        $vaStr = substr($va,0,250);
+                        echo "<p>".$vaStr."<a href='". get_the_permalink()."' target='_blank'> Read the rest... </a></p>";
+                    }else{
+                        echo "<p>".$va."</p>";
+                    }
+                    ?>
                     <?php
                     $button_link = get_post_meta(get_the_ID(), 'button_link', true);
                     if(isset($button_link)) {?>

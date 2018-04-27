@@ -83,6 +83,9 @@ $cpage = 'home'; // For custom content and feature image
                                     <?php
                                 }
                                 ?>
+                                <div class="image-title">
+                                    <?php echo $aimage->content_title; ?>
+                                </div>
 
                                 <div class="overlay">
                                     <a href="<?php echo $aimage->url; ?>" class="link-details" title="More Details">
@@ -126,6 +129,9 @@ $cpage = 'home'; // For custom content and feature image
                                 }
                                 ?>
 
+                                <div class="image-title">
+                                    <?php echo $fimage->content_title; ?>
+                                </div>
                                 <div class="overlay">
                                     <a href="<?php echo $fimage->url; ?>" class="link-details" title="More Details">
                                         <?php echo $fimage->content_title; ?>
@@ -167,7 +173,9 @@ $cpage = 'home'; // For custom content and feature image
                                     <?php
                                 }
                                 ?>
-
+                                <div class="image-title">
+                                    <?php echo $fimage->content_title; ?>
+                                </div>
                                 <div class="overlay">
                                     <a href="<?php echo $fimage->url; ?>" class="link-details" title="More Details">
                                         <?php echo $fimage->content_title; ?>
@@ -251,6 +259,9 @@ $cpage = 'home'; // For custom content and feature image
                                     <?php
                                 }
                                 ?>
+                                <div class="feature-item-title">
+                                    <h4><?php echo $fimage->feature_title; ?></h4>
+                                </div>
                                 <div class="overlay feature-item-info">
                                     <a href="<?php echo $fimage->url; ?>">
                                         <div class="feature-item-info-content">
