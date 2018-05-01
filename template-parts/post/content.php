@@ -79,19 +79,27 @@ $custom_fields = get_post_custom();
 
     <!--    Post content-->
     <div class="text-center">
-        <h6 class="p-1 m-1 h6"><?php echo $custom_fields['sub_title'][0] ? get_the_title():""; ?></h6>
-        <h3 class="p-1 m-1 h3"><?php echo $custom_fields['sub_title'][0] ? $custom_fields['sub_title'][0]:get_the_title(); ?></h3>
+        <h6 class="p-1 m-1 h6"><?php echo $custom_fields['sub_title'][0] ? $custom_fields['sub_title'][0]:""; ?></h6>
+        <h3 class="p-1 m-1 h3"><?php echo get_the_title(); ?></h3>
 
         <p class="p-1 m-2">
-            <?php $va = get_the_content();
-            if(strlen($va)>250){
-                $vaStr = substr($va,0,250);
-                echo $vaStr." <a href='". get_the_permalink()."' target='_blank'> Read the rest... </a>";
-            }else{
-                echo $va;
+            <?php
+
+            if(is_single()){
+                the_content();
+            }else {
+
+                $va = get_the_content();
+                if (strlen($va) > 250) {
+                    $vaStr = substr($va, 0, 250);
+                    echo $vaStr . " <a href='" . get_the_permalink() . "' target='_blank' style='color:red;'>   Read More >> </a>";
+                } else {
+                    echo $va;
+                }
             }
 
             ?>
+
         </p>
         <?php
         if(get_post_type() !== 'blog'){
@@ -99,7 +107,7 @@ $custom_fields = get_post_custom();
             if(isset($button_link)) { //<?php echo $button_link;
                 $getURL = get_home_url()."/inquiry?id=".get_the_title()."&title=".$custom_fields['sub_title'][0];
                 ?>
-                <a href="<?php echo $getURL;?>" class="btn btn-outline-wanabima"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "INQUIRY" ?></a>
+                <a href="<?php echo $getURL;?>" class="btn btn-outline-wanabima"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "INQUIRE NOW" ?></a>
                 <?php
             }
         }?>
@@ -108,7 +116,10 @@ $custom_fields = get_post_custom();
 
     <!--    Social link-->
     <div class="campsite-item-social text-center">
-        <div class="p-2 mx-auto h4">
+
+        <div class="p-2 mx-auto h4 text-center">
+            <p class="social-item-text">Recommend this to a friend. Share now,</p>
+
             <!-- Facebook -->
             <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" target="_blank">
                 <i class="fa fa-facebook"></i>

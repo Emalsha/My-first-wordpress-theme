@@ -3,17 +3,17 @@ Theme Name: Wanabima
 Description: Customizations only.
 */
 
-.menu-item-type-post_type{
-    border-left:2px solid var(--main-color-3) !important;
-}
+/*.menu-item-type-post_type{*/
+    /*border-left:2px solid var(--main-color-3) !important;*/
+/*}*/
 
-.menu-item-type-post_type_archive{
-    border-left:2px solid var(--main-color-3) !important;
-}
+/*.menu-item-type-post_type_archive{*/
+    /*border-left:2px solid var(--main-color-3) !important;*/
+/*}*/
 
 .main-navigation a{
-    padding: 0em 0.75em;
-    font-size: .73em;
+    padding: 0em 0.7em;
+    font-size: .75em;
 }
 
 .wb-navigation{
@@ -35,7 +35,17 @@ Description: Customizations only.
     overflow: hidden;
 }
 
+.camping-card p{
+    height: 17em;
+    overflow: hidden;
+}
+
+.camping-card .btn{
+    float:right;
+    margin-right:25px;
+}
+
 .hotel-content p{
-    height: 14em;
+    height: 13.5em;
     overflow: hidden;
 }

@@ -93,7 +93,7 @@ $cpage = 'home'; // For custom content and feature image
                                         <br>
                                         <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
                                     </a>
-                                    <p style="font-size: .5em"><?php echo $aimage->feature_sub_title; ?></p>
+                                    <p style="font-size: .5em"><?php echo $aimage->content_sub_title; ?></p>
                                 </div>
                             </figure>
                         </div>
@@ -138,7 +138,7 @@ $cpage = 'home'; // For custom content and feature image
                                         <br>
                                         <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
                                     </a>
-                                    <p style="font-size: .5em"><?php echo $fimage->feature_sub_title; ?></p>
+                                    <p style="font-size: .5em"><?php echo $fimage->content_sub_title; ?></p>
                                 </div>
                             </figure>
                         </div>
@@ -182,7 +182,7 @@ $cpage = 'home'; // For custom content and feature image
                                         <br>
                                         <button class="btn btn-outline-light"><i class="fa fa-binoculars"></i></button>
                                     </a>
-                                    <p style="font-size: .5em"><?php echo $fimage->feature_sub_title; ?></p>
+                                    <p style="font-size: .5em"><?php echo $fimage->content_sub_title; ?></p>
                                 </div>
                             </figure>
                         </div>

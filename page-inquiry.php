@@ -116,12 +116,12 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="cname">Your Name*</label>
-                                        <input type="text" class="form-control" id="cname" name="wb-cname" required>
+                                        <input type="text" class="form-control" id="cname" name="wb-cname" placeholder="Type your name here" required>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label for="cemail">Your Email*</label>
-                                        <input type="email" class="form-control" id="cemail" name="wb-cemail" required>
+                                        <input type="email" class="form-control" id="cemail" name="wb-cemail" placeholder="Give your e-mail address to reply" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="ccontact">Contact No</label>
@@ -130,9 +130,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        <label for="wb-cmessage">Message*</label>
-                                        <textarea name="wb-cmessage" class="form-control" id="wb-cmessage" rows="8"
-                                                  required></textarea>
+                                        <label for="wb-cmessage">Message</label>
+                                        <textarea name="wb-cmessage" class="form-control" id="wb-cmessage" placeholder="If anything you wish to tell us..." rows="8"></textarea>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -147,7 +146,7 @@
 
                                 <br>
                                 <input type="submit" name="wb-submit" class="btn btn-wanabima btn-md pl-5 pr-5"
-                                       value="Reserve">
+                                       value="Inquire Now">
                             </form>
 
                             <?php }else{?>

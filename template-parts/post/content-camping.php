@@ -76,11 +76,20 @@ $custom_fields = get_post_custom();
             </div>
 
             <div class="col-md-6 p-3">
-                <div class="float-right big-five-card">
+                <div class="float-right camping-card">
                     <h3 class="card-title"><?php echo get_the_title(); ?></h3>
                     <h5 class="card-title">Big Five With Wanabima</h5>
+                    <p>
+                    <?php $va = get_the_content();
+                    if(strlen($va)>400){
+                        $vaStr = substr($va,0,400);
+                        echo $vaStr." <a href='". get_the_permalink()."' target='_blank'> Read the rest... </a>";
+                    }else{
+                        echo $va;
+                    }
 
-                        <?php the_content('Read the rest of this entry &raquo;'); ?>
+                    ?>
+                    </p>
                     <?php
                     $button_link = get_post_meta(get_the_ID(), 'button_link', true);
                     if(isset($button_link)) {?>

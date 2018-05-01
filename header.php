@@ -58,7 +58,7 @@
                 </div>
             </header><!-- #header -->
 <?php
-if ( function_exists('yoast_breadcrumb') ) {
+if ( function_exists('yoast_breadcrumb') && !is_home() ) {
     yoast_breadcrumb('<div id="breadcrumbs">','</div>');
 }
 ?>

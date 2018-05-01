@@ -610,7 +610,8 @@ function wanabima_scripts()
     wp_enqueue_style('animate', get_theme_file_uri('/assets/lib/animate/animate.min.css'), array('bootstrap'));
     wp_enqueue_style('ionicons', get_theme_file_uri('/assets/lib/ionicons/css/ionicons.min.css'));
     wp_enqueue_style('owlcarousel', get_theme_file_uri('/assets/lib/owlcarousel/assets/owl.carousel.min.css'));
-    wp_enqueue_style('Google-font', get_theme_file_uri('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700'));
+    wp_enqueue_style('Google-font', get_theme_file_uri('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700|Roboto+Slab'));
+    wp_enqueue_style('Google-font', get_theme_file_uri('https://fonts.googleapis.com/css?family=Roboto Slab'));
 
     // Load the dark colorscheme.
     if ('dark' === get_theme_mod('colorscheme', 'light') || is_customize_preview()) {
@@ -2180,15 +2181,15 @@ add_action('init', 'blog_post_type', 0);
 
 
 /**
- * creating functions post_remove for removing menu item
+ * creating functions post_remove for removing menu item TODO:
  */
-function post_remove()
-{
-    remove_menu_page('edit.php');
-}
-
-add_action('admin_menu', 'post_remove');
-
+//function post_remove()
+//{
+//    remove_menu_page('edit.php');
+//}
+//
+//add_action('admin_menu', 'post_remove');
+//
 
 /**
  * Add custom post type to admin menu categories
@@ -2347,6 +2348,29 @@ if (class_exists('MultiPostThumbnails')) {
         'id' => 'fifth-image',
         'post_type' => 'vehicles'
     ));
+
+    //Campings
+    new MultiPostThumbnails(array(
+        'label' => 'Second Image',
+        'id' => 'second-image',
+        'post_type' => 'camping'
+    ));
+    new MultiPostThumbnails(array(
+        'label' => 'Third Image',
+        'id' => 'third-image',
+        'post_type' => 'camping'
+    ));
+    new MultiPostThumbnails(array(
+        'label' => 'Forth Image',
+        'id' => 'forth-image',
+        'post_type' => 'camping'
+    ));
+    new MultiPostThumbnails(array(
+        'label' => 'Fifth Image',
+        'id' => 'fifth-image',
+        'post_type' => 'camping '
+    ));
+
 
     //Camp site
     new MultiPostThumbnails(array(
@@ -3092,3 +3116,6 @@ class WP_Widget_Recent_Blog_Posts extends WP_Widget {
         <?php
     }
 }
+
+
+//TODO : ADD header slider for each page ... like contents ... 2 image per page...
