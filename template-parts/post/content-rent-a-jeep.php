@@ -86,7 +86,7 @@
 
                     $custom_fields = get_post_custom();
                     foreach ($custom_fields as $key => $value) {
-                        if ($key !== '_edit_last' && $key !== '_edit_lock' && $key !== '_thumbnail_id' && $key !== 'PRICE' && !strpos($key, 'image_thumbnail')) {
+                        if ($key === 'Seating Capacity' || $key === 'Snorkeled' || $key === 'Luggage Capacity' || $key === 'AC' || $key === 'Hood' || $key === 'Hood Rack' || $key === 'Transmission' || $key === 'Trailer') {
                             //echo $key . " => " . $value[0] . "<br />"; ?>
                             <div class="col-md-6 float-left">
                                 <label class="name-label" id=""><?php echo $key; ?> :</label>
