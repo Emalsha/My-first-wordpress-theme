@@ -9,12 +9,12 @@
 
 get_header();
 
-$cpage = 'tour';
+$cpage = 'big_five';
 
 ?>
 
     <main id="main">
-
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         <!--==========================
           Content 1 Section
         ============================-->
@@ -187,6 +187,7 @@ $cpage = 'tour';
             <?php
         }
         ?>
+
 
     </main><!-- .main-->
 

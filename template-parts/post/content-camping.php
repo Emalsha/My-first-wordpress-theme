@@ -71,10 +71,34 @@ $custom_fields = get_post_custom();
         <h3 class="p-1 m-1 h3"><?php echo $custom_fields['sub_title'][0] ? $custom_fields['sub_title'][0]:get_the_title(); ?></h3>
 
 
-        <p class="p-1 m-2 lead">
-            <?php the_content('Read the rest of this entry &raquo;'); ?>
+        <p class="p-1 m-2 ">
+            <?php
+            if(is_single()){
+                the_content();
+            }else {
+
+                $va = get_the_content();
+                if (strlen($va) > 250) {
+                    $vaStr = substr($va, 0, 250);
+                    echo $vaStr . " <a href='" . get_the_permalink() . "' target='_blank' style='color:red;'>   Read More >> </a>";
+                } else {
+                    echo $va;
+                }
+            }
+
+            ?>
+
         </p>
-        <button class="btn btn-outline-success">Inquiry</button>
+        <?php
+        if(get_post_type() !== 'blog'){
+//            $button_link = get_post_meta(get_the_ID(), 'button_link', true);
+//            if(isset($button_link)) { //<?php echo $button_link;
+                $getURL = get_home_url()."/inquiry?id=".get_the_title()."&title=".$custom_fields['sub_title'][0];
+                ?>
+                <a href="<?php echo $getURL;?>" class="btn btn-outline-wanabima"><?php echo $custom_fields['button_title'][0] ? $custom_fields['button_title'][0] : "INQUIRY NOW" ?></a>
+                <?php
+//            }
+        }?>
     </div>
 
 <!--    Social link-->

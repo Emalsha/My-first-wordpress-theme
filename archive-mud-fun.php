@@ -10,7 +10,13 @@
 
 get_header();
 
-$cpage = 'mud_fun';
+global $wp;
+$url_parse = wp_parse_url(home_url( $wp->request ));
+$path = $url_parse['path'];
+$temp = end(explode('/',$path));
+$content = str_replace('-','_',$temp);
+
+$cpage = $content;
 
 ?>
 

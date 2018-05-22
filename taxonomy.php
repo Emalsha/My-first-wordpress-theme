@@ -10,16 +10,14 @@
 
 get_header();
 
-$cpage = 'camping_site';
+global $wp;
+$url_parse = wp_parse_url(home_url( $wp->request ));
+$path = $url_parse['path'];
+$temp = end(explode('/',$path));
+$content = str_replace('-','_',$temp);
 
-$cat = single_cat_title('', false);
-echo strtolower(str_replace(' ','_',$cat));
+$cpage = $content;
 
-$categories = get_the_category();
-echo $categories[1];
-if ( ! empty( $categories ) ) {
-    echo esc_html( $categories[0]->name );
-}
 
 ?>
 

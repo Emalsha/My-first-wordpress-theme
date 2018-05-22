@@ -10,7 +10,13 @@
 
 get_header();
 
-$cpage = '4x4_adventure';
+global $wp;
+$url_parse = wp_parse_url(home_url( $wp->request ));
+$path = $url_parse['path'];
+$temp = end(explode('/',$path));
+$content = str_replace('-','_',$temp);
+
+$cpage = $content;
 
 ?>
 
@@ -55,27 +61,69 @@ $cpage = '4x4_adventure';
 
             <div class="container-fluid">
                 <div class="card-deck">
-                    <?php
-                    if (have_posts()) : ?>
-                        <?php
-                        /* Start the Loop */
-                        while (have_posts()) : the_post();
-//                        Get template
-                            get_template_part('template-parts/post/content', get_post_type());
+                    <div class="card">
 
-                        endwhile;
+                        <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
+                            <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'card-img-top']); ?>
+                        <?php endif; ?>
+                        <div class="card-body big-five-card">
+                            <h4 class="card-title">NATIONAL PARKS</h4>
+                            <p>
 
-                        the_posts_pagination(array(
-                            'prev_text' => wanabima_get_svg(array('icon' => 'arrow-left')) . '<span class="screen-reader-text">' . __('Previous page', 'wanabima') . '</span>',
-                            'next_text' => '<span class="screen-reader-text">' . __('Next page', 'wanabima') . '</span>' . wanabima_get_svg(array('icon' => 'arrow-right')),
-                            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'wanabima') . ' </span>',
-                        ));
+                                took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
 
-                    else :
+                            <?php
+                            $button_link = get_post_meta(get_the_ID(), 'button_link', true);
+                            if(isset($button_link)) {?>
+                                <a href="<?php echo get_site_url(); ?>/nature_and_wildlife/national_parks" class="btn btn-wanabima"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "Go Visit" ?></a>
+                                <?php
+                            }?>
 
-                        get_template_part('template-parts/post/content', 'none');
+                        </div>
+                    </div>
 
-                    endif; ?>
+                    <div class="card">
+
+                        <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
+                            <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'card-img-top']); ?>
+                        <?php endif; ?>
+                        <div class="card-body big-five-card">
+                            <h4 class="card-title">BIG FIVE WITH WANABIMA</h4>
+                            <p>
+
+                                took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+
+                            <?php
+                            $button_link = get_post_meta(get_the_ID(), 'button_link', true);
+                            if(isset($button_link)) {?>
+                                <a href="<?php echo get_site_url(); ?>/nature_and_wildlife/big_five_with_wanabima" class="btn btn-wanabima"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "Go Visit" ?></a>
+                                <?php
+                            }?>
+
+                        </div>
+                    </div>
+
+                    <div class="card">
+
+                        <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
+                            <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'card-img-top']); ?>
+                        <?php endif; ?>
+                        <div class="card-body big-five-card">
+                            <h4 class="card-title">WANABIMA SAFARI</h4>
+                            <p>
+
+                                took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+
+                            <?php
+                            $button_link = get_post_meta(get_the_ID(), 'button_link', true);
+                            if(isset($button_link)) {?>
+                                <a href="<?php echo get_site_url(); ?>/nature_and_wildlife/wanabima_safari" class="btn btn-wanabima"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "Go Visit" ?></a>
+                                <?php
+                            }?>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -106,9 +154,9 @@ $cpage = '4x4_adventure';
         }
         ?>
 
-<!--==========================
-  Featured Tours Section
-============================-->
+        <!--==========================
+          Featured Tours Section
+        ============================-->
         <section id="featured-tour" class="wow fadeIn">
             <div class="container-fluid text-center">
                 <h3 class="h3">Featured Tours</h3>

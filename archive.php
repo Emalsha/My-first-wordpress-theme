@@ -10,12 +10,18 @@
 
 get_header();
 
-$cpage = get_post_type();
+global $wp;
+$url_parse = wp_parse_url(home_url( $wp->request ));
+$path = $url_parse['path'];
+$temp = end(explode('/',$path));
+$content = str_replace('-','_',$temp);
+
+$cpage = $content;
 
 ?>
 
     <main id="main">
-
+this
         <!--==========================
           Content 1 Section
         ============================-->

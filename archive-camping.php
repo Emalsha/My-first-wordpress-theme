@@ -8,7 +8,13 @@
  */
 
 get_header();
-$cpage = 'camping';
+
+global $wp;
+$url_parse = wp_parse_url(home_url( $wp->request ));
+$path = $url_parse['path'];
+$temp = end(explode('/',$path));
+$content = str_replace('-','_',$temp);
+$cpage = $content;
 
 ?>
 
@@ -110,12 +116,11 @@ $cpage = 'camping';
 
                                 <div class="col-md-6 p-3">
                                     <div class="float-right camping-card">
-                                        <h3 class="card-title"><?php echo get_the_title(); ?></h3>
-                                        <h5 class="card-title">Big Five With Wanabima</h5>
+                                        <h3 class="card-title">CAMPING</h3>
                                         <p>
                                             No focus keyword was set for this page. If you do not set a focus keyword, no score can be calculated.No focus keyword was set for this page. If you do not set a focus keyword, no score can be calculated.No focus keyword was set for this page. If you do not set a focus keyword, no score can be calculated.No focus
                                         </p>
-                                            <a href="<?php echo get_site_url(); ?>/camping/camping-site" class="btn btn-outline-wanabima">Camping Site</a>
+                                            <a href="<?php echo get_site_url(); ?>/camping/camping_sites" class="btn btn-outline-wanabima">Camping Site</a>
                                     </div>
                                 </div>
 
@@ -184,12 +189,11 @@ $cpage = 'camping';
 
                                 <div class="col-md-6 p-3">
                                     <div class="float-right camping-card">
-                                        <h3 class="card-title"><?php echo get_the_title(); ?></h3>
-                                        <h5 class="card-title">Big Five With Wanabima</h5>
+                                        <h3 class="card-title">GLAMPING</h3>
                                         <p>
                                             No focus keyword was set for this page. If you do not set a focus keyword, no score can be calculated.No focus keyword was set for this page. If you do not set a focus keyword, no score can be calculated.No focus keyword was set for this page. If you do not set a focus keyword, no score can be calculated.No focus
                                         </p>
-                                            <a href="<?php echo get_site_url(); ?>/camping/glamping-site" class="btn btn-outline-wanabima">Glamping Site</a>
+                                            <a href="<?php echo get_site_url(); ?>/camping/glamping_sites" class="btn btn-outline-wanabima">Glamping Site</a>
                                     </div>
                                 </div>
 
