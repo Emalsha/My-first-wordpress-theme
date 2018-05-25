@@ -918,6 +918,7 @@ function rent_a_jeep_post_type()
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
+        'rewrite' => array('slug' => 'rent-a-jeep')
     );
 
     // Registering Custom Post Type
@@ -1044,33 +1045,33 @@ add_action('init', 'nature_wild_post_type', 0);
  * Custom post type for add 4x4 details. ( only need 3 )
  */
 
-function adventure_4x4_post_type()
+function adventure_post_type()
 {
 
 // Set UI labels for Custom Post Type
     $labels = array(
-        'name' => _x('4x4 Adventure', 'Post Type General Name', 'wanabima'),
-        'singular_name' => _x('4x4 Adventure', 'Post Type Singular Name', 'wanabima'),
-        'menu_name' => __('4x4 Adventure', 'wanabima'),
+        'name' => _x('Adventure', 'Post Type General Name', 'wanabima'),
+        'singular_name' => _x('Adventure', 'Post Type Singular Name', 'wanabima'),
+        'menu_name' => __('Adventure', 'wanabima'),
         'parent_item_colon' => __('Parent Item', 'wanabima'),
         'all_items' => __('Adventures', 'wanabima'),
-        'view_item' => __('View 4x4  Content ', 'wanabima'),
-        'add_new_item' => __('Add New 4x4 Content', 'wanabima'),
-        'add_new' => __('Add 4x4 New', 'wanabima'),
-        'edit_item' => __('Edit 4x4 Content', 'wanabima'),
-        'update_item' => __('Update 4x4 Content', 'wanabima'),
-        'search_items' => __('Search 4x4 Content', 'wanabima'),
+        'view_item' => __('View Content ', 'wanabima'),
+        'add_new_item' => __('Add New Content', 'wanabima'),
+        'add_new' => __('Add New', 'wanabima'),
+        'edit_item' => __('Edit Content', 'wanabima'),
+        'update_item' => __('Update Content', 'wanabima'),
+        'search_items' => __('Search Content', 'wanabima'),
         'not_found' => __('Not Found', 'wanabima'),
         'not_found_in_trash' => __('Not found in Trash', 'wanabima'),
     );
 
     $args = array(
-        'label' => __('4x4_adventure', 'wanabima'),
-        'description' => __('4x4 Adventure page information', 'wanabima'),
+        'label' => __('Adventure', 'wanabima'),
+        'description' => __('Adventure page information', 'wanabima'),
         'labels' => $labels,
         // Features this CPT supports in Post Editor
         'supports' => array('title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
-        'taxonomies' => array('fourbyfour_taxonomy', 'post_tag'),
+        'taxonomies' => array('adventure_taxonomy', 'post_tag'),
         'hierarchical' => false,
         'menu_icon' => 'dashicons-marker',
         'public' => true,
@@ -1080,20 +1081,20 @@ function adventure_4x4_post_type()
         'show_in_admin_bar' => true,
         'menu_position' => 5,
         'can_export' => true,
-        'has_archive' => '4x4-adventure',
+        'has_archive' => 'adventure',
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
-        'rewrite' => array('slug' => '4x4-adventure/%fourbyfour_taxonomy%')
+        'rewrite' => array('slug' => 'adventure/%adventure_taxonomy%')
 
     );
 
     // Registering Custom Post Type
-    register_post_type('4x4_adventure', $args);
+    register_post_type('adventure', $args);
 
 }
 
-add_action('init', 'adventure_4x4_post_type', 0);
+add_action('init', 'adventure_post_type', 0);
 
 /**
  * Custom post type for add tour details.
@@ -1140,7 +1141,7 @@ function tour_post_type()
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
-        'rewrite' => array('slug' => 'tour/%tour_taxonomy%')
+        'rewrite' => array('slug' => 'tours/%tour_taxonomy%')
 
     );
 
@@ -1513,26 +1514,26 @@ if (class_exists('MultiPostThumbnails')) {
         'post_type' => 'nature_and_wildlife'
     ));
 
-    //Safari
+    //Adventure
     new MultiPostThumbnails(array(
         'label' => 'Second Image',
         'id' => 'second-image',
-        'post_type' => '4x4_adventure'
+        'post_type' => 'adventure'
     ));
     new MultiPostThumbnails(array(
         'label' => 'Third Image',
         'id' => 'third-image',
-        'post_type' => '4x4_adventure'
+        'post_type' => 'adventure'
     ));
     new MultiPostThumbnails(array(
         'label' => 'Forth Image',
         'id' => 'forth-image',
-        'post_type' => '4x4_adventure'
+        'post_type' => 'adventure'
     ));
     new MultiPostThumbnails(array(
         'label' => 'Fifth Image',
         'id' => 'fifth-image',
-        'post_type' => '4x4_adventure'
+        'post_type' => 'adventure'
     ));
 
     //tours
@@ -1586,13 +1587,13 @@ if (class_exists('MultiPostThumbnails')) {
 /**
  *
  * Add sub title meta box
- * 'camping','nature-and-wildlife' ,'tours', '4x4-adventure'
+ * 'camping','nature-and-wildlife' ,'tours', 'adventure'
  *
  */
 
 function your_sub_title()
 {
-    add_meta_box('your_sub_title_metabox', 'Edit Sub Title', 'your_sub_title_metabox', ['camping','nature_and_wildlife' ,'tours', '4x4_adventure'], 'normal', 'default'); ## Adds a meta box to post type
+    add_meta_box('your_sub_title_metabox', 'Edit Sub Title', 'your_sub_title_metabox', ['camping','nature_and_wildlife' ,'tours', 'adventure'], 'normal', 'default'); ## Adds a meta box to post type
 }
 
 add_action('add_meta_boxes', 'your_sub_title');
@@ -1648,13 +1649,13 @@ add_action('save_post', 'sub_title_save_meta', 1, 2);
 /**
  *
  * Add button title and link meta box
- * nature-and-wildlife, 4x4-adventure, tours, accommodation, camping
+ * nature-and-wildlife, adventure, tours, accommodation, camping
  *
  */
 
 function your_button_link()
 {
-//    add_meta_box('your_button_link_metabox', 'Edit Button Link', 'your_button_link_metabox', ['nature_and_wildlife', '4x4_adventure', 'tours', 'accommodation', 'camping'], 'normal', 'default'); ## Adds a meta box to post type
+//    add_meta_box('your_button_link_metabox', 'Edit Button Link', 'your_button_link_metabox', ['nature_and_wildlife', 'adventure', 'tours', 'accommodation', 'camping'], 'normal', 'default'); ## Adds a meta box to post type
 //    TODO
 }
 
@@ -1787,8 +1788,12 @@ function my_post_gallery($output, $attr)
     return $output;
 }
 
-//Add shortcode youtube
-// [button foo="foo-value"]
+/**
+ * Add shortcode youtube
+ * [youtube youtubeid="foo-value"]
+ *
+*/
+
 function youtubePlaylist($atts)
 {
     $a = shortcode_atts(array(
@@ -1819,7 +1824,48 @@ function youtubePlaylist($atts)
 
 add_shortcode('youtube', 'youtubePlaylist');
 
-//Edit read more text url
+
+/**
+ * Add shortcode term slider
+ * [slider id="12,55" name="acorss_the_paradise"]
+ * name - slug with underscore
+ *
+ */
+
+function termShortCode($atts)
+{
+    $a = shortcode_atts(array(
+        'id' => '',
+        'name' => ''
+    ), $atts);
+
+    $imgids = explode(',', $a['id']);
+    $imgName =strtolower($a['name']);
+
+
+    $tempStr = 'active';
+    $completeStr = "<script> let imgList_".$imgName." = [";
+    foreach ($imgids as $iid) {
+        $imgSorce = wp_get_attachment_image_src($iid,"size");
+        if($imgSorce) {
+            $completeStr .= '\'<div class="carousel-item '.$tempStr.'"><img class="d-block w-100 campsite-carousel-img" alt="wanabima image" src="' . $imgSorce[0] . '"</div>\',';
+            $tempStr ='';
+        }
+    }
+
+    $completeStr .= ']</script>';
+    return $completeStr;
+}
+
+add_shortcode('slider', 'termShortCode');
+
+
+/**
+ *
+ * Edit read more text url
+ *
+ */
+
 function modify_read_more_link()
 {
     return '<a class="more-link" href="' . get_permalink() . '" target="_blank" >Read the rest...</a>';
@@ -1940,6 +1986,10 @@ class WP_Widget_Recent_Blog_Posts extends WP_Widget
     }
 }
 
+/**
+ * Fileter for term description shortcode
+ */
+add_filter( 'term_description', 'do_shortcode' );
 
 //TODO : ADD header slider for each page ... like contents ... 2 image per page...
 
@@ -1993,7 +2043,7 @@ function naw_taxonomy()
         'nature_and_wildlife',
         array(
             'label' => __('Nature & Wildlife Types'),
-            'rewrite' => array('slug' => 'nature-and-wildlife','hierarchical' => true),
+            'rewrite' => array('slug' => 'nature-and-wildlife'),
             'hierarchical' => true,
             'sort' => true,
             'show_ui' => true,
@@ -2028,17 +2078,25 @@ function filter_naw_post_type_link($link, $post)
 
 add_filter('post_type_link', 'filter_naw_post_type_link', 10, 2);
 
+function big_five_with_wanabima_template_redirect( $template ) {
+    if ( is_tax( 'natureandwildlife_taxonomy','big-five-with-wanabima' ) ) {
+        $template = get_query_template( 'page-big-five-with-wanabima' );
+    }
+    return $template;
+}
+add_filter( 'template_include', 'big_five_with_wanabima_template_redirect' );
 
-//4x4-adventure
-function fourbyfour_taxonomy()
+
+//adventure
+function adventure_taxonomy()
 {
 
     register_taxonomy(
-        'fourbyfour_taxonomy',
-        '4x4_adventure',
+        'adventure_taxonomy',
+        'adventure',
         array(
-            'label' => __('4x4 Adventure Types'),
-            'rewrite' => array('slug' => 'four_by_four_adventure'),
+            'label' => __('Adventure Types'),
+            'rewrite' => array('slug' => 'adventure'),
             'hierarchical' => true,
             'sort' => true,
         )
@@ -2046,20 +2104,20 @@ function fourbyfour_taxonomy()
 
 }
 
-add_action('init', 'fourbyfour_taxonomy');
-function filter_fourbyfour_post_type_link($link, $post)
+add_action('init', 'adventure_taxonomy');
+function filter_adventure_post_type_link($link, $post)
 {
-    if ($post->post_type != '4x4_adventure')
+    if ($post->post_type != 'adventure')
         return $link;
 
-    if ($cats = get_the_terms($post->ID, 'fourbyfour_taxonomy')) {
-        $link = str_replace('%fourbyfour_taxonomy%', array_pop($cats)->slug, $link);
+    if ($cats = get_the_terms($post->ID, 'adventure_taxonomy')) {
+        $link = str_replace('%adventure_taxonomy%', array_pop($cats)->slug, $link);
     }
 
     return $link;
 }
 
-add_filter('post_type_link', 'filter_fourbyfour_post_type_link', 10, 2);
+add_filter('post_type_link', 'filter_adventure_post_type_link', 10, 2);
 
 
 //tours
@@ -2104,7 +2162,7 @@ function accommodation_taxonomy()
         'accommodation',
         array(
             'label' => __('Accommodation Types'),
-            'rewrite' => array('slug' => 'accommodations'),
+            'rewrite' => array('slug' => 'accommodation'),
             'hierarchical' => true,
             'sort' => true,
 
@@ -2134,57 +2192,58 @@ function register_new_terms() {
         '0' => array (
             'taxonomy'      => 'camping_taxonomy',
             'name'          => 'Camping Sites',
-            'slug'          => 'camping_sites',
+            'slug'          => 'camping-sites',
             'description'   => 'Camping sites',
         ),
         '1' => array (
             'taxonomy'      => 'camping_taxonomy',
             'name'          => 'Glamping Sites',
-            'slug'          => 'glamping_sites',
+            'slug'          => 'glamping-sites',
             'description'   => 'This is Glamping sites',
         ),
 
         '2' => array (
             'taxonomy'      => 'natureandwildlife_taxonomy',
             'name'          => 'National Parks',
-            'slug'          => 'national_parks',
+            'slug'          => 'national-parks',
             'description'   => 'This is National Parks',
         ),
 
         '3' => array (
             'taxonomy'      => 'natureandwildlife_taxonomy',
             'name'          => 'Big Five With Wanabima',
-            'slug'          => 'big_five_with_wanabima',
+            'slug'          => 'big-five-with-wanabima',
             'description'   => 'This is Big Five With Wanabima',
         ),
 
         '4' => array (
             'taxonomy'      => 'natureandwildlife_taxonomy',
             'name'          => 'Wanabima Safari',
-            'slug'          => 'wanabima_safari',
+            'slug'          => 'wanabima-safari',
             'description'   => 'This is Wanabima Safari',
         ),
 
         '5' => array (
-            'taxonomy'      => 'fourbyfour_taxonomy',
-            'name'          => 'Off Road Racing',
-            'slug'          => 'off_road_racing',
-            'description'   => 'This is Off Road Racing',
+            'taxonomy'      => 'adventure_taxonomy',
+            'name'          => '4x4 Adventure',
+            'slug'          => '4x4-adventure',
+            'description'   => 'This is 4x4 adventure',
         ),
 
-        '6' => array (
-            'taxonomy'      => 'fourbyfour_taxonomy',
-            'name'          => 'Mud Fun',
-            'slug'          => 'mud_fun',
-            'description'   => 'This is Mud Fun',
-        ),
-
-        '7' => array (
-            'taxonomy'      => 'fourbyfour_taxonomy',
-            'name'          => '4x4 Rally',
-            'slug'          => 'fourbyfour_rally',
-            'description'   => 'This is 4x4 Rally',
-        ),
+//  TODO
+//        '6' => array (
+//            'taxonomy'      => 'fourbyfour_taxonomy',
+//            'name'          => 'Mud Fun',
+//            'slug'          => 'mud-fun',
+//            'description'   => 'This is Mud Fun',
+//        ),
+//
+//        '7' => array (
+//            'taxonomy'      => 'fourbyfour_taxonomy',
+//            'name'          => '4x4 Rally',
+//            'slug'          => 'fourbyfour-rally',
+//            'description'   => 'This is 4x4 Rally',
+//        ),
 
         '8' => array (
             'taxonomy'      => 'tour_taxonomy',
@@ -2196,49 +2255,49 @@ function register_new_terms() {
         '9' => array (
             'taxonomy'      => 'tour_taxonomy',
             'name'          => 'Sand and Beach',
-            'slug'          => 'sand_and_beach',
+            'slug'          => 'sand-and-beach',
             'description'   => 'This is Sand and Beach',
         ),
 
         '10' => array (
             'taxonomy'      => 'tour_taxonomy',
             'name'          => 'Hilly and Cozy',
-            'slug'          => 'hilly_and_cozy',
+            'slug'          => 'hilly-and-cozy',
             'description'   => 'This is Hilly and Cozy',
         ),
 
         '11' => array (
             'taxonomy'      => 'tour_taxonomy',
             'name'          => 'Across the Paradise',
-            'slug'          => 'across_the_paradise',
+            'slug'          => 'across-the-paradise',
             'description'   => 'This is Across the Paradise',
         ),
 
         '12' => array (
             'taxonomy'      => 'accommodation_taxonomy',
             'name'          => 'Luxury Star Class Hotels',
-            'slug'          => 'luxury_star_class_hotels',
+            'slug'          => 'luxury-star-class-hotels',
             'description'   => 'This is Luxury Star Class Hotels',
         ),
 
         '13' => array (
             'taxonomy'      => 'accommodation_taxonomy',
             'name'          => 'Luxury Boutique Hotels',
-            'slug'          => 'luxury_boutique_hotels',
+            'slug'          => 'luxury-boutique-hotels',
             'description'   => 'This is Luxury Boutique Hotels',
         ),
 
         '14' => array (
             'taxonomy'      => 'accommodation_taxonomy',
             'name'          => 'Resorts and Villas',
-            'slug'          => 'resorts_and_villas',
+            'slug'          => 'resorts-and-villas',
             'description'   => 'This is Resorts and Villas',
         ),
 
         '15' => array (
             'taxonomy'      => 'accommodation_taxonomy',
             'name'          => 'Bungalows and Home Stay',
-            'slug'          => 'bungalows_and_home_stay',
+            'slug'          => 'bungalows-and-home-stay',
             'description'   => 'This is Bungalows and Home Stay',
         ),
     );
@@ -2255,7 +2314,7 @@ function register_new_terms() {
     }
 
 }
-add_action('after_setup_theme', 'register_new_terms');
+add_action('init', 'register_new_terms');
 
 //add_action( 'pre_insert_term', 'prevent_terms_adding', 1, 2 );
 //function prevent_terms_adding ( $term, $taxonomy ) {
@@ -2275,4 +2334,67 @@ function prevent_terms_delete ( $term, $taxonomy ) {
     return $term;
 }
 
-//TODO ; 4x4 -> adventure
+
+/*
+* Replace Taxonomy slug with Post Type slug in url
+* Version: 1.1
+*/
+function taxonomy_slug_rewrite($wp_rewrite) {
+    $rules = array();
+    // get all custom taxonomies
+    $taxonomies = get_taxonomies(array('_builtin' => false), 'objects');
+    // get all custom post types
+    $post_types = get_post_types(array('public' => true, '_builtin' => false), 'objects');
+
+    foreach ($post_types as $post_type) {
+        foreach ($taxonomies as $taxonomy) {
+
+            // go through all post types which this taxonomy is assigned to
+            foreach ($taxonomy->object_type as $object_type) {
+
+                // check if taxonomy is registered for this custom type
+                if ($object_type == $post_type->rewrite['slug']) {
+
+                    // get category objects
+                    $terms = get_categories(array('type' => $object_type, 'taxonomy' => $taxonomy->name, 'hide_empty' => 0));
+
+                    // make rules
+                    foreach ($terms as $term) {
+                        $rules[$object_type . '/' . $term->slug . '/?$'] = 'index.php?' . $term->taxonomy . '=' . $term->slug;
+                    }
+                }
+            }
+        }
+    }
+    // merge with global rules
+    $wp_rewrite->rules = $rules + $wp_rewrite->rules;
+}
+add_filter('generate_rewrite_rules', 'taxonomy_slug_rewrite');
+
+
+/**
+ * Important
+ * = Pages to be created
+ * --Camping
+ * --Nature and Wildlife
+ * ----Big Five With Wanabima
+ * --Adventure
+ * --Tours
+ * --Accommodation
+ * --Services
+ * --Gallery
+ * --Contact
+ * --Inquiry
+ * --Inquiry-response
+ *
+ * = Menu
+ * --Top-menu
+ * --Social
+ *
+ * = Widget
+ * -- 1 -> Recent Wanabima Blog Post
+ * -- 2 -> Pages ( exlude all keep what need )
+ *
+ */
+
+

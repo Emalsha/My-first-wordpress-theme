@@ -10,10 +10,10 @@
 get_header();
 
 global $wp;
-$url_parse = wp_parse_url(home_url( $wp->request ));
+$url_parse = wp_parse_url(home_url($wp->request));
 $path = $url_parse['path'];
-$temp = end(explode('/',$path));
-$content = str_replace('-','_',$temp);
+$temp = end(explode('/', $path));
+$content = str_replace('-', '_', $temp);
 $cpage = $content;
 
 ?>
@@ -54,153 +54,78 @@ $cpage = $content;
 
             <div class="container-fluid">
                 <div class="row">
+                    <?php
 
-<!--                    Camping site-->
-                    <div class="p-3 col-md-6"  id="camping-site">
-                        <div class="border border-dark rounded">
-                            <div class="row">
+                    $items = array(
+                        '0' => array(
+                            'camp_id' => 'camping_sites',
+                            'title' => 'CAMPING',
+                            'subtitle' => '',
+                            'button' => 'Camping Site',
+                            'slug' => 'camping-sites'
+                        ),
+                        '1' => array(
+                            'camp_id' => 'glamping_sites',
+                            'title' => 'GLAMPING',
+                            'subtitle' => '',
+                            'button' => 'Glamping Site',
+                            'slug' => 'glamping-sites'
+                        )
+                    )
 
-                                <div class="col-md-6 pr-0 img-container carousel slide carousel-fade" id="carousel<?php the_ID(); ?>" data-interval="false">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
-                                                <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'd-block w-100 img-fluid ']); ?>
-                                            <?php endif; ?>
+                    ?>
+
+                    <?php
+
+                    foreach ($items as $item_key => $item) {
+                        ?>
+
+                        <div class="p-3 col-md-6" id="<?= $item['camp_id']; ?>">
+                            <div class="border border-dark rounded">
+                                <div class="row">
+
+                                    <div class="col-md-6 pr-0 img-container carousel slide carousel-fade"
+                                         id="carousel<?= $item['camp_id']; ?>" data-interval="false">
+                                        <div class="carousel-inner" id="carouselinner<?= $item['camp_id']; ?>">
+
                                         </div>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'second-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'second-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'third-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'third-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'forth-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'forth-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'fifth-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'fifth-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
+                                        <a class="carousel-control-prev" style="left: auto"
+                                           href="#carousel<?= $item['camp_id']; ?>" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carousel<?= $item['camp_id']; ?>"
+                                           role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
                                     </div>
-                                    <a class="carousel-control-prev" style="left: auto" href="#carousel<?php the_ID(); ?>" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carousel<?php the_ID(); ?>" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </div>
 
-                                <div class="col-md-6 p-3">
-                                    <div class="float-right camping-card">
-                                        <h3 class="card-title">CAMPING</h3>
-                                        <p>
-                                            No focus keyword was set for this page. If you do not set a focus keyword, no score can be calculated.No focus keyword was set for this page. If you do not set a focus keyword, no score can be calculated.No focus keyword was set for this page. If you do not set a focus keyword, no score can be calculated.No focus
-                                        </p>
-                                            <a href="<?php echo get_site_url(); ?>/camping/camping_sites" class="btn btn-outline-wanabima">Camping Site</a>
+                                    <div class="col-md-6 p-3">
+                                        <div class="float-left camping-card">
+                                            <h3 class="card-title"><?= $item['title']; ?></h3>
+                                            <?php
+                                            $term = get_term_by('slug', $item['slug'], 'camping_taxonomy');
+                                            $desc = term_description($term->term_id, 'camping_taxonomy');
+                                            ?>
+                                            <?php echo $desc; ?>
+                                            <a href="<?php echo get_site_url(); ?>/camping/<?php echo $item['slug'] ?>"
+                                               class="btn btn-outline-wanabima"><?php echo $item['button'] ?></a>
+                                        </div>
                                     </div>
-                                </div>
+                                    <script>
+                                        if (imgList_<?php echo $item['camp_id']; ?>) {
+                                            for(let i=0, len = imgList_<?php echo $item['camp_id']; ?>.length; i< len; i++){
+                                                jQuery('#carouselinner<?php echo $item['camp_id']; ?>').append(imgList_<?php echo $item['camp_id']; ?>[i]);
+                                            }
 
+                                        }
+                                    </script>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-<!--                    Glamping site-->
-                    <div class="p-3 col-md-6"  id="glamping-site">
-                        <div class="border border-dark rounded">
-                            <div class="row">
-
-                                <div class="col-md-6 pr-0 img-container carousel slide carousel-fade" id="carousel<?php the_ID(); ?>" data-interval="false">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
-                                                <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'd-block w-100 img-fluid ']); ?>
-                                            <?php endif; ?>
-                                        </div>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'second-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'second-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'third-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'third-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'forth-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'forth-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'fifth-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'fifth-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
-                                    </div>
-                                    <a class="carousel-control-prev" style="left: auto" href="#carousel<?php the_ID(); ?>" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carousel<?php the_ID(); ?>" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </div>
-
-                                <div class="col-md-6 p-3">
-                                    <div class="float-right camping-card">
-                                        <h3 class="card-title">GLAMPING</h3>
-                                        <p>
-                                            No focus keyword was set for this page. If you do not set a focus keyword, no score can be calculated.No focus keyword was set for this page. If you do not set a focus keyword, no score can be calculated.No focus keyword was set for this page. If you do not set a focus keyword, no score can be calculated.No focus
-                                        </p>
-                                            <a href="<?php echo get_site_url(); ?>/camping/glamping_sites" class="btn btn-outline-wanabima">Glamping Site</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
+                    <?php } ?>
 
                 </div>
             </div>

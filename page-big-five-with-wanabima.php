@@ -9,12 +9,18 @@
 
 get_header();
 
-$cpage = 'big_five';
+global $wp;
+$url_parse = wp_parse_url(home_url( $wp->request ));
+$path = $url_parse['path'];
+$temp = end(explode('/',$path));
+$content = str_replace('-','_',$temp);
+
+$cpage = $content;
+
 
 ?>
 
     <main id="main">
-
         <!--==========================
           Content 1 Section
         ============================-->
@@ -56,27 +62,76 @@ $cpage = 'big_five';
 
             <div class="container-fluid">
                 <div class="row">
-                    <?php
-                    if (have_posts()) : ?>
-                        <?php
-                        /* Start the Loop */
-                        while (have_posts()) : the_post();
-//                        Get template
-                            get_template_part('template-parts/post/content', get_post_type());
+                    <div class="p-3 col-md-6"  id="<?php the_ID(); ?>" >
+                        <div class="border border-dark rounded" style="min-height:25em ; max-height: 25em; overflow: hidden">
+                            <div class="row">
 
-                        endwhile;
+                                <div class="col-md-6 pr-0 img-container carousel slide carousel-fade" id="carousel<?php the_ID(); ?>" data-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
+                                                <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'd-block w-100 img-fluid ']); ?>
+                                            <?php endif; ?>
+                                        </div>
+                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'second-image')){?>
+                                            <div class="carousel-item" style="height: 100%;">
+                                                <?php
+                                                if (class_exists('MultiPostThumbnails')) :
+                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'second-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
+                                                endif;
+                                                ?>
+                                            </div>
+                                        <?php } ?>
+                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'third-image')){?>
+                                            <div class="carousel-item" style="height: 100%;">
+                                                <?php
+                                                if (class_exists('MultiPostThumbnails')) :
+                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'third-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
+                                                endif;
+                                                ?>
+                                            </div>
+                                        <?php } ?>
+                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'forth-image')){?>
+                                            <div class="carousel-item" style="height: 100%;">
+                                                <?php
+                                                if (class_exists('MultiPostThumbnails')) :
+                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'forth-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
+                                                endif;
+                                                ?>
+                                            </div>
+                                        <?php } ?>
+                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'fifth-image')){?>
+                                            <div class="carousel-item" style="height: 100%;">
+                                                <?php
+                                                if (class_exists('MultiPostThumbnails')) :
+                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'fifth-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
+                                                endif;
+                                                ?>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                    <a class="carousel-control-prev" style="left: auto" href="#carousel<?php the_ID(); ?>" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carousel<?php the_ID(); ?>" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
 
-                        the_posts_pagination(array(
-                            'prev_text' => wanabima_get_svg(array('icon' => 'arrow-left')) . '<span class="screen-reader-text">' . __('Previous page', 'wanabima') . '</span>',
-                            'next_text' => '<span class="screen-reader-text">' . __('Next page', 'wanabima') . '</span>' . wanabima_get_svg(array('icon' => 'arrow-right')),
-                            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'wanabima') . ' </span>',
-                        ));
+                                <div class="col-md-6 p-3">
+                                    <div class="float-right">
+                                        <h3 class="card-title">BIG FIVE WITH WANABIMA</h3>
+                                        <h5 class="card-title">THE SLOTH BEAR SEASON</h5>
+                                        <p>Platform for event organizers that enables them to pay only for what they get, and rewards community members by sharing those events</p>
+                                        <a href="<?php echo get_site_url(); ?>/nature-and-wildlife/big-five-with-wanabima/the-sloth-bear-season" class="btn btn-outline-wanabima" target='_blank'><?php echo $custom_fields['BUTTON'] ? $custom_fields['BUTTON'][0] : "MORE" ?></a>
+                                    </div>
+                                </div>
 
-                    else :
-
-                        get_template_part('template-parts/post/content', 'none');
-
-                    endif; ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -1269,25 +1269,25 @@ body.mobile-nav-active #mobile-nav-toggle {
     margin-bottom: 30px;
 }
 
-#footer .footer-tags {
-    padding: 5px;
-    border: 2px solid rgba(93, 87, 87, 0.85);
-    display: inline-block;
-    margin: 0 0 4px 0;
-    color: white;
-}
+/*#footer .page_item {*/
+    /*padding: 5px;*/
+    /*border: 2px solid rgba(93, 87, 87, 0.85);*/
+    /*display: inline-block;*/
+    /*margin: 0 0 4px 0;*/
+    /*color: white;*/
+/*}*/
 
-#footer .wp-tag-cloud {
+#footer .widget_pages {
     list-style: none;
     border: 0;
     padding: 0;
 }
 
-#footer .wp-tag-cloud li {
+#footer .widget_pages li {
     display: inline-block;
 }
 
-#footer .wp-tag-cloud .tag-cloud-link {
+#footer .widget_pages a {
     padding: 5px;
     border: 2px solid rgba(93, 87, 87, 0.85);
     display: inline-block;
@@ -1297,7 +1297,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     font-size: .9em !important;
 }
 
-#footer .wp-tag-cloud .tag-cloud-link:hover {
+#footer .widget_pages a:hover {
     color: var(--main-color-1);
 
 }
@@ -1738,5 +1738,32 @@ body.mobile-nav-active #mobile-nav-toggle {
     height: 1rem;
 }
 
+/*Tour Archive Page*/
+.tour-archive-item h3{
+    font-size: 1.3em;
+    font-weight: bold;
+}
 
+.tour-archive-item h5{
+    font-size: 1.1em;
+}
 
+.tour-archive-item p{
+    font-size: .9em;
+    height:10em;
+}
+
+/*Accommodation Archive Page*/
+.accommodation-archive-item h3{
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.accommodation-archive-item h5{
+    font-size: 1.1em;
+}
+
+.accommodation-archive-item p{
+    font-size: .9em;
+    height:9em;
+}

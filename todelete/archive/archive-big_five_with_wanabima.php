@@ -21,7 +21,7 @@ $cpage = $content;
 ?>
 
     <main id="main">
-
+aaaaaaaa
         <!--==========================
           Content 1 Section
         ============================-->
@@ -62,17 +62,20 @@ $cpage = $content;
             <div class="container-fluid">
                 <div class="card-deck">
                     <div class="card">
+
                         <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
                             <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'card-img-top']); ?>
                         <?php endif; ?>
                         <div class="card-body big-five-card">
-                            <h4 class="card-title">OFF ROAD RACING</h4>
-                            <P>No meta description has been specified. Search engines will display copy from the page instead.No meta description has been specified. Search engines will display copy from the page instead.</P>
+                            <h4 class="card-title">NATIONAL PARKS</h4>
+                            <p>
+
+                                took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
 
                             <?php
                             $button_link = get_post_meta(get_the_ID(), 'button_link', true);
                             if(isset($button_link)) {?>
-                                <a href="<?php echo get_site_url(); ?>/4x4_adventure/off_road_racing" class="btn btn-wanabima">Take the Challenge</a>
+                                <a href="<?php echo get_site_url(); ?>/nature-and-wildlife/national-parks" class="btn btn-wanabima"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "Go Visit" ?></a>
                                 <?php
                             }?>
 
@@ -80,17 +83,20 @@ $cpage = $content;
                     </div>
 
                     <div class="card">
+
                         <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
                             <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'card-img-top']); ?>
                         <?php endif; ?>
                         <div class="card-body big-five-card">
-                            <h4 class="card-title">MUD FUN</h4>
-                            <P>No meta description has been specified. Search engines will display copy from the page instead.No meta description has been specified. Search engines will display copy from the page instead.</P>
+                            <h4 class="card-title">BIG FIVE WITH WANABIMA</h4>
+                            <p>
+
+                                took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
 
                             <?php
                             $button_link = get_post_meta(get_the_ID(), 'button_link', true);
                             if(isset($button_link)) {?>
-                                <a href="<?php echo get_site_url(); ?>/4x4_adventure/mud_fun" class="btn btn-wanabima">Feel the Excitement</a>
+                                <a href="<?php echo get_site_url(); ?>/nature-and-wildlife/big-five-with-wanabima" class="btn btn-wanabima"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "Go Visit" ?></a>
                                 <?php
                             }?>
 
@@ -98,17 +104,20 @@ $cpage = $content;
                     </div>
 
                     <div class="card">
+
                         <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
                             <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'card-img-top']); ?>
                         <?php endif; ?>
                         <div class="card-body big-five-card">
-                            <h4 class="card-title">4x4 RALLY</h4>
-                            <P>No meta description has been specified. Search engines will display copy from the page instead.No meta description has been specified. Search engines will display copy from the page instead.</P>
+                            <h4 class="card-title">WANABIMA SAFARI</h4>
+                            <p>
+
+                                took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
 
                             <?php
                             $button_link = get_post_meta(get_the_ID(), 'button_link', true);
                             if(isset($button_link)) {?>
-                                <a href="<?php echo get_site_url(); ?>/4x4_adventure/4x4_rally" class="btn btn-wanabima">Join the Rally</a>
+                                <a href="<?php echo get_site_url(); ?>/nature-and-wildlife/wanabima-safari" class="btn btn-wanabima"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "Go Visit" ?></a>
                                 <?php
                             }?>
 
@@ -145,9 +154,9 @@ $cpage = $content;
         }
         ?>
 
-<!--==========================
-  Featured Tours Section
-============================-->
+        <!--==========================
+          Featured Tours Section
+        ============================-->
         <section id="featured-tour" class="wow fadeIn">
             <div class="container-fluid text-center">
                 <h3 class="h3">Featured Tours</h3>

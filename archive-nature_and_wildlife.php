@@ -11,10 +11,10 @@
 get_header();
 
 global $wp;
-$url_parse = wp_parse_url(home_url( $wp->request ));
+$url_parse = wp_parse_url(home_url($wp->request));
 $path = $url_parse['path'];
-$temp = end(explode('/',$path));
-$content = str_replace('-','_',$temp);
+$temp = end(explode('/', $path));
+$content = str_replace('-', '_', $temp);
 
 $cpage = $content;
 
@@ -46,14 +46,7 @@ $cpage = $content;
                 </header>
             </div>
         </section>
-        <?php if (have_posts()) : ?>
-            <header class="page-header">
-                <?php
-                //the_archive_title('<h1 class="page-title">', '</h1>'); TODO
-                //the_archive_description('<div class="taxonomy-description">', '</div>'); TODO
-                ?>
-            </header><!-- .page-header -->
-        <?php endif; ?>
+
         <!--==========================
               Camping Site detail Section
         ============================-->
@@ -61,68 +54,85 @@ $cpage = $content;
 
             <div class="container-fluid">
                 <div class="card-deck">
-                    <div class="card">
 
-                        <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
-                            <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'card-img-top']); ?>
-                        <?php endif; ?>
-                        <div class="card-body big-five-card">
-                            <h4 class="card-title">NATIONAL PARKS</h4>
-                            <p>
+                    <?php
 
-                                took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+                    $items = array(
+                        '0' => array(
+                            'naw_id' => 'national_parks',
+                            'title' => 'NATIONAL PARKS',
+                            'subtitle' => '',
+                            'button' => '',
+                            'slug' => 'national-parks'
+                        ),
+                        '1' => array(
+                            'naw_id' => 'big_five_with_wanabima',
+                            'title' => 'BIG FIVE WITH WANABIMA',
+                            'subtitle' => '',
+                            'button' => '',
+                            'slug' => 'big-five-with-wanabima'
+                        ),
+                        '2' => array(
+                            'naw_id' => 'wanabima_safari',
+                            'title' => 'WANABIMA SAFARI',
+                            'subtitle' => '',
+                            'button' => '',
+                            'slug' => 'wanabima-safari'
+                        )
+                    );
 
-                            <?php
-                            $button_link = get_post_meta(get_the_ID(), 'button_link', true);
-                            if(isset($button_link)) {?>
-                                <a href="<?php echo get_site_url(); ?>/nature_and_wildlife/national_parks" class="btn btn-wanabima"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "Go Visit" ?></a>
+
+                    foreach ($items as $item_key => $item) {
+
+                        ?>
+                        <div class="card">
+
+                            <div class="pr-0 img-container carousel slide carousel-fade"
+                                 id="carousel<?php echo $item['naw_id'] ?>" data-interval="false">
+                                <div class="carousel-inner" id="carouselinner<?php echo $item['naw_id'] ?>">
+
+                                </div>
+                                <a class="carousel-control-prev" style="left: auto"
+                                   href="#carousel<?php echo $item['naw_id']; ?>" role="button"
+                                   data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carousel<?php echo $item['naw_id']; ?>"
+                                   role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+
+                            <div class="card-body big-five-card">
+                                <h4 class="card-title"><?= $item['title']; ?></h4>
                                 <?php
-                            }?>
+                                $term = get_term_by('slug', $item['slug'], 'natureandwildlife_taxonomy');
+                                $desc = term_description($term->term_id, 'natureandwildlife_taxonomy');
+                                ?>
+                                <?php echo $desc; ?>
+
+                                <?php
+                                $button_link = get_post_meta(get_the_ID(), 'button_link', true);
+                                if (isset($button_link)) { ?>
+                                    <a href="<?php echo get_site_url(); ?>/nature-and-wildlife/<?php echo $item['slug'] ?>"
+                                       class="btn btn-wanabima">Go Visit</a>
+                                    <?php
+                                } ?>
+
+                            </div>
+                            <script>
+                                if (imgList_<?php echo $item['naw_id']; ?>) {
+                                    for (let i = 0, len = imgList_<?php echo $item['naw_id']; ?>.length; i < len; i++) {
+                                        jQuery('#carouselinner<?php echo $item['naw_id']; ?>').append(imgList_<?php echo $item['naw_id']; ?>[i]);
+                                    }
+
+                                }
+                            </script>
 
                         </div>
-                    </div>
-
-                    <div class="card">
-
-                        <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
-                            <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'card-img-top']); ?>
-                        <?php endif; ?>
-                        <div class="card-body big-five-card">
-                            <h4 class="card-title">BIG FIVE WITH WANABIMA</h4>
-                            <p>
-
-                                took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-
-                            <?php
-                            $button_link = get_post_meta(get_the_ID(), 'button_link', true);
-                            if(isset($button_link)) {?>
-                                <a href="<?php echo get_site_url(); ?>/nature_and_wildlife/big_five_with_wanabima" class="btn btn-wanabima"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "Go Visit" ?></a>
-                                <?php
-                            }?>
-
-                        </div>
-                    </div>
-
-                    <div class="card">
-
-                        <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
-                            <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'card-img-top']); ?>
-                        <?php endif; ?>
-                        <div class="card-body big-five-card">
-                            <h4 class="card-title">WANABIMA SAFARI</h4>
-                            <p>
-
-                                took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-
-                            <?php
-                            $button_link = get_post_meta(get_the_ID(), 'button_link', true);
-                            if(isset($button_link)) {?>
-                                <a href="<?php echo get_site_url(); ?>/nature_and_wildlife/wanabima_safari" class="btn btn-wanabima"><?php echo $custom_fields['button_title'] ? $custom_fields['button_title'][0] : "Go Visit" ?></a>
-                                <?php
-                            }?>
-
-                        </div>
-                    </div>
+                    <?php } ?>
 
                 </div>
             </div>

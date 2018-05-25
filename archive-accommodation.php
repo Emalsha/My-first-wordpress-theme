@@ -10,10 +10,10 @@
 get_header();
 
 global $wp;
-$url_parse = wp_parse_url(home_url( $wp->request ));
+$url_parse = wp_parse_url(home_url($wp->request));
 $path = $url_parse['path'];
-$temp = end(explode('/',$path));
-$content = str_replace('-','_',$temp);
+$temp = end(explode('/', $path));
+$content = str_replace('-', '_', $temp);
 
 $cpage = $content;
 
@@ -63,26 +63,94 @@ $cpage = $content;
             <div class="container-fluid">
                 <div class="row">
                     <?php
-                    if (have_posts()) : ?>
-                        <?php
-                        /* Start the Loop */
-                        while (have_posts()) : the_post();
-//                        Get template
-                            get_template_part('template-parts/post/content', get_post_type());
 
-                        endwhile;
+                    $items = array(
+                        '0' => array(
+                            'acc_id' => 'luxury_star_class_hotels',
+                            'title' => 'LUXURY STAR CLASS HOTELS',
+                            'subtitle' => 'Wanabima Accommodation',
+                            'button' => '',
+                            'slug' => 'luxury-star-class-hotels'
+                        ),
+                        '1' => array(
+                            'acc_id' => 'luxury_boutique_hotels',
+                            'title' => 'LUXURY BOUTIQUE HOTELS',
+                            'subtitle' => 'Wanabima Accommodation',
+                            'button' => '',
+                            'slug' => 'luxury-boutique-hotels'
+                        ),
+                        '2' => array(
+                            'acc_id' => 'resorts_and_villas',
+                            'title' => 'RESORTS AND VILLAS',
+                            'subtitle' => 'Wanabima Accommodation',
+                            'button' => '',
+                            'slug' => 'resorts-and-villas'
+                        ),
+                        '3' => array(
+                            'acc_id' => 'bungalows_and_home_stay',
+                            'title' => 'BUNGALOWS AND HOME STAY',
+                            'subtitle' => 'Wanabima Accommodation',
+                            'button' => '',
+                            'slug' => 'bungalows-and-home-stay'
+                        ),
+                    );
 
-                        the_posts_pagination(array(
-                            'prev_text' => wanabima_get_svg(array('icon' => 'arrow-left')) . '<span class="screen-reader-text">' . __('Previous page', 'wanabima') . '</span>',
-                            'next_text' => '<span class="screen-reader-text">' . __('Next page', 'wanabima') . '</span>' . wanabima_get_svg(array('icon' => 'arrow-right')),
-                            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'wanabima') . ' </span>',
-                        ));
 
-                    else :
+                    foreach ($items as $item_key => $item) {
 
-                        get_template_part('template-parts/post/content', 'none');
+                        ?>
+                        <div class="p-3 col-md-6" id="<?php echo $item['acc_id']; ?>">
+                            <div class="border border-dark rounded">
+                                <div class="row">
 
-                    endif; ?>
+                                    <div class="col-md-6 pr-0 img-container carousel slide carousel-fade"
+                                         id="carousel<?php echo $item['acc_id']?>" data-interval="false">
+                                        <div class="carousel-inner" id="carouselinner<?php echo $item['acc_id']?>">
+
+                                        </div>
+                                        <a class="carousel-control-prev" style="left: auto"
+                                           href="#carousel<?php echo $item['acc_id']; ?>" role="button"
+                                           data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carousel<?php echo $item['acc_id']; ?>"
+                                           role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-md-6 p-2 accommodation-archive-item">
+                                        <div class="float-left">
+                                            <h3 class="card-title"><?php echo $item['title']; ?></h3>
+                                            <h5 class="card-title"><?php echo $item['subtitle']; ?></h5>
+
+                                            <?php
+                                            $term = get_term_by('slug', $item['slug'], 'accommodation_taxonomy');
+                                            $desc = term_description($term->term_id, 'accommodation_taxonomy');
+                                            ?>
+                                            <?php echo $desc; ?>
+                                            <a href="<?php echo get_site_url(); ?>/accommodation/<?php echo $item['slug']; ?>"
+                                               class="btn btn-outline-wanabima">MORE</a>
+
+                                        </div>
+                                    </div>
+                                    <script>
+                                        if (imgList_<?php echo $item['acc_id']; ?>) {
+                                            for(let i=0, len = imgList_<?php echo $item['acc_id']; ?>.length; i< len; i++){
+                                                jQuery('#carouselinner<?php echo $item['acc_id']; ?>').append(imgList_<?php echo $item['acc_id']; ?>[i]);
+                                            }
+
+                                        }
+                                    </script>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <?php }?>
                 </div>
             </div>
         </section>

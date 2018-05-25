@@ -1,6 +1,5 @@
 <?php
 /**
- * The template for displaying archive pages
  *
  * @package Wanabima
  * @since 1.0
@@ -9,7 +8,6 @@
  */
 
 get_header();
-
 global $wp;
 $url_parse = wp_parse_url(home_url( $wp->request ));
 $path = $url_parse['path'];
@@ -21,6 +19,7 @@ $cpage = $content;
 ?>
 
     <main id="main">
+
         <!--==========================
           Content 1 Section
         ============================-->
@@ -60,29 +59,30 @@ $cpage = $content;
         ============================-->
         <section id="campsite">
 
-            <div class="container">
-                <?php
-                if (have_posts()) : ?>
+            <div class="container-fluid">
+                <div class="row">
                     <?php
-                    /* Start the Loop */
-                    while (have_posts()) : the_post();
+                    if (have_posts()) : ?>
+                        <?php
+                        /* Start the Loop */
+                        while (have_posts()) : the_post();
 //                        Get template
-                        get_template_part('template-parts/post/content', get_post_type());
+                            get_template_part('template-parts/post/content', get_post_type());
 
-                    endwhile;
+                        endwhile;
 
-                    the_posts_pagination(array(
-                        'prev_text' => wanabima_get_svg(array('icon' => 'arrow-left')) . '<span class="screen-reader-text">' . __('Previous page', 'wanabima') . '</span>',
-                        'next_text' => '<span class="screen-reader-text">' . __('Next page', 'wanabima') . '</span>' . wanabima_get_svg(array('icon' => 'arrow-right')),
-                        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'wanabima') . ' </span>',
-                    ));
+                        the_posts_pagination(array(
+                            'prev_text' => wanabima_get_svg(array('icon' => 'arrow-left')) . '<span class="screen-reader-text">' . __('Previous page', 'wanabima') . '</span>',
+                            'next_text' => '<span class="screen-reader-text">' . __('Next page', 'wanabima') . '</span>' . wanabima_get_svg(array('icon' => 'arrow-right')),
+                            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'wanabima') . ' </span>',
+                        ));
 
-                else :
+                    else :
 
-                    get_template_part('template-parts/post/content', 'none');
+                        get_template_part('template-parts/post/content', 'none');
 
-                endif; ?>
-
+                    endif; ?>
+                </div>
             </div>
         </section>
 
@@ -112,7 +112,7 @@ $cpage = $content;
         ?>
 
         <!--==========================
-        Featured Tours Section
+          Featured Tours Section
         ============================-->
         <section id="featured-tour" class="wow fadeIn">
             <div class="container-fluid text-center">
@@ -127,7 +127,6 @@ $cpage = $content;
                         foreach ($fimages as $fimage) {
                             ?>
                             <div class="col-lg-3 col-md-6 wow fadeInUp">
-
                                 <div class="feature-item">
                                     <!--Use 683 x 1024 image -->
                                     <?php $attachmentImg = wp_get_attachment_image_src($fimage->feature_image, full);
@@ -154,7 +153,6 @@ $cpage = $content;
                                                 <span><?php echo $fimage->feature_sub_title; ?></span>
                                             </div>
                                         </a>
-
                                     </div>
                                 </div>
                             </div>
@@ -195,6 +193,7 @@ $cpage = $content;
         }
         ?>
 
+
     </main><!-- .main-->
 
-<?php get_footer(); ?>
+<?php get_footer();

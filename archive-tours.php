@@ -10,10 +10,10 @@
 get_header();
 
 global $wp;
-$url_parse = wp_parse_url(home_url( $wp->request ));
+$url_parse = wp_parse_url(home_url($wp->request));
 $path = $url_parse['path'];
-$temp = end(explode('/',$path));
-$content = str_replace('-','_',$temp);
+$temp = end(explode('/', $path));
+$content = str_replace('-', '_', $temp);
 
 $cpage = $content;
 
@@ -62,103 +62,96 @@ $cpage = $content;
 
             <div class="container-fluid">
                 <div class="row">
-<!--                    --><?php
-//                    if (have_posts()) : ?>
-<!--                        --><?php
-//                        $categories = get_terms( 'tour_taxonomy', array(
-//                            'hide_empty' => 0
-//                        ) );
-//                        /* Start the Loop */
-//                        foreach($categories as $cats){
-////                        Get template
-//                            get_template_part('template-parts/post/content', 'tours');
-//                        }
-//
-//
-//                        the_posts_pagination(array(
-//                            'prev_text' => wanabima_get_svg(array('icon' => 'arrow-left')) . '<span class="screen-reader-text">' . __('Previous page', 'wanabima') . '</span>',
-//                            'next_text' => '<span class="screen-reader-text">' . __('Next page', 'wanabima') . '</span>' . wanabima_get_svg(array('icon' => 'arrow-right')),
-//                            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'wanabima') . ' </span>',
-//                        ));
-//
-//
-//                    endif; ?>
 
-                    <div class="p-3 col-md-6"  id="">
-                        <div class="border border-dark rounded">
-                            <div class="row">
 
-                                <div class="col-md-6 pr-0 img-container carousel slide carousel-fade" id="carousel<?php the_ID(); ?>" data-interval="false">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
-                                                <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'd-block w-100 img-fluid ']); ?>
-                                            <?php endif; ?>
+                    <?php
+
+                    $items = array(
+                        '0' => array(
+                            'tour_id' => 'hideout',
+                            'title' => 'HIDEOUT',
+                            'subtitle' => 'Tagline',
+                            'button' => '',
+                            'slug' => 'hideout'
+                        ),
+                        '1' => array(
+                            'tour_id' => 'sand_and_beach',
+                            'title' => 'SAND & BEACH',
+                            'subtitle' => 'Attractive Tagline',
+                            'button' => '',
+                            'slug' => 'sand-and-beach'
+                        ),
+                        '2' => array(
+                            'tour_id' => 'hilly_and_cozy',
+                            'title' => 'HILLY & COZY',
+                            'subtitle' => 'Cozy Tagline',
+                            'button' => '',
+                            'slug' => 'hilly-and-cozy'
+                        ),
+                        '3' => array(
+                            'tour_id' => 'across_the_paradise',
+                            'title' => 'ACROSS THE PARADISE',
+                            'subtitle' => 'Surf Through The Wonder Of Asia',
+                            'button' => '',
+                            'slug' => 'across-the-paradise'
+                        ),
+                    )
+
+                    ?>
+
+                    <?php
+
+                    foreach ($items as $item_key => $item) {
+                        ?>
+                        <div class="p-3 col-md-6" id="<?= $item['tour_id']; ?>">
+                            <div class="border border-dark rounded">
+                                <div class="row">
+                                    <div class="col-md-6 pr-0 img-container carousel slide carousel-fade"
+                                         id="carousel<?php echo $item['tour_id']; ?>" data-interval="false">
+                                        <div class="carousel-inner" id="carouselinner<?php echo $item['tour_id']; ?>">
+
                                         </div>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'second-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'second-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'third-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'third-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'forth-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'forth-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'fifth-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'fifth-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
+
+                                        <a class="carousel-control-prev" style="left: auto"
+                                           href="#carousel<?= $item['tour_id']; ?>" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carousel<?= $item['tour_id']; ?>"
+                                           role="button"
+                                           data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
                                     </div>
-                                    <a class="carousel-control-prev" style="left: auto" href="#carousel<?php the_ID(); ?>" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carousel<?php the_ID(); ?>" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </div>
 
-                                <div class="col-md-6 p-3">
-                                    <div class="float-right">
-                                        <h3 class="card-title">HIDEOUT</h3>
-                                        <h5 class="card-title">Tagline</h5>
-                                        <?php
-                                        $term = get_term( 'hideout', 'tour_taxonomy' );
-                                        ?>
-                                        <p>This is a sample data. This will update soon. This is a sample data. This will update soon. This is a sample data. This will update soon.</p>
-                                        <a href="" class="btn btn-outline-wanabima">Visit</a>
+                                    <div class="col-md-6 p-2 tour-archive-item">
+                                        <div class="float-left">
+                                            <h3 class="card-title"><?= $item['title']; ?></h3>
+                                            <h5 class="card-title"><?= $item['subtitle']; ?></h5>
+                                            <?php
+                                            $term = get_term_by('slug', $item['slug'], 'tour_taxonomy');
+                                            $desc = term_description($term->term_id, 'tour_taxonomy');
+                                            ?>
+                                            <?php echo $desc; ?>
+                                            <a href="<?php echo get_site_url(); ?>/tours/<?php echo $item['slug'] ?>"
+                                               class="btn btn-outline-wanabima">Visit</a>
 
+                                        </div>
                                     </div>
-                                </div>
+                                    <script>
+                                        if (imgList_<?php echo $item['tour_id']; ?>) {
+                                            for(let i=0, len = imgList_<?php echo $item['tour_id']; ?>.length; i< len; i++){
+                                                jQuery('#carouselinner<?php echo $item['tour_id']; ?>').append(imgList_<?php echo $item['tour_id']; ?>[i]);
+                                            }
 
+                                        }
+                                    </script>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                    <?php } ?>
 
 
                 </div>
