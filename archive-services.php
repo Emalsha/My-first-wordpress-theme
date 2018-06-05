@@ -53,7 +53,7 @@ $cpage = $content;
         <section id="campsite">
 
             <div class="container-fluid">
-                <div class="card-deck">
+                <div class="card-deck ">
                     <?php
                     if (have_posts()) : ?>
                         <?php

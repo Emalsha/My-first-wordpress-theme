@@ -2395,6 +2395,18 @@ add_filter('generate_rewrite_rules', 'taxonomy_slug_rewrite');
  * -- 1 -> Recent Wanabima Blog Post
  * -- 2 -> Pages ( exlude all keep what need )
  *
+ * = Plugin
+ * -- 1 -> Wanabima activity content
+ * -- 2 -> Wanabima custom content
+ * -- 3 -> Wanabima feature image
+ * -- 4 -> Wanabima carousel image
+ *
+ * = Global Info
  */
+$email_address = 'hello@wanabima.com';
+$phone_number = '+94 77 755 4654';
+$general_number = '+94 11 288 5884';
 
-
+//TODO rent a car image slide
+//TODO service items (3 item per line)
+//TODO contact page -> thank you page.

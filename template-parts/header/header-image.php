@@ -8,6 +8,14 @@
  * @version 1.0
  */
 
+
+global $wp;
+$url_parse = wp_parse_url(home_url( $wp->request ));
+$path = $url_parse['path'];
+$temp = end(explode('/',$path));
+$content = str_replace('-','_',$temp);
+
+$cpage = $content;
 ?>
 
 <section id="intro" <?php if (!is_front_page()) { ?> style="height: 60vh;" <?php } ?>>
@@ -19,23 +27,66 @@
             <div class="carousel-inner" role="listbox">
 
                 <?php
-                $all_images = get_all_header_data();
-                $i = 0;
-                foreach ($all_images as $headerImg) {
-                    ?>
-                    <div class="carousel-item<?php if ($i == 0) echo ' active'; ?>"
-                         style="background-image: url('<?php echo $headerImg["url"]; ?>'); <?php if (!is_front_page()) { ?> height: 60vh; <?php } ?>">
-                        <div class="carousel-container">
-                            <div class="carousel-content">
+
+                if (is_front_page()) {
+
+                    $all_images = get_all_header_data();
+                    $i = 0;
+                    foreach ($all_images as $headerImg) {
+                        ?>
+                        <div class="carousel-item<?php if ($i == 0) echo ' active'; ?>"
+                             style="background-image: url('<?php echo $headerImg["url"]; ?>'); <?php if (!is_front_page()) { ?> height: 60vh; <?php } ?>">
+                            <div class="carousel-container">
+                                <div class="carousel-content">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <?php
-                    $i++;
+                        <?php
+                        $i++;
+                    }
+
+                } else {
+
+                    global $wpdb;
+
+                    $cimages = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "carousel_image WHERE page='$cpage' AND image<>'NaN' ");
+
+                    if ($cimages) {
+                        $i = 0;
+                        foreach ($cimages as $cimage) {
+                            $attachmentImg = wp_get_attachment_image_src($cimage->image, full);
+                            if ($attachmentImg) {
+                                ?>
+                                <div class="carousel-item<?php if ($i == 0) echo ' active'; ?>"
+                                     style="background-image: url('<?php echo $attachmentImg[0] ?>'); <?php if (!is_front_page()) { ?> height: 60vh; <?php } ?>">
+                                    <div class="carousel-container">
+                                        <div class="carousel-content">
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            } else {
+                                ?>
+                                <div class="carousel-item<?php if ($i == 0) echo ' active'; ?>"
+                                     style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/wanabima%20683x1024.png'); <?php if (!is_front_page()) { ?> height: 60vh; <?php } ?>"></div>
+
+                                <?php
+                            }
+                            $i++;
+                        }
+                    }else{
+                        ?>
+                        <div class="carousel-item<?php if ($i == 0) echo ' active'; ?>"
+                             style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/wanabima%20683x1024.png'); <?php if (!is_front_page()) { ?> height: 60vh; <?php } ?>"></div>
+
+                        <?php
+                    }
                 }
+
                 ?>
-                <!--                has_header_video-->
+
+                <!-- has_header_video -->
                 <?php if (is_front_page()) { ?>
                     <div class="carousel-item">
                         <div class="carousel-container">

@@ -35,17 +35,21 @@
                         <div id="logo" class="pull-left">
                             <a href="#intro"><?php the_custom_logo(); ?></a>
                         </div>
-
-                        <div id="nav-menu-container p-0 m-0" style="background-color: var(--main-color-1)">
+                        <?php
+                        global $email_address;
+                        global $phone_number;
+                        global $general_number;
+                        ?>
+                        <div id="nav-menu-container p-0 m-0" style="background-color: var(--main-color-2)">
                             <br>
                             <ul class="nav-menu-contact" style="float: right">
                                 <li><a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a></li>
-                                <li><a href="mailto:wanabima@gmail.com">wanabima@gmail.com</a></li>
-                                <li><a href="tel:+94710868772"> +947-10-88-088</a></li>
+                                <li><a href="mailto:<?= $email_address; ?>"><?= $email_address; ?></a></li>
+                                <li><a href="tel:<?= $phone_number; ?>"> <?= $phone_number; ?></a></li>
                             </ul>
                             <br><br>
 
-                            <div style="background-color: var(--main-color-1); height: 50px;">
+                            <div style="background-color: var(--main-color-3); height: 50px;">
                                 <?php get_template_part('template-parts/navigation/navigation', 'top'); ?>
                             </div>
 
@@ -160,15 +164,19 @@
                                 <div class="card-header">Contact Now</div>
                                 <div class="card-body">
                                     <h5 class="card-title">Address:</h5>
-                                    <p class="card-text">No:34, Somewhere , In Sri Lanka</p>
+                                    <p class="card-text">
+                                        412/A, Level 1, <br>
+                                        Nawala Road,<br>
+                                        Rajagiriya. <br>
+                                        Sri Lanka. </p>
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Contact No:</h5>
-                                    <p class="card-text">(###)##-###-###</p>
+                                    <p class="card-text"><a href="tel:<?= $phone_number; ?>"> <?= $phone_number; ?></a></p>
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Email:</h5>
-                                    <p class="card-text">wanabima@gmail.com</p>
+                                    <p class="card-text"><a href="tel:<?= $email_address; ?>"> <?= $email_address; ?></a></p>
                                 </div>
                             </div>
                         </div>

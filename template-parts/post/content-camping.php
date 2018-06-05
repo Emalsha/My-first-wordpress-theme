@@ -67,8 +67,8 @@ $custom_fields = get_post_custom();
 
 <!--    Post content-->
     <div class="text-center">
-        <h6 class="p-1 m-1 h6"><?php echo $custom_fields['sub_title'][0] ? get_the_title():""; ?></h6>
-        <h3 class="p-1 m-1 h3"><?php echo $custom_fields['sub_title'][0] ? $custom_fields['sub_title'][0]:get_the_title(); ?></h3>
+        <h6 class="p-1 m-1 h6"><?php echo $custom_fields['sub_title'][0] ? $custom_fields['sub_title'][0]:""; ?></h6>
+        <h3 class="p-1 m-1 h3"><?php echo get_the_title(); ?></h3>
 
 
         <p class="p-1 m-2 ">

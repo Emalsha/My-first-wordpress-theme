@@ -117,7 +117,7 @@
                 </div>
             </div>
             <div class="product-content-footnote-container">
-                <p class="product-content-footnote">Additional service will provide...</p>
+                <p class="product-content-footnote">Additional services, camping / adventure gear will be provided on demand.</p>
             </div>
 
         </div>

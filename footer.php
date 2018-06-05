@@ -26,21 +26,26 @@
             <div class="row">
 
                 <div class="col-lg-3 col-md-6 footer-info">
-                    <h3>Wanabima</h3>
-
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
-                        valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet
-                        proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/Avens.png" alt="">
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal </p>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-contact">
                     <h2>Contact Info</h2>
+                    <?php
+                        global $email_address;
+                        global $phone_number;
+                        global $general_number;
+                    ?>
                     <p>
-                        No: 645/A<br>
-                        Colombo 5,<br>
-                        Sri Lanka <br>
-                        <strong>Phone:</strong> +94 77 949 91 19<br>
-                        <strong>Email:</strong> info@example.com<br>
+                        412/A, Level 1,<br>
+                        Nawala Road,<br>
+                        Rajagiriya.<br>
+                        Sri Lanka. <br><br>
+                        <strong>Hotline:</strong> <?= $phone_number;?><br>
+                        <strong>General:</strong> <?= $general_number;?><br>
+                        <strong>Email:</strong> <?= $email_address;?><br>
+                        <strong>Web:</strong><a href="https://www.wanabima.com"> www.wanabima.com</a><br>
                     </p>
 
                     <?php
@@ -54,8 +59,12 @@
                                 'container' => '',
                                 'items_wrap' => '%3$s',
                                 'depth' => 1,
-                                'link_before' => '<i class="fa fa-',
-                                'link_after' => '"></i>',
+                                'link_before' => '',
+                                'link_after' => '',
+//                                'before' => '<i>',
+//                                'after' => '</i>',
+//                                'link_before' => '<i class="fa fa-',
+//                                'link_after' => '"></i>',
                             ));
                             ?>
                         </div><!-- .social-navigation -->

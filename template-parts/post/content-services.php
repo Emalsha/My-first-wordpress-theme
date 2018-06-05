@@ -14,7 +14,7 @@ $custom_fields = get_post_custom();
 ?>
 
 <!--Post -->
-<div class="d-inline-block col-md-2 p-1 m-1 border border-dark rounded" id="<?php the_ID(); ?>">
+<div class="d-inline-block col-md-4 p-1 m-1 border border-dark rounded" id="<?php the_ID(); ?>">
     <div class="img-container">
         <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'd-block w-100 img-fluid campsite-carousel-img']); ?>
     </div>

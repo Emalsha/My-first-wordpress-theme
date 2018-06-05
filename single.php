@@ -37,17 +37,20 @@
                         <div id="logo" class="pull-left">
                             <a href="#intro"><?php the_custom_logo(); ?></a>
                         </div>
-
-                        <div id="nav-menu-container p-0 m-0" style="background-color: var(--main-color-1)">
+                        <?php
+                        global $email_address;
+                        global $phone_number;
+                        ?>
+                        <div id="nav-menu-container p-0 m-0" style="background-color: var(--main-color-2)">
                             <br>
                             <ul class="nav-menu-contact" style="float: right">
                                 <li><a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a></li>
-                                <li><a href="mailto:wanabima@gmail.com">wanabima@gmail.com</a></li>
-                                <li><a href="tel:+94710868772"> +947-10-88-088</a></li>
+                                <li><a href="mailto:<?= $email_address; ?>"><?= $email_address; ?></a></li>
+                                <li><a href="tel:<?= $phone_number; ?>"> <?= $phone_number; ?></a></li>
                             </ul>
                             <br><br>
 
-                            <div style="background-color: var(--main-color-1); height: 50px;">
+                            <div style="background-color: var(--main-color-3); height: 50px;">
                                 <?php get_template_part('template-parts/navigation/navigation', 'top'); ?>
                             </div>
 
