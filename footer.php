@@ -56,15 +56,12 @@
                             wp_nav_menu(array(
                                 'theme_location' => 'social',
                                 'menu_class' => 'social-links-menu',
+                                'menu_id' => 'social_icons',
                                 'container' => '',
-                                'items_wrap' => '%3$s',
+                                'items_wrap' => '<div id="%1$s">%3$s</div>',
                                 'depth' => 1,
                                 'link_before' => '',
-                                'link_after' => '',
-//                                'before' => '<i>',
-//                                'after' => '</i>',
-//                                'link_before' => '<i class="fa fa-',
-//                                'link_after' => '"></i>',
+                                'link_after' => ''
                             ));
                             ?>
                         </div><!-- .social-navigation -->

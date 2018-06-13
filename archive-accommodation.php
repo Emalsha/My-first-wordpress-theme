@@ -10,12 +10,16 @@
 get_header();
 
 global $wp;
-$url_parse = wp_parse_url(home_url($wp->request));
+$url_parse = wp_parse_url(home_url( $wp->request ));
 $path = $url_parse['path'];
-$temp = end(explode('/', $path));
-$content = str_replace('-', '_', $temp);
+$temp = end(explode('/',$path));
+$con = str_replace('-','_',$temp);
 
-$cpage = $content;
+global $wpdb;
+
+$conPage = $wpdb->get_row("SELECT page FROM " . $wpdb->prefix . "link_pattern WHERE page_url='$temp' ");
+
+$cpage = $conPage->page;
 
 ?>
 
@@ -70,28 +74,28 @@ $cpage = $content;
                             'title' => 'LUXURY STAR CLASS HOTELS',
                             'subtitle' => 'Wanabima Accommodation',
                             'button' => '',
-                            'slug' => 'luxury-star-class-hotels'
+                            'slug' => 'luxury-hotel-sri-lanka'
                         ),
                         '1' => array(
                             'acc_id' => 'luxury_boutique_hotels',
                             'title' => 'LUXURY BOUTIQUE HOTELS',
                             'subtitle' => 'Wanabima Accommodation',
                             'button' => '',
-                            'slug' => 'luxury-boutique-hotels'
+                            'slug' => 'boutique-hotels-sri-lanka'
                         ),
                         '2' => array(
                             'acc_id' => 'resorts_and_villas',
                             'title' => 'RESORTS AND VILLAS',
                             'subtitle' => 'Wanabima Accommodation',
                             'button' => '',
-                            'slug' => 'resorts-and-villas'
+                            'slug' => 'sri-lanka-resorts'
                         ),
                         '3' => array(
                             'acc_id' => 'bungalows_and_home_stay',
                             'title' => 'BUNGALOWS AND HOME STAY',
                             'subtitle' => 'Wanabima Accommodation',
                             'button' => '',
-                            'slug' => 'bungalows-and-home-stay'
+                            'slug' => 'bungalows-sri-lanka'
                         ),
                     );
 
@@ -138,7 +142,7 @@ $cpage = $content;
                                     </div>
                                     <script>
                                         if (imgList_<?php echo $item['acc_id']; ?>) {
-                                            for(let i=0, len = imgList_<?php echo $item['acc_id']; ?>.length; i< len; i++){
+                                            for(var i=0, len = imgList_<?php echo $item['acc_id']; ?>.length; i< len; i++){
                                                 jQuery('#carouselinner<?php echo $item['acc_id']; ?>').append(imgList_<?php echo $item['acc_id']; ?>[i]);
                                             }
 

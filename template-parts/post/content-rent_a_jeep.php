@@ -15,7 +15,7 @@
 
     <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
 
-        <div class="col-md-4 img-container carousel slide carousel-fade" id="carousel<?php the_ID(); ?>" data-interval="false">
+        <div class="col-md-4 img-container carousel slide carousel-fade" id="carousel<?php the_ID(); ?>" data-interval="5000" data-ride="carousel">
 
             <div class="carousel-inner" style="height: 100%;">
                 <div class="carousel-item active" style="height: 100%;">

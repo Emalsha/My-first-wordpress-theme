@@ -10,12 +10,16 @@
 get_header();
 
 global $wp;
-$url_parse = wp_parse_url(home_url($wp->request));
+$url_parse = wp_parse_url(home_url( $wp->request ));
 $path = $url_parse['path'];
-$temp = end(explode('/', $path));
-$content = str_replace('-', '_', $temp);
-$cpage = $content;
+$temp = end(explode('/',$path));
+$con = str_replace('-','_',$temp);
 
+global $wpdb;
+
+$conPage = $wpdb->get_row("SELECT page FROM " . $wpdb->prefix . "link_pattern WHERE page_url='$temp' ");
+
+$cpage = $conPage->page;
 ?>
 
     <main id="main">
@@ -62,14 +66,14 @@ $cpage = $content;
                             'title' => 'CAMPING',
                             'subtitle' => '',
                             'button' => 'Camping Site',
-                            'slug' => 'camping-sites'
+                            'slug' => 'tented-safari-camping-sri-lanka'
                         ),
                         '1' => array(
                             'camp_id' => 'glamping_sites',
                             'title' => 'GLAMPING',
                             'subtitle' => '',
                             'button' => 'Glamping Site',
-                            'slug' => 'glamping-sites'
+                            'slug' => 'glamping-sri-lanka'
                         )
                     )
 
@@ -109,13 +113,13 @@ $cpage = $content;
                                             $desc = term_description($term->term_id, 'camping_taxonomy');
                                             ?>
                                             <?php echo $desc; ?>
-                                            <a href="<?php echo get_site_url(); ?>/camping/<?php echo $item['slug'] ?>"
+                                            <a href="<?php echo get_site_url(); ?>/camping-sri-lanka/<?php echo $item['slug'] ?>"
                                                class="btn btn-outline-wanabima"><?php echo $item['button'] ?></a>
                                         </div>
                                     </div>
                                     <script>
                                         if (imgList_<?php echo $item['camp_id']; ?>) {
-                                            for(let i=0, len = imgList_<?php echo $item['camp_id']; ?>.length; i< len; i++){
+                                            for(var i=0, len = imgList_<?php echo $item['camp_id']; ?>.length; i< len; i++){
                                                 jQuery('#carouselinner<?php echo $item['camp_id']; ?>').append(imgList_<?php echo $item['camp_id']; ?>[i]);
                                             }
 

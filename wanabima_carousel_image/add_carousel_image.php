@@ -84,6 +84,31 @@ function wci_install_data()
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'big_five_with_wanabima', 'image' => 'NaN'));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'big_five_with_wanabima', 'image' => 'NaN'));
 
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_sloth_bear_season', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_sloth_bear_season', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_sloth_bear_season', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_sloth_bear_season', 'image' => 'NaN'));
+
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_asian_elephant_season', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_asian_elephant_season', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_asian_elephant_season', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_asian_elephant_season', 'image' => 'NaN'));
+
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_leopard_season', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_leopard_season', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_leopard_season', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_leopard_season', 'image' => 'NaN'));
+
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_blue_whale_season', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_blue_whale_season', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_blue_whale_season', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_blue_whale_season', 'image' => 'NaN'));
+
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_sperm_whale_season', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_sperm_whale_season', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_sperm_whale_season', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'the_sperm_whale_season', 'image' => 'NaN'));
+
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'wanabima_safari', 'image' => 'NaN'));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'wanabima_safari', 'image' => 'NaN'));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'wanabima_safari', 'image' => 'NaN'));
@@ -94,15 +119,15 @@ function wci_install_data()
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'adventure', 'image' => 'NaN'));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'adventure', 'image' => 'NaN'));
 
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'off_raod_racing', 'image' => 'NaN'));
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'off_raod_racing', 'image' => 'NaN'));
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'off_raod_racing', 'image' => 'NaN'));
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'off_raod_racing', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'land_and_offroad', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'land_and_offroad', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'land_and_offroad', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'land_and_offroad', 'image' => 'NaN'));
 
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'mud_fun', 'image' => 'NaN'));
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'mud_fun', 'image' => 'NaN'));
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'mud_fun', 'image' => 'NaN'));
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'mud_fun', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'water_sports', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'water_sports', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'water_sports', 'image' => 'NaN'));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => 'water_sports', 'image' => 'NaN'));
 
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => '4x4_adventure', 'image' => 'NaN'));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'page' => '4x4_adventure', 'image' => 'NaN'));

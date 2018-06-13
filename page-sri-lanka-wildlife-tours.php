@@ -10,12 +10,17 @@
 get_header();
 
 global $wp;
-$url_parse = wp_parse_url(home_url( $wp->request ));
+$url_parse = wp_parse_url(home_url($wp->request));
 $path = $url_parse['path'];
-$temp = end(explode('/',$path));
-$content = str_replace('-','_',$temp);
+$temp = end(explode('/', $path));
+$con = str_replace('-', '_', $temp);
 
-$cpage = $content;
+global $wpdb;
+
+$conPage = $wpdb->get_row("SELECT page FROM " . $wpdb->prefix . "link_pattern WHERE page_url='$temp' ");
+
+
+$cpage = $conPage->page;
 
 
 ?>
@@ -62,76 +67,106 @@ $cpage = $content;
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="p-3 col-md-6"  id="<?php the_ID(); ?>" >
-                        <div class="border border-dark rounded" style="min-height:25em ; max-height: 25em; overflow: hidden">
-                            <div class="row">
+                    <?php
 
-                                <div class="col-md-6 pr-0 img-container carousel slide carousel-fade" id="carousel<?php the_ID(); ?>" data-interval="false">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
-                                                <?php the_post_thumbnail('wanabima-featured-image', ['class' => 'd-block w-100 img-fluid ']); ?>
-                                            <?php endif; ?>
+                    $items = array(
+                        '0' => array(
+                            'naw_id' => 'sloth_bear',
+                            'title' => 'The Sloth Bear Season',
+                            'subtitle' => '',
+                            'button' => '',
+                            'slug' => 'sloth-bear'
+                        ),
+                        '1' => array(
+                            'naw_id' => 'sri_lankan_elephant',
+                            'title' => ' The Asian Elephant Season',
+                            'subtitle' => '',
+                            'button' => '',
+                            'slug' => 'sri-lankan-elephant'
+                        ),
+                        '2' => array(
+                            'naw_id' => 'sri_lankan_leopard',
+                            'title' => 'The Leopard Season',
+                            'subtitle' => '',
+                            'button' => '',
+                            'slug' => 'sri-lankan-leopard'
+                        ),
+                        '3' => array(
+                            'naw_id' => 'whale_watching_sri_lanka',
+                            'title' => 'The Blue Whale Season',
+                            'subtitle' => '',
+                            'button' => '',
+                            'slug' => 'whale-watching-sri-lanka'
+                        ),
+                        '4' => array(
+                            'naw_id' => 'sri_lanka_whale_watching_holidays',
+                            'title' => 'The Sperm Whale Season',
+                            'subtitle' => '',
+                            'button' => '',
+                            'slug' => 'sri-lanka-whale-watching-holidays'
+                        )
+
+                    );
+
+
+                    foreach ($items as $item_key => $item) {
+
+                        ?>
+                        <div class="p-3 col-md-6" id="<?php $item['naw_id'] ?>">
+                            <div class="border border-dark rounded"
+                                 style="min-height:25em ; max-height: 25em; overflow: hidden">
+                                <div class="row">
+
+                                    <div class="col-md-6 pr-0 img-container carousel slide carousel-fade"
+                                         id="carousel<?php $item['naw_id'] ?>" data-interval="false">
+                                            <div class="carousel-inner" id="carouselinner<?php echo $item['naw_id'] ?>">
+                                            </div>
+
+                                        <a class="carousel-control-prev" style="left: auto"
+                                           href="#carousel<?php $item['naw_id']; ?>" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carousel<?php $item['naw_id']; ?>"
+                                           role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-md-6 p-3">
+                                        <div class="float-right">
+                                            <h3 class="card-title"><?= $item['title']; ?></h3>
+                                            <h5 class="card-title">BIG FIVE WITH WANABIMA</h5>
+                                            <?php
+                                            $term = get_term_by('slug', $item['slug'], 'natureandwildlife_taxonomy');
+                                            $desc = term_description($term->term_id, 'natureandwildlife_taxonomy');
+                                            ?>
+                                            <?php echo $desc; ?>
+
+                                            <?php
+                                            $button_link = get_post_meta(get_the_ID(), 'button_link', true);
+                                            if (isset($button_link)) { ?>
+                                                <a href="<?php echo get_site_url(); ?>/nature-wildlife/sri-lanka-wildlife-tours/<?php echo $item['slug'] ?>"
+                                                   class="btn btn-wanabima"><?php echo $custom_fields['BUTTON'] ? $custom_fields['BUTTON'][0] : "MORE" ?></a>
+                                                <?php
+                                            } ?>
+
                                         </div>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'second-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'second-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'third-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'third-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'forth-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'forth-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
-                                        <?php if (MultiPostThumbnails::has_post_thumbnail(get_post_type(),'fifth-image')){?>
-                                            <div class="carousel-item" style="height: 100%;">
-                                                <?php
-                                                if (class_exists('MultiPostThumbnails')) :
-                                                    MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'fifth-image',null,'post-thumbnail',array('class'=>'d-block w-100 img-fluid'));
-                                                endif;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
                                     </div>
-                                    <a class="carousel-control-prev" style="left: auto" href="#carousel<?php the_ID(); ?>" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carousel<?php the_ID(); ?>" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </div>
 
-                                <div class="col-md-6 p-3">
-                                    <div class="float-right">
-                                        <h3 class="card-title">BIG FIVE WITH WANABIMA</h3>
-                                        <h5 class="card-title">THE SLOTH BEAR SEASON</h5>
-                                        <p>Platform for event organizers that enables them to pay only for what they get, and rewards community members by sharing those events</p>
-                                        <a href="<?php echo get_site_url(); ?>/nature-and-wildlife/big-five-with-wanabima/the-sloth-bear-season" class="btn btn-outline-wanabima" target='_blank'><?php echo $custom_fields['BUTTON'] ? $custom_fields['BUTTON'][0] : "MORE" ?></a>
-                                    </div>
                                 </div>
-
                             </div>
+                            <script>
+                                if (imgList_<?php echo $item['naw_id']; ?>) {
+                                    for (var i = 0, len = imgList_<?php echo $item['naw_id']; ?>.length; i < len; i++) {
+                                        jQuery('#carouselinner<?php echo $item['naw_id']; ?>').append(imgList_<?php echo $item['naw_id']; ?>[i]);
+                                    }
+
+                                }
+                            </script>
                         </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </section>

@@ -11,12 +11,16 @@
 get_header();
 
 global $wp;
-$url_parse = wp_parse_url(home_url($wp->request));
+$url_parse = wp_parse_url(home_url( $wp->request ));
 $path = $url_parse['path'];
-$temp = end(explode('/', $path));
-$content = str_replace('-', '_', $temp);
+$temp = end(explode('/',$path));
+$con = str_replace('-','_',$temp);
 
-$cpage = $content;
+global $wpdb;
+
+$conPage = $wpdb->get_row("SELECT page FROM " . $wpdb->prefix . "link_pattern WHERE page_url='$temp' ");
+
+$cpage = $conPage->page;
 
 ?>
 
@@ -63,21 +67,21 @@ $cpage = $content;
                             'title' => 'NATIONAL PARKS',
                             'subtitle' => '',
                             'button' => '',
-                            'slug' => 'national-parks'
+                            'slug' => 'sri-lanka-national-parks'
                         ),
                         '1' => array(
                             'naw_id' => 'big_five_with_wanabima',
                             'title' => 'BIG FIVE WITH WANABIMA',
                             'subtitle' => '',
                             'button' => '',
-                            'slug' => 'big-five-with-wanabima'
+                            'slug' => 'sri-lanka-wildlife-tours'
                         ),
                         '2' => array(
                             'naw_id' => 'wanabima_safari',
                             'title' => 'WANABIMA SAFARI',
                             'subtitle' => '',
                             'button' => '',
-                            'slug' => 'wanabima-safari'
+                            'slug' => 'sri-lanka-safari-holidays'
                         )
                     );
 
@@ -116,7 +120,7 @@ $cpage = $content;
                                 <?php
                                 $button_link = get_post_meta(get_the_ID(), 'button_link', true);
                                 if (isset($button_link)) { ?>
-                                    <a href="<?php echo get_site_url(); ?>/nature-and-wildlife/<?php echo $item['slug'] ?>"
+                                    <a href="<?php echo get_site_url(); ?>/nature-wildlife/<?php echo $item['slug'] ?>"
                                        class="btn btn-wanabima">Go Visit</a>
                                     <?php
                                 } ?>
@@ -124,7 +128,7 @@ $cpage = $content;
                             </div>
                             <script>
                                 if (imgList_<?php echo $item['naw_id']; ?>) {
-                                    for (let i = 0, len = imgList_<?php echo $item['naw_id']; ?>.length; i < len; i++) {
+                                    for (var i = 0, len = imgList_<?php echo $item['naw_id']; ?>.length; i < len; i++) {
                                         jQuery('#carouselinner<?php echo $item['naw_id']; ?>').append(imgList_<?php echo $item['naw_id']; ?>[i]);
                                     }
 

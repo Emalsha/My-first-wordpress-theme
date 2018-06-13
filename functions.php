@@ -918,7 +918,7 @@ function rent_a_jeep_post_type()
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
-        'rewrite' => array('slug' => 'rent-a-jeep')
+        'rewrite' => array('slug' => 'rent-a-suv-4x4-jeep-sri-lanka')
     );
 
     // Registering Custom Post Type
@@ -969,11 +969,14 @@ function camping_post_type()
         'show_in_admin_bar' => true,
         'menu_position' => 5,
         'can_export' => true,
-        'has_archive' => 'camping',
+        'has_archive' => 'camping-sri-lanka',
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
-        'rewrite' => array('slug' => 'camping/%camping_taxonomy%')
+        'rewrite' => array(
+                'slug' => 'camping-sri-lanka/%camping_taxonomy%',
+                'with_front' => false
+                )
     );
 
     // Registering Custom Post Type
@@ -1009,7 +1012,7 @@ function nature_wild_post_type()
     );
 
     $args = array(
-        'label' => __('nature_and_wildlife', 'wanabima'),
+        'label' => __('nature_wildlife', 'wanabima'),
         'description' => __('Nature and Wildlife page information', 'wanabima'),
         'labels' => $labels,
         // Features this CPT supports in Post Editor
@@ -1025,16 +1028,16 @@ function nature_wild_post_type()
         'show_in_admin_bar' => true,
         'menu_position' => 5,
         'can_export' => true,
-        'has_archive' => 'nature-and-wildlife',
+        'has_archive' => 'nature-wildlife',
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
-        'rewrite' => array('slug' => 'nature-and-wildlife/%naw_taxonomy%')
+        'rewrite' => array('slug' => 'nature-wildlife/%naw_taxonomy%','with_front' => false)
 
     );
 
     // Registering Custom Post Type
-    register_post_type('nature_and_wildlife', $args);
+    register_post_type('nature_wildlife', $args);
 
 }
 
@@ -1081,11 +1084,11 @@ function adventure_post_type()
         'show_in_admin_bar' => true,
         'menu_position' => 5,
         'can_export' => true,
-        'has_archive' => 'adventure',
+        'has_archive' => 'adventure-sri-lanka',
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
-        'rewrite' => array('slug' => 'adventure/%adventure_taxonomy%')
+        'rewrite' => array('slug' => 'adventure-sri-lanka/%adventure_taxonomy%', 'with_front' => false)
 
     );
 
@@ -1137,11 +1140,11 @@ function tour_post_type()
         'show_in_admin_bar' => true,
         'menu_position' => 5,
         'can_export' => true,
-        'has_archive' => 'tours',
+        'has_archive' => 'sri-lanka-tour-packages',
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
-        'rewrite' => array('slug' => 'tours/%tour_taxonomy%')
+        'rewrite' => array('slug' => 'sri-lanka-tour-packages/%tour_taxonomy%','with_front' => false)
 
     );
 
@@ -1194,11 +1197,11 @@ function accommodation_post_type()
         'show_in_admin_bar' => true,
         'menu_position' => 5,
         'can_export' => true,
-        'has_archive' => 'accommodation',
+        'has_archive' => 'sri-lanka-holidays',
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
-        'rewrite' => array('slug' => 'accommodation/%acco_taxonomy%')
+        'rewrite' => array('slug' => 'sri-lanka-holidays/%acco_taxonomy%', 'with_front' => false)
     );
 
     // Registering Custom Post Type
@@ -1250,10 +1253,11 @@ function service_post_type()
         'show_in_admin_bar' => true,
         'menu_position' => 5,
         'can_export' => true,
-        'has_archive' => true,
+        'has_archive' => 'adventure-camping-gear-sri-lanka',
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
+        'rewrite' => array('slug' => 'adventure-camping-gear-sri-lanka', 'with_front' => false)
     );
 
     // Registering Custom Post Type
@@ -1308,6 +1312,7 @@ function blog_post_type()
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
+        'rewrite' => array('slug' => 'sri-lanka-tourism', 'with_front' => false)
     );
 
     // Registering Custom Post Type
@@ -1385,7 +1390,7 @@ function nature_wildlife_post_support()
 {
     $screen = get_current_screen();
     $edit_post_type = $screen->post_type;
-    if ($edit_post_type == 'nature_and_wildlife') {
+    if ($edit_post_type == 'nature_wildlife') {
 
         ?>
         <div class="after-title-help postbox">
@@ -1496,22 +1501,22 @@ if (class_exists('MultiPostThumbnails')) {
     new MultiPostThumbnails(array(
         'label' => 'Second Image',
         'id' => 'second-image',
-        'post_type' => 'nature_and_wildlife'
+        'post_type' => 'nature_wildlife'
     ));
     new MultiPostThumbnails(array(
         'label' => 'Third Image',
         'id' => 'third-image',
-        'post_type' => 'nature_and_wildlife'
+        'post_type' => 'nature_wildlife'
     ));
     new MultiPostThumbnails(array(
         'label' => 'Forth Image',
         'id' => 'forth-image',
-        'post_type' => 'nature_and_wildlife'
+        'post_type' => 'nature_wildlife'
     ));
     new MultiPostThumbnails(array(
         'label' => 'Fifth Image',
         'id' => 'fifth-image',
-        'post_type' => 'nature_and_wildlife'
+        'post_type' => 'nature_wildlife'
     ));
 
     //Adventure
@@ -1593,7 +1598,7 @@ if (class_exists('MultiPostThumbnails')) {
 
 function your_sub_title()
 {
-    add_meta_box('your_sub_title_metabox', 'Edit Sub Title', 'your_sub_title_metabox', ['camping','nature_and_wildlife' ,'tours', 'adventure'], 'normal', 'default'); ## Adds a meta box to post type
+    add_meta_box('your_sub_title_metabox', 'Edit Sub Title', 'your_sub_title_metabox', ['camping','nature_wildlife' ,'tours', 'adventure'], 'normal', 'default'); ## Adds a meta box to post type
 }
 
 add_action('add_meta_boxes', 'your_sub_title');
@@ -1655,7 +1660,7 @@ add_action('save_post', 'sub_title_save_meta', 1, 2);
 
 function your_button_link()
 {
-//    add_meta_box('your_button_link_metabox', 'Edit Button Link', 'your_button_link_metabox', ['nature_and_wildlife', 'adventure', 'tours', 'accommodation', 'camping'], 'normal', 'default'); ## Adds a meta box to post type
+//    add_meta_box('your_button_link_metabox', 'Edit Button Link', 'your_button_link_metabox', ['nature_wildlife', 'adventure', 'tours', 'accommodation', 'camping'], 'normal', 'default'); ## Adds a meta box to post type
 //    TODO
 }
 
@@ -1844,7 +1849,7 @@ function termShortCode($atts)
 
 
     $tempStr = 'active';
-    $completeStr = "<script> let imgList_".$imgName." = [";
+    $completeStr = "<script> var imgList_".$imgName." = [";
     foreach ($imgids as $iid) {
         $imgSorce = wp_get_attachment_image_src($iid,"size");
         if($imgSorce) {
@@ -1991,8 +1996,6 @@ class WP_Widget_Recent_Blog_Posts extends WP_Widget
  */
 add_filter( 'term_description', 'do_shortcode' );
 
-//TODO : ADD header slider for each page ... like contents ... 2 image per page...
-
 
 /**
  *
@@ -2008,7 +2011,7 @@ function camping_taxonomy()
         'camping',
         array(
             'label' => __('Camping Types'),
-            'rewrite' => array('slug' => 'camping'),
+            'rewrite' => array('slug' => 'camping-sri-lanka','with_front' => false),
             'hierarchical' => true,
             'sort' => true,
             'show_ui' => true,
@@ -2040,10 +2043,10 @@ function naw_taxonomy()
 
     register_taxonomy(
         'natureandwildlife_taxonomy',
-        'nature_and_wildlife',
+        'nature_wildlife',
         array(
             'label' => __('Nature & Wildlife Types'),
-            'rewrite' => array('slug' => 'nature-and-wildlife'),
+            'rewrite' => array('slug' => 'nature-wildlife'),
             'hierarchical' => true,
             'sort' => true,
             'show_ui' => true,
@@ -2055,7 +2058,7 @@ function naw_taxonomy()
 add_action('init', 'naw_taxonomy');
 function filter_naw_post_type_link($link, $post)
 {
-    if ($post->post_type != 'nature_and_wildlife')
+    if ($post->post_type != 'nature_wildlife')
         return $link;
 
     if ($cats = get_the_terms($post->ID, 'natureandwildlife_taxonomy')) {
@@ -2192,58 +2195,57 @@ function register_new_terms() {
         '0' => array (
             'taxonomy'      => 'camping_taxonomy',
             'name'          => 'Camping Sites',
-            'slug'          => 'camping-sites',
-            'description'   => 'Camping sites',
+            'slug'          => 'tented-safari-camping-sri-lanka',
+            'description'   => 'Camping sites ',
         ),
         '1' => array (
             'taxonomy'      => 'camping_taxonomy',
             'name'          => 'Glamping Sites',
-            'slug'          => 'glamping-sites',
+            'slug'          => 'glamping-sri-lanka',
             'description'   => 'This is Glamping sites',
         ),
 
         '2' => array (
             'taxonomy'      => 'natureandwildlife_taxonomy',
             'name'          => 'National Parks',
-            'slug'          => 'national-parks',
+            'slug'          => 'sri-lanka-national-parks',
             'description'   => 'This is National Parks',
         ),
 
         '3' => array (
             'taxonomy'      => 'natureandwildlife_taxonomy',
             'name'          => 'Big Five With Wanabima',
-            'slug'          => 'big-five-with-wanabima',
+            'slug'          => 'sri-lanka-wildlife-tours',
             'description'   => 'This is Big Five With Wanabima',
         ),
 
         '4' => array (
             'taxonomy'      => 'natureandwildlife_taxonomy',
             'name'          => 'Wanabima Safari',
-            'slug'          => 'wanabima-safari',
+            'slug'          => 'sri-lanka-safari-holidays',
             'description'   => 'This is Wanabima Safari',
         ),
 
         '5' => array (
             'taxonomy'      => 'adventure_taxonomy',
             'name'          => '4x4 Adventure',
-            'slug'          => '4x4-adventure',
-            'description'   => 'This is 4x4 adventure',
+            'slug'          => '4x4-suv-jeep-adventure',
+            'description'   => 'This is 4x4 adventure [slider id="64,63" name="4x4_suv_jeep_adventure"]',
         ),
 
-//  TODO
-//        '6' => array (
-//            'taxonomy'      => 'fourbyfour_taxonomy',
-//            'name'          => 'Mud Fun',
-//            'slug'          => 'mud-fun',
-//            'description'   => 'This is Mud Fun',
-//        ),
-//
-//        '7' => array (
-//            'taxonomy'      => 'fourbyfour_taxonomy',
-//            'name'          => '4x4 Rally',
-//            'slug'          => 'fourbyfour-rally',
-//            'description'   => 'This is 4x4 Rally',
-//        ),
+        '6' => array (
+            'taxonomy'      => 'adventure_taxonomy',
+            'name'          => 'Water Sport',
+            'slug'          => 'surfing-sri-lanka',
+            'description'   => 'This is Water Fun [slider id="64,63" name="surfing_sri_lanka"]',
+        ),
+
+        '7' => array (
+            'taxonomy'      => 'adventure_taxonomy',
+            'name'          => 'Land and Offroad',
+            'slug'          => 'offroad-sri-lanka',
+            'description'   => 'This is Off road [slider id="64,63" name="offroad_sri_lanka"]',
+        ),
 
         '8' => array (
             'taxonomy'      => 'tour_taxonomy',
@@ -2255,49 +2257,49 @@ function register_new_terms() {
         '9' => array (
             'taxonomy'      => 'tour_taxonomy',
             'name'          => 'Sand and Beach',
-            'slug'          => 'sand-and-beach',
+            'slug'          => 'sri-lanka-beach-holidays',
             'description'   => 'This is Sand and Beach',
         ),
 
         '10' => array (
             'taxonomy'      => 'tour_taxonomy',
             'name'          => 'Hilly and Cozy',
-            'slug'          => 'hilly-and-cozy',
+            'slug'          => 'hill-country-sri-lanka',
             'description'   => 'This is Hilly and Cozy',
         ),
 
         '11' => array (
             'taxonomy'      => 'tour_taxonomy',
             'name'          => 'Across the Paradise',
-            'slug'          => 'across-the-paradise',
+            'slug'          => 'sri-lanka-travel',
             'description'   => 'This is Across the Paradise',
         ),
 
         '12' => array (
             'taxonomy'      => 'accommodation_taxonomy',
             'name'          => 'Luxury Star Class Hotels',
-            'slug'          => 'luxury-star-class-hotels',
+            'slug'          => 'luxury-hotel-sri-lanka',
             'description'   => 'This is Luxury Star Class Hotels',
         ),
 
         '13' => array (
             'taxonomy'      => 'accommodation_taxonomy',
             'name'          => 'Luxury Boutique Hotels',
-            'slug'          => 'luxury-boutique-hotels',
+            'slug'          => 'boutique-hotels-sri-lanka',
             'description'   => 'This is Luxury Boutique Hotels',
         ),
 
         '14' => array (
             'taxonomy'      => 'accommodation_taxonomy',
             'name'          => 'Resorts and Villas',
-            'slug'          => 'resorts-and-villas',
+            'slug'          => 'sri-lanka-resorts',
             'description'   => 'This is Resorts and Villas',
         ),
 
         '15' => array (
             'taxonomy'      => 'accommodation_taxonomy',
             'name'          => 'Bungalows and Home Stay',
-            'slug'          => 'bungalows-and-home-stay',
+            'slug'          => 'bungalows-sri-lanka',
             'description'   => 'This is Bungalows and Home Stay',
         ),
     );
@@ -2371,6 +2373,70 @@ function taxonomy_slug_rewrite($wp_rewrite) {
 }
 add_filter('generate_rewrite_rules', 'taxonomy_slug_rewrite');
 
+/**
+ * Initialize database for url structure
+ *
+ * table - _link_pattern
+ */
+
+function create_link_pattern(){
+    global $wpdb;
+
+    $table_name = $wpdb->prefix."link_pattern";
+
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE $table_name (
+      id mediumint(9) NOT NULL AUTO_INCREMENT,
+      time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+      page text NOT NULL,
+      page_url text NOT NULL,
+      url varchar(55) DEFAULT '' NOT NULL,
+      PRIMARY KEY  (id)
+    ) $charset_collate;";
+
+    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+    dbDelta( $sql );
+
+    $row_count = $wpdb->get_var("SELECT COUNT(*) FROM " . $table_name);
+
+    if (!$row_count > 0) {
+
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'home',                    'page_url' => 'home'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'rent_a_jeep',             'page_url' => 'rent-a-suv-4x4-jeep-sri-lanka'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'camping',                 'page_url' => 'camping-sri-lanka'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'camping_sites',           'page_url' => 'tented-safari-camping-sri-lanka'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'glamping_sites',          'page_url' => 'glamping-sri-lanka'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'nature_and_wildlife',     'page_url' => 'nature-wildlife'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'national_parks',          'page_url' => 'sri-lanka-national-parks'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'big_five_with_wanabima',  'page_url' => 'sri-lanka-wildlife-tours'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'the_sloth_bear_season',   'page_url' => 'sloth-bear'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'the_asian_elephant_season','page_url' => 'sri-lankan-elephant'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'the_leopard_season',      'page_url' => 'sri-lankan-leopard'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'the_blue_whale_season',   'page_url' => 'whale-watching-sri-lanka'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'the_sperm_whale_season',  'page_url' => 'sri-lanka-whale-watching-holidays'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'wanabima_safari',         'page_url' => 'sri-lanka-safari-holidays'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'adventure',               'page_url' => 'adventure-sri-lanka'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> '4X4_adventure',           'page_url' => '4X4-suv-jeep-adventure'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'water_sports',            'page_url' => 'surfing-sri-lanka'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'land_and_offroad',        'page_url' => 'offroad-sri-lanka'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'tours',                   'page_url' => 'sri-lanka-tour-packages'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'hideout',                 'page_url' => 'hideout'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'sand_and_beach',          'page_url' => 'sri-lanka-beach-holidays'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'hilly_and_cozy',          'page_url' => 'hill-country-sri-lanka'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'across_the_paradise',     'page_url' => 'sri-lanka-travel'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'accommodation',           'page_url' => 'sri-lanka-holidays'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'luxury_star_class_hotels','page_url' => 'luxury-hotels-sri-lanka'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'luxury_boutique_hotels',  'page_url' => 'boutique-hotels-sri-lanka'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'resorts_and_villas',      'page_url' => 'sri-lanka-resorts'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'bungalows_and_home_stay', 'page_url' => 'bungalows-sri-lanka'));
+        $wpdb->insert($table_name,array('time' => current_time('mysql'),'page'=> 'services',                'page_url' => 'adventure-camping-gear-sri-lanka'));
+    }
+}
+
+add_action( 'after_setup_theme', 'create_link_pattern' );
+
+
 
 /**
  * Important
@@ -2400,13 +2466,12 @@ add_filter('generate_rewrite_rules', 'taxonomy_slug_rewrite');
  * -- 2 -> Wanabima custom content
  * -- 3 -> Wanabima feature image
  * -- 4 -> Wanabima carousel image
- *
+ * -- 5 -> multiple-post-thumbnails
  * = Global Info
  */
 $email_address = 'hello@wanabima.com';
 $phone_number = '+94 77 755 4654';
 $general_number = '+94 11 288 5884';
 
-//TODO rent a car image slide
-//TODO service items (3 item per line)
+
 //TODO contact page -> thank you page.

@@ -1336,3 +1336,70 @@ add_action('init', 'europe_taxonomy');
 
 
 ?>
+
+
+1	Home			https://www.wanabima.com
+2	Rent A Jeep			https://www.wanabima.com/rent-a-suv-4x4-jeep-sri-lanka
+3	Camping			https://www.wanabima.com/camping-sri-lanka
+4	Camping Sites		https://www.wanabima.com/camping-sri-lanka/tented-safari-camping-sri-lanka
+5	Glamping Sites		https://www.wanabima.com/camping-sri-lanka/glamping-sri-lanka
+6	Nature & Wildlife 			https://www.wanabima.com/nature-wildlife
+7	National Parks		https://www.wanabima.com/nature-wildlife/sri-lanka-national-parks
+8	Big Five With Wanabima		https://www.wanabima.com/nature-wildlife/sri-lanka-wildlife-tours
+9	The Sloth Bear Season	https://www.wanabima.com/nature-wildlife/sri-lanka-wildlife-tours/sloth-bear
+10	The Asian Elephant Season	https://www.wanabima.com/nature-wildlife/sri-lanka-wildlife-tours/sri-lankan-elephant
+11	The Leopard Season	https://www.wanabima.com/nature-wildlife/sri-lanka-wildlife-tours/sri-lankan-leopard
+12	The Blue Whale Season	https://www.wanabima.com/nature-wildlife/sri-lanka-wildlife-tours/whale-watching-sri-lanka
+13	The Sperm Whale Season	https://www.wanabima.com/nature-wildlife/sri-lanka-wildlife-tours/sri-lanka-whale-watching-holidays
+14	Wanabima Safari 		https://www.wanabima.com/sri-lanka-safari-holidays
+15	Adventure 			https://www.wanabima.com/adventure-sri-lanka
+16	4X4 Adventure		https://www.wanabima.com/adventure-sri-lanka/4X4-suv-jeep-adventure
+17	Water Sports		https://www.wanabima.com/adventure-sri-lanka/surfing-sri-lanka
+18	Land & Offroad		https://www.wanabima.com/adventure-sri-lanka/offroad-sri-lanka
+19	Tours 			https://www.wanabima.com/sri-lanka-tour-packages
+20	Hideout 		https://www.wanabima.com/sri-lanka-tour-packages/hideout
+21	Sand and Beach		https://www.wanabima.com/sri-lanka-tour-packages/sri-lanka-beach-holidays
+22	Hilly and Cozy 		https://www.wanabima.com/sri-lanka-tour-packages/hill-country-sri-lanka
+23	Across the Paradise		https://www.wanabima.com/sri-lanka-tour-packages/sri-lanka-travel
+24	Accommodation			https://www.wanabima.com/sri-lanka-holidays
+25	Luxury Star Class Hotels		https://www.wanabima.com/sri-lanka-holidays/luxury-hotels-sri-lanka
+26	Luxury boutique hotels		https://www.wanabima.com/sri-lanka-holidays/boutique-hotels-sri-lanka
+27	Resorts and Villas		https://www.wanabima.com/sri-lanka-holidays/sri-lanka-resorts
+28	Bungalows and Home Stay  		https://www.wanabima.com/sri-lanka-holidays/bungalows-sri-lanka
+29	Services 			https://www.wanabima.com/adventure-camping-gear-sri-lanka
+30	Gallery			https://www.wanabima.com/gallery
+31	Contact Us			https://www.wanabima.com/contact-us
+32	About Us			https://www.wanabima.com/travel-agent-sri-lanka
+33	About Sri Lanka 			https://www.wanabima.com/sri-lanka-tourism
+34	Testimonials 			https://www.wanabima.com/travel-reviews-sri-lanka
+35	Privacy Policy			https://www.wanabima.com/privacy-policy
+36	Terms & Conditions 			https://www.wanabima.com/terms-and-conditions
+37	Sitemap			https://www.wanabima.com/sitemap
+
+Rent A Jeep			rent-a-suv-4x4-jeep-sri-lanka
+Camping			camping-sri-lanka
+Camping Sites		tented-safari-camping-sri-lanka
+Glamping Sites		glamping-sri-lanka
+Nature & Wildlife 			nature-wildlife
+National Parks		sri-lanka-national-parks
+Big Five With Wanabima		sri-lanka-wildlife-tours
+The Sloth Bear Season	sloth-bear
+The Asian Elephant Season	sri-lankan-elephant
+The Leopard Season	sri-lankan-leopard
+The Blue Whale Season	whale-watching-sri-lanka
+The Sperm Whale Season	sri-lanka-whale-watching-holidays
+Wanabima Safari 		sri-lanka-safari-holidays
+Adventure 			adventure-sri-lanka
+4X4 Adventure		4X4-suv-jeep-adventure
+Water Sports		surfing-sri-lanka
+Land & Offroad		offroad-sri-lanka
+Tours 			sri-lanka-tour-packages
+Hideout 		hideout
+Sand and Beach		sri-lanka-beach-holidays
+Hilly and Cozy 		hill-country-sri-lanka
+Across the Paradise		sri-lanka-travel
+Accommodation			sri-lanka-holidays
+Luxury Star Class Hotels		luxury-hotels-sri-lanka
+Luxury boutique hotels		boutique-hotels-sri-lanka
+Resorts and Villas		sri-lanka-resorts
+Bungalows and Home Stay  		bungalows-sri-lanka

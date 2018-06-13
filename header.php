@@ -64,4 +64,6 @@
 if ( function_exists('yoast_breadcrumb') && !is_home() ) {
     yoast_breadcrumb('<div id="breadcrumbs">','</div>');
 }
+
+
 ?>

@@ -144,5 +144,10 @@ jQuery(document).ready(function ($) {
         $(this).ekkoLightbox();
     });
 
-
+    // Social icon change
+    var ele = $('#social_icons').find('a');
+    for (var i =0; i < ele.length ; i++ ){
+        console.log(ele[i].innerHTML);
+        ele[i].innerHTML = "<i class=\"fa fa-" + ele[i].innerHTML + "\"></i>";
+    }
 });

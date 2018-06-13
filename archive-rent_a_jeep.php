@@ -14,9 +14,13 @@ global $wp;
 $url_parse = wp_parse_url(home_url( $wp->request ));
 $path = $url_parse['path'];
 $temp = end(explode('/',$path));
-$content = str_replace('-','_',$temp);
+$con = str_replace('-','_',$temp);
 
-$cpage = $content;
+global $wpdb;
+
+$conPage = $wpdb->get_row("SELECT page FROM " . $wpdb->prefix . "link_pattern WHERE page_url='$temp' ");
+
+$cpage = $conPage->page;
 
 
 ?>

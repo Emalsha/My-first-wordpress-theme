@@ -65,6 +65,10 @@
             }
             ?>
 
+            <?php if(function_exists('bcn_display')){ ?>
+                <?php bcn_display(); ?>
+            <?php }?>
+
 <div class="container">
 	<div id="primary" class="p-3">
 		<main id="main" class="rounded-top border-top" role="main">

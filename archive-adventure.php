@@ -11,12 +11,16 @@
 get_header();
 
 global $wp;
-$url_parse = wp_parse_url(home_url($wp->request));
+$url_parse = wp_parse_url(home_url( $wp->request ));
 $path = $url_parse['path'];
-$temp = end(explode('/', $path));
-$content = str_replace('-', '_', $temp);
+$temp = end(explode('/',$path));
+$con = str_replace('-','_',$temp);
 
-$cpage = $content;
+global $wpdb;
+
+$conPage = $wpdb->get_row("SELECT page FROM " . $wpdb->prefix . "link_pattern WHERE page_url='$temp' ");
+
+$cpage = $conPage->page;
 
 ?>
 
@@ -61,22 +65,22 @@ $cpage = $content;
                             'title' => '4x4 ADVENTURE',
                             'subtitle' => '',
                             'button' => '',
-                            'slug' => '4x4-adventure'
+                            'slug' => '4x4-suv-jeep-adventure'
                         ),
-//                        '1' => array(
-//                            'adv_id' => 'sand_and_beach',
-//                            'title' => 'SAND & BEACH',
-//                            'subtitle' => 'Attractive Tagline',
-//                            'button' => '',
-//                            'slug' => 'sand-and-beach'
-//                        ),
-//                        '2' => array(
-//                            'adv_id' => 'hilly_and_cozy',
-//                            'title' => 'HILLY & COZY',
-//                            'subtitle' => 'Cozy Tagline',
-//                            'button' => '',
-//                            'slug' => 'hilly-and-cozy'
-//                        ),
+                        '1' => array(
+                            'adv_id' => 'sand_and_beach',
+                            'title' => 'WATER SPORT',
+                            'subtitle' => '',
+                            'button' => '',
+                            'slug' => 'surfing-sri-lanka'
+                        ),
+                        '2' => array(
+                            'adv_id' => 'hilly_and_cozy',
+                            'title' => 'LAND AND OFFROAD',
+                            'subtitle' => '',
+                            'button' => '',
+                            'slug' => 'offroad-sri-lanka'
+                        ),
                     )
 
                     ?>
@@ -124,7 +128,7 @@ $cpage = $content;
                             </div>
                             <script>
                                 if (imgList_<?php echo $item['adv_id']; ?>) {
-                                    for(let i=0, len = imgList_<?php echo $item['adv_id']; ?>.length; i< len; i++){
+                                    for(var i=0, len = imgList_<?php echo $item['adv_id']; ?>.length; i< len; i++){
                                         jQuery('#carouselinner<?php echo $item['adv_id']; ?>').append(imgList_<?php echo $item['adv_id']; ?>[i]);
                                     }
 
@@ -134,7 +138,8 @@ $cpage = $content;
 
                     <?php } ?>
                 </div>
-                </setion>
+            </div>
+                </section>
 
 
                 <?php

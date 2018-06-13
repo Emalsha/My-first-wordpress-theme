@@ -89,6 +89,31 @@ function wfi_install_data()
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'big_five_with_wanabima', 'image_position' => 3, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'big_five_with_wanabima', 'image_position' => 4, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
 
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_sloth_bear_season', 'image_position' => 1, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_sloth_bear_season', 'image_position' => 2, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_sloth_bear_season', 'image_position' => 3, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_sloth_bear_season', 'image_position' => 4, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_asian_elephant_season', 'image_position' => 1, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_asian_elephant_season', 'image_position' => 2, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_asian_elephant_season', 'image_position' => 3, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_asian_elephant_season', 'image_position' => 4, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_leopard_season', 'image_position' => 1, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_leopard_season', 'image_position' => 2, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_leopard_season', 'image_position' => 3, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_leopard_season', 'image_position' => 4, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_blue_whale_season', 'image_position' => 1, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_blue_whale_season', 'image_position' => 2, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_blue_whale_season', 'image_position' => 3, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_blue_whale_season', 'image_position' => 4, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_sperm_whale_season', 'image_position' => 1, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_sperm_whale_season', 'image_position' => 2, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_sperm_whale_season', 'image_position' => 3, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'the_sperm_whale_season', 'image_position' => 4, 'feature_title' => 'Big Five Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'wanabima_safari', 'image_position' => 1, 'feature_title' => 'Wanabima Safari Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'wanabima_safari', 'image_position' => 2, 'feature_title' => 'Wanabima Safari Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'wanabima_safari', 'image_position' => 3, 'feature_title' => 'Wanabima Safari Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
@@ -99,15 +124,15 @@ function wfi_install_data()
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'adventure', 'image_position' => 3, 'feature_title' => 'Adventures Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'adventure', 'image_position' => 4, 'feature_title' => 'Adventures Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
 
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'off_raod_racing', 'image_position' => 1, 'feature_title' => 'Off Road Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'off_raod_racing', 'image_position' => 2, 'feature_title' => 'Off Road Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'off_raod_racing', 'image_position' => 3, 'feature_title' => 'Off Road Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'off_raod_racing', 'image_position' => 4, 'feature_title' => 'Off Road Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'land_and_offroad', 'image_position' => 1, 'feature_title' => 'Off Road Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'land_and_offroad', 'image_position' => 2, 'feature_title' => 'Off Road Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'land_and_offroad', 'image_position' => 3, 'feature_title' => 'Off Road Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'land_and_offroad', 'image_position' => 4, 'feature_title' => 'Off Road Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
 
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'mud_fun', 'image_position' => 1, 'feature_title' => 'Mud Fun Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'mud_fun', 'image_position' => 2, 'feature_title' => 'Mud Fun Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'mud_fun', 'image_position' => 3, 'feature_title' => 'Mud Fun Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
-        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'mud_fun', 'image_position' => 4, 'feature_title' => 'Mud Fun Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'water_sports', 'image_position' => 1, 'feature_title' => 'Mud Fun Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'water_sports', 'image_position' => 2, 'feature_title' => 'Mud Fun Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'water_sports', 'image_position' => 3, 'feature_title' => 'Mud Fun Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+        $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'water_sports', 'image_position' => 4, 'feature_title' => 'Mud Fun Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
 
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => '4x4_adventure', 'image_position' => 1, 'feature_title' => '4x4 Adventure Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => '4x4_adventure', 'image_position' => 2, 'feature_title' => '4x4 Adventure Page', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
@@ -183,6 +208,7 @@ function wfi_install_data()
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'inquiry', 'image_position' => 2, 'feature_title' => 'Inquiry', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'inquiry', 'image_position' => 3, 'feature_title' => 'Inquiry', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
         $wpdb->insert($table_name, array('time' => current_time('mysql'), 'feature_page' => 'inquiry', 'image_position' => 4, 'feature_title' => 'Inquiry', 'feature_sub_title' => 'Under Maintains', 'feature_image' => 'NaN','url'=>''));
+
 
 
 
