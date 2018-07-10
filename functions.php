@@ -1035,7 +1035,7 @@ function nature_wild_post_type()
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
-        'rewrite' => array('slug' => 'nature-wildlife/%naw_taxonomy%',
+        'rewrite' => array('slug' => 'nature-wildlife/%natureandwildlife_taxonomy%',
             'with_front' => false)
 
     );
@@ -1048,7 +1048,7 @@ function nature_wild_post_type()
 add_action('init', 'nature_wild_post_type', 0);
 
 //Nature and wildlife
-function naw_taxonomy()
+function natureandwildlife_taxonomy()
 {
 
     register_taxonomy(
@@ -1065,7 +1065,7 @@ function naw_taxonomy()
 
 }
 
-add_action('init', 'naw_taxonomy');
+add_action('init', 'natureandwildlife_taxonomy');
 
 function filter_naw_post_type_link($link, $post)
 {
@@ -1083,7 +1083,7 @@ function filter_naw_post_type_link($link, $post)
 
         $slug_part .= $last_term->slug;
 
-        $link = str_replace('%naw_taxonomy%', $slug_part, $link);
+        $link = str_replace('%natureandwildlife_taxonomy%', $slug_part, $link);
 
     }
 
@@ -1255,7 +1255,7 @@ function tour_taxonomy()
         'tours',
         array(
             'label' => __('Tours Types'),
-            'rewrite' => array('slug' => 'tours'),
+            'rewrite' => array('slug' => 'sri-lanka-tour-packages'),
             'hierarchical' => true,
             'sort' => true,
         )
@@ -1325,7 +1325,7 @@ function accommodation_post_type()
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
-        'rewrite' => array('slug' => 'sri-lanka-holidays/%acco_taxonomy%')
+        'rewrite' => array('slug' => 'sri-lanka-holidays/%accommodation_taxonomy%')
     );
 
     // Registering Custom Post Type
@@ -1344,7 +1344,7 @@ function accommodation_taxonomy()
         'accommodation',
         array(
             'label' => __('Accommodation Types'),
-            'rewrite' => array('slug' => 'sri-lanka-holidays','with_front'=>false),
+            'rewrite' => array('slug' => 'sri-lanka-holidays'),
             'hierarchical' => true,
             'sort' => true
         )
@@ -1359,7 +1359,7 @@ function filter_accom_post_type_link($link, $post)
         return $link;
 
     if ($cats = get_the_terms($post->ID, 'accommodation_taxonomy')) {
-        $link = str_replace('%acco_taxonomy%', array_pop($cats)->slug, $link);
+        $link = str_replace('%accommodation_taxonomy%', array_pop($cats)->slug, $link);
     }
 
     return $link;
@@ -2249,7 +2249,7 @@ function register_new_terms() {
         '12' => array (
             'taxonomy'      => 'accommodation_taxonomy',
             'name'          => 'Luxury Star Class Hotels',
-            'slug'          => 'luxury-hotel-sri-lanka',
+            'slug'          => 'luxury-hotels-sri-lanka',
             'description'   => 'This is Luxury Star Class Hotels',
         ),
 
@@ -2425,10 +2425,10 @@ add_action( 'after_setup_theme', 'create_link_pattern' );
 
 function custom_rewrite_tag() {
     add_rewrite_tag('%camping_taxonomy%', '([^&]+)');
-    add_rewrite_tag('%naw_taxonomy%', '([^&]+)');
+    add_rewrite_tag('%natureandwildlife_taxonomy%', '([^&]+)');
     add_rewrite_tag('%adventure_taxonomy%', '([^&]+)');
     add_rewrite_tag('%tour_taxonomy%', '([^&]+)');
-    add_rewrite_tag('%acco_taxonomy%', '([^&]+)');
+    add_rewrite_tag('%accommodation_taxonomy%', '([^&]+)');
 }
 
 add_action('init', 'custom_rewrite_tag', 10, 0);  
