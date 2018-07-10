@@ -588,22 +588,6 @@ function wanabima_scripts()
     // Load the customization.
     wp_enqueue_style('wanabima-customize', get_theme_file_uri('/assets/css/customize.css'), array('wanabima-style'));
 
-    // Load the rtl.
-    //wp_enqueue_style( 'wanabima-rtl', get_theme_file_uri( 'rtl.css' ), array( 'wanabima-style' ));
-
-//    <!-- Google Fonts -->
-//    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700"
-//          rel="stylesheet">
-//
-//    <!-- Bootstrap CSS File -->
-//    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-//
-//    <!-- Libraries CSS Files -->
-//    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-//    <link href="lib/animate/animate.min.css" rel="stylesheet">
-//    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-//    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
     // Load the css library.
     wp_enqueue_style('bootstrap', get_theme_file_uri('/assets/lib/bootstrap/css/bootstrap.min.css'));
     wp_enqueue_style('font-awesome', get_theme_file_uri('/assets/lib/font-awesome/css/font-awesome.min.css'));
@@ -649,21 +633,6 @@ function wanabima_scripts()
 
     //Main js file
     wp_enqueue_script('wanabima-main', get_theme_file_uri('/assets/js/main.js'), array('jquery'), '1.0', true);
-
-
-//    <!-- JavaScript Libraries -->
-//    <script src="lib/jquery/jquery.min.js"></script>
-//    <script src="lib/jquery/jquery-migrate.min.js"></script>
-//    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-//    <script src="lib/easing/easing.min.js"></script>
-//    <script src="lib/superfish/hoverIntent.js"></script>
-//    <script src="lib/superfish/superfish.min.js"></script>
-//    <script src="lib/wow/wow.min.js"></script>
-//    <script src="lib/waypoints/waypoints.min.js"></script>
-//    <script src="lib/counterup/counterup.min.js"></script>
-//    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-//    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-//    <script src="lib/touchSwipe/jquery.touchSwipe.min.js"></script>
 
     wp_enqueue_script('jquery-scrollto', get_theme_file_uri('/assets/js/jquery.scrollTo.js'), array('jquery'), false, true);
 
@@ -914,7 +883,7 @@ function rent_a_jeep_post_type()
         'show_in_admin_bar' => true,
         'menu_position' => 5,
         'can_export' => true,
-        'has_archive' => true,
+        'has_archive' => 'rent-a-suv-4x4-jeep-sri-lanka',
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
@@ -987,6 +956,40 @@ function camping_post_type()
 add_action('init', 'camping_post_type', 0);
 
 
+//camping
+function camping_taxonomy()
+{
+
+    register_taxonomy(
+        'camping_taxonomy',
+        'camping',
+        array(
+            'label' => __('Camping Types'),
+            'rewrite' => array('slug' => 'camping-sri-lanka','with_front' => false),
+            'hierarchical' => true,
+            'sort' => true,
+            'show_ui' => true,
+        )
+    );
+
+}
+
+add_action('init', 'camping_taxonomy');
+
+function filter_camping_post_type_link($link, $post)
+{
+    if ($post->post_type != 'camping')
+        return $link;
+
+    if ($cats = get_the_terms($post->ID, 'camping_taxonomy')) {
+        $link = str_replace('%camping_taxonomy%', array_pop($cats)->slug, $link);
+    }
+
+    return $link;
+}
+
+add_filter('post_type_link', 'filter_camping_post_type_link', 10, 2);
+
 /**
  * Custom post type for add nature and wild details.
  */
@@ -1032,7 +1035,8 @@ function nature_wild_post_type()
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
-        'rewrite' => array('slug' => 'nature-wildlife/%naw_taxonomy%','with_front' => false)
+        'rewrite' => array('slug' => 'nature-wildlife/%naw_taxonomy%',
+            'with_front' => false)
 
     );
 
@@ -1042,6 +1046,59 @@ function nature_wild_post_type()
 }
 
 add_action('init', 'nature_wild_post_type', 0);
+
+//Nature and wildlife
+function naw_taxonomy()
+{
+
+    register_taxonomy(
+        'natureandwildlife_taxonomy',
+        'nature_wildlife',
+        array(
+            'label' => __('Nature & Wildlife Types'),
+            'rewrite' => array('slug' => 'nature-wildlife', 'with_front' => false),
+            'hierarchical' => true,
+            'sort' => true,
+            'query_var' => true,
+        )
+    );
+
+}
+
+add_action('init', 'naw_taxonomy');
+
+function filter_naw_post_type_link($link, $post)
+{
+    if ($post->post_type != 'nature_wildlife')
+        return $link;
+
+    if ($cats = get_the_terms($post->ID, 'natureandwildlife_taxonomy')) {
+
+        $last_term = array_pop($cats);
+        $slug_part = "";
+        if($last_term->parent != 0){
+            $parent_obj = get_term_by('id',$last_term->parent,'natureandwildlife_taxonomy');
+            $slug_part = $parent_obj->slug . '/';
+        }
+
+        $slug_part .= $last_term->slug;
+
+        $link = str_replace('%naw_taxonomy%', $slug_part, $link);
+
+    }
+
+    return $link;
+}
+
+add_filter('post_type_link', 'filter_naw_post_type_link', 10, 2);
+
+function big_five_with_wanabima_template_redirect( $template ) {
+    if ( is_tax( 'natureandwildlife_taxonomy','sri-lanka-wildlife-tours' ) ) {
+        $template = get_query_template( 'page-sri-lanka-wildlife-tours' );
+    }
+    return $template;
+}
+add_filter( 'template_include', 'big_five_with_wanabima_template_redirect' );
 
 
 /**
@@ -1099,6 +1156,40 @@ function adventure_post_type()
 
 add_action('init', 'adventure_post_type', 0);
 
+
+//adventure
+function adventure_taxonomy()
+{
+
+    register_taxonomy(
+        'adventure_taxonomy',
+        'adventure',
+        array(
+            'label' => __('Adventure Types'),
+            'rewrite' => array('slug' => 'adventure'),
+            'hierarchical' => true,
+            'sort' => true,
+        )
+    );
+
+}
+
+add_action('init', 'adventure_taxonomy');
+function filter_adventure_post_type_link($link, $post)
+{
+    if ($post->post_type != 'adventure')
+        return $link;
+
+    if ($cats = get_the_terms($post->ID, 'adventure_taxonomy')) {
+        $link = str_replace('%adventure_taxonomy%', array_pop($cats)->slug, $link);
+    }
+
+    return $link;
+}
+
+add_filter('post_type_link', 'filter_adventure_post_type_link', 10, 2);
+
+
 /**
  * Custom post type for add tour details.
  */
@@ -1155,6 +1246,39 @@ function tour_post_type()
 
 add_action('init', 'tour_post_type', 0);
 
+//tours
+function tour_taxonomy()
+{
+
+    register_taxonomy(
+        'tour_taxonomy',
+        'tours',
+        array(
+            'label' => __('Tours Types'),
+            'rewrite' => array('slug' => 'tours'),
+            'hierarchical' => true,
+            'sort' => true,
+        )
+    );
+
+}
+
+add_action('init', 'tour_taxonomy');
+function filter_tour_post_type_link($link, $post)
+{
+    if ($post->post_type != 'tours')
+        return $link;
+
+    if ($cats = get_the_terms($post->ID, 'tour_taxonomy')) {
+        $link = str_replace('%tour_taxonomy%', array_pop($cats)->slug, $link);
+    }
+
+    return $link;
+}
+
+add_filter('post_type_link', 'filter_tour_post_type_link', 10, 2);
+
+
 
 /**
  * Custom post type for add Accommodation details.
@@ -1201,7 +1325,7 @@ function accommodation_post_type()
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
-        'rewrite' => array('slug' => 'sri-lanka-holidays/%acco_taxonomy%', 'with_front' => false)
+        'rewrite' => array('slug' => 'sri-lanka-holidays/%acco_taxonomy%')
     );
 
     // Registering Custom Post Type
@@ -1210,6 +1334,38 @@ function accommodation_post_type()
 }
 
 add_action('init', 'accommodation_post_type', 0);
+
+//accommodation
+function accommodation_taxonomy()
+{
+
+    register_taxonomy(
+        'accommodation_taxonomy',
+        'accommodation',
+        array(
+            'label' => __('Accommodation Types'),
+            'rewrite' => array('slug' => 'sri-lanka-holidays','with_front'=>false),
+            'hierarchical' => true,
+            'sort' => true
+        )
+    );
+}
+
+add_action('init', 'accommodation_taxonomy');
+
+function filter_accom_post_type_link($link, $post)
+{
+    if ($post->post_type != 'accommodation')
+        return $link;
+
+    if ($cats = get_the_terms($post->ID, 'accommodation_taxonomy')) {
+        $link = str_replace('%acco_taxonomy%', array_pop($cats)->slug, $link);
+    }
+
+    return $link;
+}
+
+add_filter('post_type_link', 'filter_accom_post_type_link', 10, 2);
 
 
 /**
@@ -1396,7 +1552,9 @@ function nature_wildlife_post_support()
         <div class="after-title-help postbox">
             <h3>Using this screen</h3>
             <div class="inside">
-                //TODO
+                <p>Select the relevent post type from Nature & Wildlife Types. If it is child type, under Big Five with wanabima remember to select child type first. (Selecting only the child type is enough.)</p>
+                <p>ex: If post is related to "The Blue Whale Season", first select 'The blue whale season type' from Nature and Wildlife types and thats enough.</p> 
+
             </div><!-- .inside -->
         </div><!-- .postbox -->
     <?php }
@@ -2002,193 +2160,6 @@ add_filter( 'term_description', 'do_shortcode' );
  * Add custom taxonomy for page type
  *
  */
-//camping
-function camping_taxonomy()
-{
-
-    register_taxonomy(
-        'camping_taxonomy',
-        'camping',
-        array(
-            'label' => __('Camping Types'),
-            'rewrite' => array('slug' => 'camping-sri-lanka','with_front' => false),
-            'hierarchical' => true,
-            'sort' => true,
-            'show_ui' => true,
-        )
-    );
-
-}
-
-add_action('init', 'camping_taxonomy');
-
-function filter_camping_post_type_link($link, $post)
-{
-    if ($post->post_type != 'camping')
-        return $link;
-
-    if ($cats = get_the_terms($post->ID, 'camping_taxonomy')) {
-        $link = str_replace('%camping_taxonomy%', array_pop($cats)->slug, $link);
-    }
-
-    return $link;
-}
-
-add_filter('post_type_link', 'filter_camping_post_type_link', 10, 2);
-
-
-//Nature and wildlife
-function naw_taxonomy()
-{
-
-    register_taxonomy(
-        'natureandwildlife_taxonomy',
-        'nature_wildlife',
-        array(
-            'label' => __('Nature & Wildlife Types'),
-            'rewrite' => array('slug' => 'nature-wildlife'),
-            'hierarchical' => true,
-            'sort' => true,
-            'show_ui' => true,
-        )
-    );
-
-}
-
-add_action('init', 'naw_taxonomy');
-function filter_naw_post_type_link($link, $post)
-{
-    if ($post->post_type != 'nature_wildlife')
-        return $link;
-
-    if ($cats = get_the_terms($post->ID, 'natureandwildlife_taxonomy')) {
-
-        $last_term = array_pop($cats);
-        $slug_part = "";
-        if($last_term->parent != 0){
-            $parent_obj = get_term_by('id',$last_term->parent,'natureandwildlife_taxonomy');
-            $slug_part = $parent_obj->slug . '/';
-        }
-
-        $slug_part .= $last_term->slug;
-
-        $link = str_replace('%naw_taxonomy%', $slug_part, $link);
-
-    }
-
-    return $link;
-}
-
-add_filter('post_type_link', 'filter_naw_post_type_link', 10, 2);
-
-function big_five_with_wanabima_template_redirect( $template ) {
-    if ( is_tax( 'natureandwildlife_taxonomy','big-five-with-wanabima' ) ) {
-        $template = get_query_template( 'page-big-five-with-wanabima' );
-    }
-    return $template;
-}
-add_filter( 'template_include', 'big_five_with_wanabima_template_redirect' );
-
-
-//adventure
-function adventure_taxonomy()
-{
-
-    register_taxonomy(
-        'adventure_taxonomy',
-        'adventure',
-        array(
-            'label' => __('Adventure Types'),
-            'rewrite' => array('slug' => 'adventure'),
-            'hierarchical' => true,
-            'sort' => true,
-        )
-    );
-
-}
-
-add_action('init', 'adventure_taxonomy');
-function filter_adventure_post_type_link($link, $post)
-{
-    if ($post->post_type != 'adventure')
-        return $link;
-
-    if ($cats = get_the_terms($post->ID, 'adventure_taxonomy')) {
-        $link = str_replace('%adventure_taxonomy%', array_pop($cats)->slug, $link);
-    }
-
-    return $link;
-}
-
-add_filter('post_type_link', 'filter_adventure_post_type_link', 10, 2);
-
-
-//tours
-function tour_taxonomy()
-{
-
-    register_taxonomy(
-        'tour_taxonomy',
-        'tours',
-        array(
-            'label' => __('Tours Types'),
-            'rewrite' => array('slug' => 'tours'),
-            'hierarchical' => true,
-            'sort' => true,
-        )
-    );
-
-}
-
-add_action('init', 'tour_taxonomy');
-function filter_tour_post_type_link($link, $post)
-{
-    if ($post->post_type != 'tours')
-        return $link;
-
-    if ($cats = get_the_terms($post->ID, 'tour_taxonomy')) {
-        $link = str_replace('%tour_taxonomy%', array_pop($cats)->slug, $link);
-    }
-
-    return $link;
-}
-
-add_filter('post_type_link', 'filter_tour_post_type_link', 10, 2);
-
-
-//accommodation
-function accommodation_taxonomy()
-{
-
-    register_taxonomy(
-        'accommodation_taxonomy',
-        'accommodation',
-        array(
-            'label' => __('Accommodation Types'),
-            'rewrite' => array('slug' => 'accommodation'),
-            'hierarchical' => true,
-            'sort' => true,
-
-        )
-    );
-
-}
-
-add_action('init', 'accommodation_taxonomy');
-
-function filter_accom_post_type_link($link, $post)
-{
-    if ($post->post_type != 'accommodation')
-        return $link;
-
-    if ($cats = get_the_terms($post->ID, 'accommodation_taxonomy')) {
-        $link = str_replace('%acco_taxonomy%', array_pop($cats)->slug, $link);
-    }
-
-    return $link;
-}
-
-add_filter('post_type_link', 'filter_accom_post_type_link', 10, 2);
 
 function register_new_terms() {
     $terms = array (
@@ -2315,17 +2286,63 @@ function register_new_terms() {
         );
     }
 
-}
-add_action('init', 'register_new_terms');
+    $parent_term = term_exists( 'Big Five With Wanabima', 'natureandwildlife_taxonomy' );
+    $subterms = array (
+        '0' => array (
+            'taxonomy'      => 'natureandwildlife_taxonomy',
+            'name'          => 'The Sloth Bear Season',
+            'slug'          => 'sloth-bear',
+            'description'   => 'The Sloth Bear Season ',
+        ),
+        '1' => array (
+            'taxonomy'      => 'natureandwildlife_taxonomy',
+            'name'          => 'The Asian Elephant Season',
+            'slug'          => 'sri-lankan-elephant',
+            'description'   => ' The Asian Elephant Season ',
+        ),
+        '2' => array (
+            'taxonomy'      => 'natureandwildlife_taxonomy',
+            'name'          => 'The Leopard Season',
+            'slug'          => 'sri-lankan-leopard',
+            'description'   => 'The Leopard Season ',
+        ),
+        '3' => array (
+            'taxonomy'      => 'natureandwildlife_taxonomy',
+            'name'          => 'The Blue Whale Season',
+            'slug'          => 'whale-watching-sri-lanka',
+            'description'   => 'The Blue Whale Season ',
+        ),
+        '4' => array (
+            'taxonomy'      => 'natureandwildlife_taxonomy',
+            'name'          => 'The Sperm Whale Season',
+            'slug'          => 'sri-lanka-whale-watching-holidays',
+            'description'   => 'The Sperm Whale Season ',
+        ),
 
-//add_action( 'pre_insert_term', 'prevent_terms_adding', 1, 2 );
-//function prevent_terms_adding ( $term, $taxonomy ) {
-//    if ( 'camping_taxonomy' === $taxonomy || 'natureandwildlife_taxonomy' === $taxonomy || 'fourbyfour_taxonomy' === $taxonomy || 'tour_taxonomy' === $taxonomy || 'accommodation_taxonomy' === $taxonomy ) {
-//        return new WP_Error( 'term_addition_blocked', __( 'You cannot add terms to this taxonomy' ) );
-//    }
-//
-//    return $term;
-//}
+    );
+
+    foreach ( $subterms as $term_key=>$term) {
+        wp_insert_term(
+            $term['name'],
+            $term['taxonomy'],
+            array(
+                'description'   => $term['description'],
+                'slug'          => $term['slug'],
+                'parent'        => $parent_term['term_id']
+            )
+        );
+    }
+}
+add_action('after_setup_theme', 'register_new_terms');
+
+add_action( 'pre_insert_term', 'prevent_terms_adding', 1, 2 );
+function prevent_terms_adding ( $term, $taxonomy ) {
+    if ( 'camping_taxonomy' === $taxonomy || 'natureandwildlife_taxonomy' === $taxonomy || 'fourbyfour_taxonomy' === $taxonomy || 'tour_taxonomy' === $taxonomy || 'accommodation_taxonomy' === $taxonomy ) {
+        return new WP_Error( 'term_addition_blocked', __( 'You cannot add terms to this taxonomy' ) );
+    }
+
+    return $term;
+}
 
 add_action( 'pre_delete_term', 'prevent_terms_delete', 10, 2 );
 function prevent_terms_delete ( $term, $taxonomy ) {
@@ -2336,42 +2353,6 @@ function prevent_terms_delete ( $term, $taxonomy ) {
     return $term;
 }
 
-
-/*
-* Replace Taxonomy slug with Post Type slug in url
-* Version: 1.1
-*/
-function taxonomy_slug_rewrite($wp_rewrite) {
-    $rules = array();
-    // get all custom taxonomies
-    $taxonomies = get_taxonomies(array('_builtin' => false), 'objects');
-    // get all custom post types
-    $post_types = get_post_types(array('public' => true, '_builtin' => false), 'objects');
-
-    foreach ($post_types as $post_type) {
-        foreach ($taxonomies as $taxonomy) {
-
-            // go through all post types which this taxonomy is assigned to
-            foreach ($taxonomy->object_type as $object_type) {
-
-                // check if taxonomy is registered for this custom type
-                if ($object_type == $post_type->rewrite['slug']) {
-
-                    // get category objects
-                    $terms = get_categories(array('type' => $object_type, 'taxonomy' => $taxonomy->name, 'hide_empty' => 0));
-
-                    // make rules
-                    foreach ($terms as $term) {
-                        $rules[$object_type . '/' . $term->slug . '/?$'] = 'index.php?' . $term->taxonomy . '=' . $term->slug;
-                    }
-                }
-            }
-        }
-    }
-    // merge with global rules
-    $wp_rewrite->rules = $rules + $wp_rewrite->rules;
-}
-add_filter('generate_rewrite_rules', 'taxonomy_slug_rewrite');
 
 /**
  * Initialize database for url structure
@@ -2436,6 +2417,21 @@ function create_link_pattern(){
 
 add_action( 'after_setup_theme', 'create_link_pattern' );
 
+/**
+ * Add custom rewrite tags
+ *
+ *
+ */
+
+function custom_rewrite_tag() {
+    add_rewrite_tag('%camping_taxonomy%', '([^&]+)');
+    add_rewrite_tag('%naw_taxonomy%', '([^&]+)');
+    add_rewrite_tag('%adventure_taxonomy%', '([^&]+)');
+    add_rewrite_tag('%tour_taxonomy%', '([^&]+)');
+    add_rewrite_tag('%acco_taxonomy%', '([^&]+)');
+}
+
+add_action('init', 'custom_rewrite_tag', 10, 0);  
 
 
 /**
@@ -2467,11 +2463,46 @@ add_action( 'after_setup_theme', 'create_link_pattern' );
  * -- 3 -> Wanabima feature image
  * -- 4 -> Wanabima carousel image
  * -- 5 -> multiple-post-thumbnails
+ * --
+ * -- IMage - 1100x500 POST
  * = Global Info
  */
 $email_address = 'hello@wanabima.com';
 $phone_number = '+94 77 755 4654';
 $general_number = '+94 11 288 5884';
 
+/*
+* Replace Taxonomy slug with Post Type slug in url
+* Version: 1.1
+*/
+function taxonomy_slug_rewrite($wp_rewrite) {
+    $rules = array();
+    // get all custom taxonomies
+    $taxonomies = get_taxonomies(array('_builtin' => false), 'objects');
+    // get all custom post types
+    $post_types = get_post_types(array('public' => true, '_builtin' => false), 'objects');
 
-//TODO contact page -> thank you page.
+    foreach ($post_types as $post_type) {
+        foreach ($taxonomies as $taxonomy) {
+
+            // go through all post types which this taxonomy is assigned to
+            foreach ($taxonomy->object_type as $object_type) {
+
+                // check if taxonomy is registered for this custom type
+                if ($object_type == $post_type->rewrite['slug']) {
+
+                    // get category objects
+                    $terms = get_categories(array('type' => $object_type, 'taxonomy' => $taxonomy->name, 'hide_empty' => 0));
+
+                    // make rules
+                    foreach ($terms as $term) {
+                        $rules[$object_type . '/' . $term->slug . '/?$'] = 'index.php?' . $term->taxonomy . '=' . $term->slug;
+                    }
+                }
+            }
+        }
+    }
+    // merge with global rules
+    $wp_rewrite->rules = $rules + $wp_rewrite->rules;
+}
+add_filter('generate_rewrite_rules', 'taxonomy_slug_rewrite');

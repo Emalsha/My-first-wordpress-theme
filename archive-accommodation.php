@@ -105,9 +105,9 @@ $cpage = $conPage->page;
                         ?>
                         <div class="p-3 col-md-6" id="<?php echo $item['acc_id']; ?>">
                             <div class="border border-dark rounded">
-                                <div class="row">
+                                <div class="row m-0">
 
-                                    <div class="col-md-6 pr-0 img-container carousel slide carousel-fade"
+                                    <div class="col-md-6 p-0 img-container carousel slide carousel-fade"
                                          id="carousel<?php echo $item['acc_id']?>" data-interval="false">
                                         <div class="carousel-inner" id="carouselinner<?php echo $item['acc_id']?>">
 
@@ -135,7 +135,7 @@ $cpage = $conPage->page;
                                             $desc = term_description($term->term_id, 'accommodation_taxonomy');
                                             ?>
                                             <?php echo $desc; ?>
-                                            <a href="<?php echo get_site_url(); ?>/accommodation/<?php echo $item['slug']; ?>"
+                                            <a href="<?php echo get_site_url(); ?>/sri-lanka-holidays/<?php echo $item['slug']; ?>"
                                                class="btn btn-outline-wanabima">MORE</a>
 
                                         </div>

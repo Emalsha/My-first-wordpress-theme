@@ -86,9 +86,9 @@ $cpage = $conPage->page;
 
                         <div class="p-3 col-md-6" id="<?= $item['camp_id']; ?>">
                             <div class="border border-dark rounded">
-                                <div class="row">
+                                <div class="row m-0">
 
-                                    <div class="col-md-6 pr-0 img-container carousel slide carousel-fade"
+                                    <div class="col-md-6 p-0 img-container carousel slide carousel-fade"
                                          id="carousel<?= $item['camp_id']; ?>" data-interval="false">
                                         <div class="carousel-inner" id="carouselinner<?= $item['camp_id']; ?>">
 
@@ -105,7 +105,7 @@ $cpage = $conPage->page;
                                         </a>
                                     </div>
 
-                                    <div class="col-md-6 p-3">
+                                    <div class="col-md-6 p-2">
                                         <div class="float-left camping-card">
                                             <h3 class="card-title"><?= $item['title']; ?></h3>
                                             <?php

@@ -16,11 +16,11 @@ get_header(); ?>
 
         <div id="" class="p-3 text-center">
 
-            <ul class="nav nav-tabs text-uppercase text-md-center font-weight-bold" role="tablist" id="gallerytab">
-                <li class="nav-item col-md-6 col-sm-6">
+            <ul class="nav nav-tabs text-uppercase text-md-center font-weight-bold row" role="tablist" id="gallerytab">
+                <li class="nav-item col-lg-6 col-md-6 col-sm-6">
                     <a class="nav-link active" data-toggle="tab" href="#imagemenu" role="tab" id="imagemenu-tab" aria-controls="imagemenu" aria-selected="true">Image</a>
                 </li>
-                <li class="nav-item col-md-6 col-sm-6">
+                <li class="nav-item col-lg-6 col-md-6 col-sm-6">
                     <a class="nav-link" data-toggle="tab" href="#videomenu" role="tab" id="videomenu-tab" aria-controls="videomenu" aria-selected="true">Video</a>
                 </li>
             </ul>

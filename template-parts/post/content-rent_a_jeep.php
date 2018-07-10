@@ -11,11 +11,11 @@
 
 ?>
 
-<div class="product" id="<?php the_ID(); ?>">
+<div class="product row" id="<?php the_ID(); ?>">
 
     <?php if ('' !== get_the_post_thumbnail() && !is_single() && !get_post_gallery()) : ?>
 
-        <div class="col-md-4 img-container carousel slide carousel-fade" id="carousel<?php the_ID(); ?>" data-interval="5000" data-ride="carousel">
+        <div class="col-lg-4 col-md-6 col-sm-12 img-container carousel slide carousel-fade" id="carousel<?php the_ID(); ?>" data-interval="5000" data-ride="carousel">
 
             <div class="carousel-inner" style="height: 100%;">
                 <div class="carousel-item active" style="height: 100%;">
@@ -73,12 +73,12 @@
 
     <?php endif; ?>
 
-    <div class="col-md-8 ">
+    <div class="col-lg-8 col-md-6 col-sm-12">
         <div class="product-content">
             <h4><?php echo get_the_title(); ?></h4>
 
             <div class="row">
-                <div class="col-md-9 product-content-left">
+                <div class="col-lg-9 col-md-12 product-content-left">
                     <div class="product-content-p">
                         <?php the_content('Read the rest of this entry &raquo;'); ?>
                     </div>
@@ -88,7 +88,7 @@
                     foreach ($custom_fields as $key => $value) {
                         if ($key === 'Seating Capacity' || $key === 'Snorkeled' || $key === 'Luggage Capacity' || $key === 'AC' || $key === 'Hood' || $key === 'Hood Rack' || $key === 'Transmission' || $key === 'Trailer') {
                             //echo $key . " => " . $value[0] . "<br />"; ?>
-                            <div class="col-md-6 float-left">
+                            <div class="col-lg-6 col-md-12 float-left">
                                 <label class="name-label" id=""><?php echo $key; ?> :</label>
                                 <label class="col-form-label"><?php echo $value[0];?></label>
                             </div>
@@ -99,7 +99,7 @@
 
                 </div>
 
-                <div class="col-md-3 float-right buttons text-center product-content-right">
+                <div class="col-lg-3 col-md-12 float-right buttons text-center product-content-right">
                     <div>
                         <label for="price" class="price-label">PER DAY</label>
                     </div>

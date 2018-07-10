@@ -1403,3 +1403,19 @@ Luxury Star Class Hotels		luxury-hotels-sri-lanka
 Luxury boutique hotels		boutique-hotels-sri-lanka
 Resorts and Villas		sri-lanka-resorts
 Bungalows and Home Stay  		bungalows-sri-lanka
+
+
+
+
+rent_a_jeep
+camping
+nature_wildlife
+adventure
+tours
+accommodation
+services
+blog
+
+sucovigiz@taylorventuresllc.com
+
+?><pre><?php //var_dump( $object_type ); ?> - <?php //var_dump( $post_type->name ); ?></pre><?php 

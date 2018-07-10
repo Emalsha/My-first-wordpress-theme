@@ -9,6 +9,7 @@
  */
 ?>
 
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js no-svg">
 <head>
@@ -18,6 +19,8 @@
 
     <?php wp_head(); ?>
     <script src='https://www.google.com/recaptcha/api.js'></script>
+
+
 </head>
 
 <body <?php body_class(); ?>>

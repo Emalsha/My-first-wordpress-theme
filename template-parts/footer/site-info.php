@@ -11,7 +11,7 @@
 ?>
 <div class="container">
     <div class="copyright">
-        <?php printf( __( '&copy; Copyright <a style="color:var(--main-color-3);" href="https://www.avens.lk/"><strong>%s</strong></a> All Rights Reserved', 'wanabima' ), 'Avens Destinations (pvt) ltd.' ); ?>
+        <?php printf( __( '2018&copy; Copyright <a style="color:var(--main-color-3);" href="https://www.avens.lk/"><strong>%s</strong></a> All Rights Reserved', 'wanabima' ), 'Avens Destinations (Pvt) Ltd.' ); ?>
     </div>
     <!--<div class="credits">-->
     <!--<a href="#"></a>-->

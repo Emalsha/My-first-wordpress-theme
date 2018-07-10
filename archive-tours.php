@@ -109,8 +109,8 @@ $cpage = $conPage->page;
                         ?>
                         <div class="p-3 col-md-6" id="<?= $item['tour_id']; ?>">
                             <div class="border border-dark rounded">
-                                <div class="row">
-                                    <div class="col-md-6 pr-0 img-container carousel slide carousel-fade"
+                                <div class="row m-0">
+                                    <div class="col-md-6 p-0 img-container carousel slide carousel-fade"
                                          id="carousel<?php echo $item['tour_id']; ?>" data-interval="false">
                                         <div class="carousel-inner" id="carouselinner<?php echo $item['tour_id']; ?>">
 

@@ -63,7 +63,7 @@ $cpage = 'home'; // For custom content and feature image
                 <?php
                 global $wpdb;
 
-                $aimages = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "activitycontent WHERE id=1 OR id=2");
+                $aimages = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "activitycontent WHERE id=1 OR id=3");
                 if ($aimages) {
                     foreach ($aimages as $aimage) {
                         ?>
@@ -108,7 +108,7 @@ $cpage = 'home'; // For custom content and feature image
                 <?php
                 global $wpdb;
 
-                $fimages = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "activitycontent WHERE id=3 OR id=4");
+                $fimages = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "activitycontent WHERE id=2 OR id=4");
                 if ($fimages) {
                     foreach ($fimages as $fimage) {
                         ?>

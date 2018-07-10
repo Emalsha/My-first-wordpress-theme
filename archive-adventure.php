@@ -68,14 +68,14 @@ $cpage = $conPage->page;
                             'slug' => '4x4-suv-jeep-adventure'
                         ),
                         '1' => array(
-                            'adv_id' => 'sand_and_beach',
+                            'adv_id' => 'water_sports',
                             'title' => 'WATER SPORT',
                             'subtitle' => '',
                             'button' => '',
                             'slug' => 'surfing-sri-lanka'
                         ),
                         '2' => array(
-                            'adv_id' => 'hilly_and_cozy',
+                            'adv_id' => 'land_and_offroad',
                             'title' => 'LAND AND OFFROAD',
                             'subtitle' => '',
                             'button' => '',
@@ -120,7 +120,7 @@ $cpage = $conPage->page;
                                 <?php
                                 $button_link = get_post_meta(get_the_ID(), 'button_link', true);
                                 if (isset($button_link)) { ?>
-                                    <a href="<?php echo get_site_url(); ?>/adventure/<?php echo $item['slug'] ?>" class="btn btn-wanabima">Feel the
+                                    <a href="<?php echo get_site_url(); ?>/adventure-sri-lanka/<?php echo $item['slug'] ?>" class="btn btn-wanabima">Feel the
                                         Excitement</a>
                                     <?php
                                 } ?>
