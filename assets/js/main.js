@@ -40,10 +40,10 @@ jQuery(document).ready(function ($) {
             'id': ''
         });
 
-        $mobile_nav.find('.menu-item').attr({
-            'class': '',
-            'id': ''
-        });
+        // $mobile_nav.find('.menu-item').attr({
+        //     'class': '',
+        //     'id': ''
+        // });
 
         $('body').append($mobile_nav);
         $('body').prepend('<button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>');
@@ -77,7 +77,8 @@ jQuery(document).ready(function ($) {
     }
 
     // Smooth scroll for the menu and links with .scrollto classes
-    $('.nav-menu a, #mobile-nav a, .scrollto').on('click', function () {
+    $('.nav-menu li a, #mobile-nav li a, .scrollto').on('hover', function () {
+
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var target = $(this.hash);
             if (target.length) {
@@ -112,11 +113,11 @@ jQuery(document).ready(function ($) {
 
     // Header scroll class
     $(window).scroll(function () {
-        // if ($(this).scrollTop() > 100) {
-        //   $('#header').addClass('header-scrolled');
-        // } else {
-        //   $('#header').removeClass('header-scrolled');
-        // }
+        if ($(this).scrollTop() > 100) {
+          $('#header').addClass('header-scrolled');
+        } else {
+          $('#header').removeClass('header-scrolled');
+        }
     });
 
     // Intro carousel

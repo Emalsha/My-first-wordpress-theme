@@ -34,4 +34,11 @@ if ( is_active_sidebar( 'sidebar-2' ) ||
     </aside>
     <!-- .widget-area -->
 
+    <script type="text/javascript">
+    	var li = '<li class="page_item page-item-250"><a href="https://www.wanabima.com/sitemap.html" target="_blank">Sitemap</a></li>';
+
+    	var divEle = document.getElementsByClassName('widget_pages')[0].getElementsByTagName('ul')[0];
+    	jQuery(li).appendTo(divEle);
+    </script>
+
 <?php endif; ?>

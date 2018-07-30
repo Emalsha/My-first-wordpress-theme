@@ -98,7 +98,7 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="fromdate">From Date*</label>
-                                        <input type="date" class="form-control" id="fromdate" name="wb-fromdate" required>
+                                        <input type="date" class="form-control" id="fromdate" name="wb-fromdate" onchange="dateValidate(this.value)" required>
                                     </div>
                                     <div class="form-group col-md-3 col-sm-6">
                                         <label for="fromtime">From Time</label>
@@ -109,7 +109,7 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="todate">To Date*</label>
-                                        <input type="date" class="form-control" id="todate" name="wb-todate" required>
+                                        <input type="date" class="form-control" id="todate" name="wb-todate" required disabled>
                                     </div>
                                     <div class="form-group col-md-3 col-sm-6">
                                         <label for="totime">To Date</label>
@@ -205,5 +205,16 @@
                 }
             </script>
 
+            <script type="text/javascript">
+                
 
+                function dateValidate(val){
+                    var fromDate = document.getElementById('fromdate').value;
+                    if(fromDate.length > 0 && val == fromDate){
+                        document.getElementById('todate').disabled = false;
+                        document.getElementById('todate').min = fromDate;
+                    }
+                }
+
+            </script>
 
