@@ -87,8 +87,21 @@
                                 $emailMsg .= "\nService: " . $service . " \nFrom : " . $fromDate . " : " . $fromTime . " \nTo : " . $toDate . " : " . $toTime;
                                 $emailMsg .= "\nMessage: " . $msg;
 
-                                $wanabimaMail = 'wanabima@gmail.com';
-                                mail($wanabimaMail, " Contact Message From Wanabima", $wanabimaMail);
+                                $wanabimaMail = 'avenslanka@gmail.com';
+                    
+                                $email_from = $senderMail;
+                                $full_name = $senderName;
+                                $from_mail = $full_name.'<'.$email_from.'>';
+                                $from = $from_mail;
+
+                                $subject = "Inquiry Message From Wanabima";
+                                $headers = "" .
+                                           "Reply-To:" . $from . "\r\n" .
+                                           "X-Mailer: PHP/" . phpversion();
+                                $headers .= 'MIME-Version: 1.0' . "\r\n";
+                                $headers .= 'From: ' . $from . "\r\n";
+
+                                mail($wanabimaMail,$subject,$emailMsg,$headers);
                                 ?>
 
                                 <div class="alert alert-success w-100" role="alert">

@@ -1542,6 +1542,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #campsite .campsite-carousel .campsite-carousel-inner .campsite-carousel-img {
     object-fit: cover;
+    height: inherit;
+    /*TOUPDATE*/
 }
 
 #campsite .campsite-item .campsite-item-social img {
@@ -1576,6 +1578,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 #campsite .carousel-fade .carousel-inner .carousel-item {
     -webkit-transition-property: opacity;
     transition-property: opacity;
+    height: inherit; 
+    /*TOUPDATE*/
 }
 
 #campsite .carousel-fade .carousel-inner .carousel-item,

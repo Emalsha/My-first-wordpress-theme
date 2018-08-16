@@ -94,33 +94,54 @@
                     <main id="main" class="site-main row" role="main">
 
                         <div class="col-md-8 col-sm-12">
-                            <?php $post = get_page_by_path('thank-you-for-contact-us', OBJECT, 'page');?>
-                            <form action="<?php echo get_permalink($post->ID);?>" method="post" onsubmit="return check_captcha_is_filled();" id="formcontact">
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label for="cname">Name :*</label>
-                                        <input type="text" class="form-control" id="cname" name="cname" required>
-                                    </div>
+                            
+                            <?php
 
-                                    <div class="form-group col-md-6">
-                                        <label for="cemail">Email:*</label>
-                                        <input type="email" class="form-control" id="cemail" name="cemail" required>
-                                    </div>
+                            if ($_POST['submit']) {
+                                if (!$_POST['g-recaptcha-response']) {
+                                    echo "<script>alert('Please fill captcha!');</script>";
+                                } else {
+                                    $msg = sanitize_textarea_field($_POST['cmessage']);
+                                    $senderMail = sanitize_email($_POST['cemail']);
+                                    $senderName = sanitize_text_field($_POST['cname']);
+
+                                    $emailMsg = "Sender: " . $senderName . " \nSender Mail: " . $senderMail . " \nMessage :" . $msg;
+
+                                     $wanabimaMail = 'avenslanka@gmail.com';
+                    
+                                    $email_from = $senderMail;
+                                    $full_name = $senderName;
+                                    $from_mail = $full_name.'<'.$email_from.'>';
+                                    $from = $from_mail;
+
+                                    $subject = "Contact Message From Wanabima";
+                                    $headers = "" .
+                                               "Reply-To:" . $from . "\r\n" .
+                                               "X-Mailer: PHP/" . phpversion();
+                                    $headers .= 'MIME-Version: 1.0' . "\r\n";
+                                    $headers .= 'From: ' . $from . "\r\n";
+                                    
+                                    mail($wanabimaMail,$subject,$emailMsg,$headers)
+                        ?>
+                                <div class="alert alert-success w-100" role="alert">
+                                    <h4 class="alert-heading">Thanking You!</h4>
+                                    <p>Your message has been sent to our team.</p>
+                                    <p class="mb-0">Our team will contact you soon.</p>
+                                    <br>
                                 </div>
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label for="cmessage">Message:*</label>
-                                        <textarea name="cmessage" class="form-control" id="cmessage" rows="8"
-                                                  required></textarea>
-                                    </div>
-                                </div>
-                                <div class="g-recaptcha" data-sitekey="6Le9Z04UAAAAADgJHq9tXWSOwIsy8oBtUrILGdnh"
-                                     data-callback="capcha_filled"
-                                     data-expired-callback="capcha_expired"></div>
-                                <br>
-                                <input type="submit" name="submit" class="btn btn-wanabima btn-md pl-5 pr-5"
-                                       value="Send">
-                            </form>
+                        <?php
+                                }
+                            
+                            }else{
+                            
+                            ?>
+
+                            <h3 class="text-center h3">Sorry, This is wrong place. <a href="<?php echo get_home_url();?>">Go back.</a></h3>
+
+                            <?php
+                            }
+                            ?>
+
                         </div>
 
                         <div class="col-md-4 col-sm-12 p-2">
@@ -149,28 +170,5 @@
                 </div><!-- #primary -->
             </div><!-- .wrap -->
 
-            <?php get_footer();
-
-            ?>
-
-            <script type="text/javascript">
-
-                var allowSubmit = false;
-
-                function capcha_filled() {
-                    allowSubmit = true;
-                }
-
-                function capcha_expired() {
-                    allowSubmit = false;
-                }
-
-                function check_captcha_is_filled() {
-                    if (allowSubmit) return true;
-                    alert('Fill in the captcha!');
-                    return false;
-                }
-            </script>
-
-
+            <?php get_footer();?>
 
