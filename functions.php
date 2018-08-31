@@ -580,22 +580,22 @@ add_action('wp_head', 'wanabima_colors_css_wrap');
 function wanabima_scripts()
 {
     // Add custom fonts, used in the main stylesheet.
-    wp_enqueue_style('wanabima-fonts', wanabima_fonts_url(), array(), null);
+    //wp_enqueue_style('wanabima-fonts', wanabima_fonts_url(), array(), null);
 
     // Theme stylesheet.
-    wp_enqueue_style('wanabima-style', get_stylesheet_uri(), array('bootstrap', 'font-awesome', 'animate', 'ionicons', 'owlcarousel', 'Google-font'));
+    wp_enqueue_style('wanabima-style', get_stylesheet_uri(), array('bootstrap','font-awesome'), null, false);
 
     // Load the customization.
-    wp_enqueue_style('wanabima-customize', get_theme_file_uri('/assets/css/customize.css'), array('wanabima-style'));
+    wp_enqueue_style('wanabima-customize', get_theme_file_uri('/assets/css/customize.css'), array('wanabima-style'), null, false);
 
     // Load the css library.
-    wp_enqueue_style('bootstrap', get_theme_file_uri('/assets/lib/bootstrap/css/bootstrap.min.css'));
+    wp_enqueue_style('bootstrap', get_theme_file_uri('/assets/lib/bootstrap/css/bootstrap.min.css'),array(), null, false );
     wp_enqueue_style('font-awesome', get_theme_file_uri('/assets/lib/font-awesome/css/font-awesome.min.css'));
-    wp_enqueue_style('animate', get_theme_file_uri('/assets/lib/animate/animate.min.css'), array('bootstrap'));
-    wp_enqueue_style('ionicons', get_theme_file_uri('/assets/lib/ionicons/css/ionicons.min.css'));
-    wp_enqueue_style('owlcarousel', get_theme_file_uri('/assets/lib/owlcarousel/assets/owl.carousel.min.css'));
-    wp_enqueue_style('Google-font', get_theme_file_uri('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700|Roboto+Slab'));
-    wp_enqueue_style('Google-font', get_theme_file_uri('https://fonts.googleapis.com/css?family=Roboto Slab'));
+    wp_enqueue_style('animate', get_theme_file_uri('/assets/lib/animate/animate.min.css'), array('bootstrap'), null, true);
+    wp_enqueue_style('ionicons', get_theme_file_uri('/assets/lib/ionicons/css/ionicons.min.css'),array(), null, true);
+    wp_enqueue_style('owlcarousel', get_theme_file_uri('/assets/lib/owlcarousel/assets/owl.carousel.min.css'),array(), null, true);
+    wp_enqueue_style('Google-font', get_theme_file_uri('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700|Roboto+Slab'),array(), null, true);
+    //wp_enqueue_style('Google-font', get_theme_file_uri('https://fonts.googleapis.com/css?family=Roboto Slab'),array(), null, true);
 
     // Load the dark colorscheme.
     if ('dark' === get_theme_mod('colorscheme', 'light') || is_customize_preview()) {
@@ -634,20 +634,20 @@ function wanabima_scripts()
     //Main js file
     wp_enqueue_script('wanabima-main', get_theme_file_uri('/assets/js/main.js'), array('jquery'), '1.0', true);
 
-    wp_enqueue_script('jquery-scrollto', get_theme_file_uri('/assets/js/jquery.scrollTo.js'), array('jquery'), false, true);
+    wp_enqueue_script('jquery-scrollto', get_theme_file_uri('/assets/js/jquery.scrollTo.js'), array('jquery'), null, true);
 
-    wp_enqueue_script('jquery', get_theme_file_uri('/assets/lib/jquery/jquery.min.js'), array('jquery'), false, true);
-    wp_enqueue_script('jquery-migrate', get_theme_file_uri('/assets/lib/jquery/jquery-migrate.min.js'), array('jquery'), false, true);
-    wp_enqueue_script('bootstrap-bundle', get_theme_file_uri('/assets/lib/bootstrap/js/bootstrap.bundle.min.js'), array('jquery'), false, true);
-    wp_enqueue_script('easing', get_theme_file_uri('/assets/lib/easing/easing.min.js'), array('jquery'), false, true);
-    wp_enqueue_script('superfish-hover', get_theme_file_uri('/assets/lib/superfish/hoverIntent.js'), array('jquery'), false, true);
-    wp_enqueue_script('superfish-super', get_theme_file_uri('/assets/lib/superfish/superfish.min.js'), array('jquery'), false, true);
-    wp_enqueue_script('wow', get_theme_file_uri('/assets/lib/wow/wow.min.js'), array('jquery'), false, true);
-    wp_enqueue_script('waypoint', get_theme_file_uri('/assets/lib/waypoints/waypoints.min.js'), array('jquery'), false, true);
-    wp_enqueue_script('counterup', get_theme_file_uri('/assets/lib/counterup/counterup.min.js'), array('jquery'), false, true);
-    wp_enqueue_script('owlcarousel', get_theme_file_uri('/assets/lib/owlcarousel/owl.carousel.min.js'), array('jquery'), false, true);
-    wp_enqueue_script('isotope', get_theme_file_uri('/assets/lib/isotope/isotope.pkgd.min.js'), array('jquery'), false, true);
-    wp_enqueue_script('touchSwipe', get_theme_file_uri('/assets/lib/touchSwipe/jquery.touchSwipe.min.js'), array('jquery'), false, true);
+    wp_enqueue_script('jquery', get_theme_file_uri('/assets/lib/jquery/jquery.min.js'), array('jquery'), null, true);
+    wp_enqueue_script('jquery-migrate', get_theme_file_uri('/assets/lib/jquery/jquery-migrate.min.js'), array('jquery'), null, true);
+    wp_enqueue_script('bootstrap-bundle', get_theme_file_uri('/assets/lib/bootstrap/js/bootstrap.bundle.min.js'), array('jquery'), null, true);
+    wp_enqueue_script('easing', get_theme_file_uri('/assets/lib/easing/easing.min.js'), array('jquery'), null, true);
+    wp_enqueue_script('superfish-hover', get_theme_file_uri('/assets/lib/superfish/hoverIntent.js'), array('jquery'), null, true);
+    wp_enqueue_script('superfish-super', get_theme_file_uri('/assets/lib/superfish/superfish.min.js'), array('jquery'), null, true);
+    wp_enqueue_script('wow', get_theme_file_uri('/assets/lib/wow/wow.min.js'), array('jquery'), null, true);
+    wp_enqueue_script('waypoint', get_theme_file_uri('/assets/lib/waypoints/waypoints.min.js'), array('jquery'), null, true);
+    wp_enqueue_script('counterup', get_theme_file_uri('/assets/lib/counterup/counterup.min.js'), array('jquery'), null, true);
+    wp_enqueue_script('owlcarousel', get_theme_file_uri('/assets/lib/owlcarousel/owl.carousel.min.js'), array('jquery'), null, true);
+    wp_enqueue_script('isotope', get_theme_file_uri('/assets/lib/isotope/isotope.pkgd.min.js'), array('jquery'), null, true);
+    wp_enqueue_script('touchSwipe', get_theme_file_uri('/assets/lib/touchSwipe/jquery.touchSwipe.min.js'), array('jquery'), null, true);
 
     wp_localize_script('wanabima-skip-link-focus-fix', 'wanabimaScreenReaderText', $wanabima_l10n);
 
@@ -1056,7 +1056,7 @@ function natureandwildlife_taxonomy()
         'nature_wildlife',
         array(
             'label' => __('Nature & Wildlife Types'),
-            'rewrite' => array('slug' => 'nature-wildlife', 'with_front' => false),
+            'rewrite' => array('slug' => 'nature-wildlife', 'with_front' => true),
             'hierarchical' => true,
             'sort' => true,
             'query_var' => true,
